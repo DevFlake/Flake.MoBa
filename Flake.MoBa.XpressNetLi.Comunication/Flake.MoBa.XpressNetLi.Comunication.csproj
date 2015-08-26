@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CC32A1AE-D6A5-450B-8886-EABE2C818048}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Flake.MoBa.XpressNetLi.Comunication</RootNamespace>
+    <AssemblyName>Flake.MoBa.XpressNetLi.Comunication</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\FlakeTrain.FlakeLIComunication.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\FlakeTrain.FlakeLIComunication.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Answers\AnswerBase.cs" />
+    <Compile Include="Answers\AnswerFactory.cs" />
+    <Compile Include="Answers\BCAllLocosOff.cs" />
+    <Compile Include="Answers\BCAllOff.cs" />
+    <Compile Include="Answers\BCAllOn.cs" />
+    <Compile Include="Answers\BCProgramMode.cs" />
+    <Compile Include="Answers\CentralStateInfo.cs" />
+    <Compile Include="Answers\CentralVersionInfo.cs" />
+    <Compile Include="Answers\CommandNotAvailable.cs" />
+    <Compile Include="Answers\CommonAnswer.cs" />
+    <Compile Include="Answers\CommonLocomotiveInfo.cs" />
+    <Compile Include="Answers\ErrorSending.cs" />
+    <Compile Include="Answers\ErrorUnknown.cs" />
+    <Compile Include="Answers\LIAddressInfo.cs" />
+    <Compile Include="Answers\LIVersionInfo.cs" />
+    <Compile Include="Answers\LocomotiveFunctionStateExt.cs" />
+    <Compile Include="Answers\LocomotiveFunctionTypeHi.cs" />
+    <Compile Include="Answers\LocomotiveFunctionTypeLo.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\GetCentralStateInfo.cs" />
+    <Compile Include="Commands\GetCentralVersion.cs" />
+    <Compile Include="Commands\GetLIUSBAddress.cs" />
+    <Compile Include="Commands\GetLIUSBVersion.cs" />
+    <Compile Include="Commands\GetLocomotiveFunctionState.cs" />
+    <Compile Include="Commands\GetLocomotiveFunctionTypesHi.cs" />
+    <Compile Include="Commands\GetLocomotiveFunctionTypesLo.cs" />
+    <Compile Include="Commands\GetLocomotiveInfo.cs" />
+    <Compile Include="Commands\LocomotiveDrive.cs" />
+    <Compile Include="Commands\SetLCentralStartMode.cs" />
+    <Compile Include="Commands\SetLFunctionRefreshMode.cs" />
+    <Compile Include="Commands\SetLIUSBAddress.cs" />
+    <Compile Include="Commands\SetLocomotiveFunction.cs" />
+    <Compile Include="Commands\SetLocomotiveFunctionType.cs" />
+    <Compile Include="CommunicationHelper.cs" />
+    <Compile Include="Interfaces\ILICommunication.cs" />
+    <Compile Include="LICommandAndAnswer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\FlakeComunicationAnswers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlakeComunicationAnswers.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FlakeComunicationAnswerLogMsgs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlakeComunicationAnswerLogMsgs.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FlakeComunicationBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlakeComunicationBase.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FlakeComunicationCommands.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlakeComunicationCommands.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FlakeComunicationCommandsLogMsgs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlakeComunicationCommandsLogMsgs.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FlakeComunicationErrors.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlakeComunicationErrors.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FlakeComunicationMsgs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlakeComunicationMsgs.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\FlakeComunicationAnswerLogMsgs.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlakeComunicationAnswerLogMsgs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FlakeComunicationAnswers.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlakeComunicationAnswers.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FlakeComunicationBase.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlakeComunicationBase.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FlakeComunicationCommands.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlakeComunicationCommands.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FlakeComunicationCommandsLogMsgs.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlakeComunicationCommandsLogMsgs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FlakeComunicationErrors.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlakeComunicationErrors.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FlakeComunicationMsgs.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlakeComunicationMsgs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Flake.MoBa.Log\Flake.MoBa.Log.csproj">
+      <Project>{9ede82c3-b314-48d9-b741-298c7d3bb98f}</Project>
+      <Name>Flake.MoBa.Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Base\Flake.MoBa.XpressNetLi.Base.csproj">
+      <Project>{5514a9e4-d748-48c7-8e7f-dd1588440e15}</Project>
+      <Name>Flake.MoBa.XpressNetLi.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Controller\Flake.MoBa.XpressNetLi.Controller.csproj">
+      <Project>{60ba5a46-2648-41b0-9818-307206670db7}</Project>
+      <Name>Flake.MoBa.XpressNetLi.Controller</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

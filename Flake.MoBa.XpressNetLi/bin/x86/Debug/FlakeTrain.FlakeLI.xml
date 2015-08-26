@@ -1,0 +1,1343 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FlakeTrain.FlakeLI</name>
+    </assembly>
+    <members>
+        <member name="T:FlakeTrain.FlakeComPort.ComPortConnectionLIMok">
+            <summary>
+            mok class for testig comport
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.#ctor">
+            <summary>
+            contructor
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.OnDataReceive">
+            <summary>
+            function for data receiving
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.FlakeTrain#FlakeComPort#IComPort#Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            write a bytearray to the comport
+            </summary>
+            <param name="buffer">bytearray to write</param>
+            <param name="offset">start point</param>
+            <param name="count">lenght to write</param>
+        </member>
+        <member name="M:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.FlakeTrain#FlakeComPort#IComPort#Read(System.Byte[]@,System.Int32,System.Int32)">
+            <summary>
+            read a bytearray from the comport
+            </summary>
+            <param name="buffer">bytearray to write</param>
+            <param name="offset">start point</param>
+            <param name="count">lenght to write</param>
+        </member>
+        <member name="M:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.FlakeTrain#FlakeComPort#IComPort#Open">
+            <summary>
+            opens the connection to the comport
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.FlakeTrain#FlakeComPort#IComPort#Close">
+            <summary>
+            close comport connection
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.Dispose">
+            <summary>
+            dispose me
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.Raise">
+            <summary>
+            Rise an event
+            </summary>
+        </member>
+        <member name="E:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.ComDataReceived">
+            <summary>
+            Events that gets triggered when data arrives
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.FlakeTrain#FlakeComPort#IComPort#BytesToRead">
+            <summary>
+            number of waiting bytes to be read
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.FlakeTrain#FlakeComPort#IComPort#BaudRate">
+            <summary>
+            Port property BaudRate
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.FlakeTrain#FlakeComPort#IComPort#Parity">
+            <summary>
+            Port property Parity
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.FlakeTrain#FlakeComPort#IComPort#Handshake">
+            <summary>
+            Port property Handshake
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.FlakeTrain#FlakeComPort#IComPort#DataBits">
+            <summary>
+            Port property DataBits
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.FlakeTrain#FlakeComPort#IComPort#StopBits">
+            <summary>
+            Port property StopBits
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeComPort.ComPortConnectionLIMok.FlakeTrain#FlakeComPort#IComPort#PortName">
+            <summary>
+            Port property PortName
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.Central">
+            <summary>
+            Central Class representing a digital central and an interface
+            </summary>
+        </member>
+        <member name="F:FlakeTrain.FlakeLI.Central._RigisteredEntities">
+            <summary>
+            All registered entities like locomotives or others with addresses
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Central.RegisterEntity(FlakeTrain.FlakeLI.ILIEntity)">
+            <summary>
+            Registers an entity to the central
+            </summary>
+            <param name="item">entity item</param>
+            <example>locomotive</example>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Central.InitConnection(System.String,System.Int32,FlakeTrain.FlakeComPort.ComPortParity,System.Int32,FlakeTrain.FlakeComPort.ComPortStopBits)">
+            <summary>
+            Initializes a new connection to the interface
+            </summary>
+            <remarks>Uses the credentials Port, StopBites, aso.</remarks>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Central.CloseConnection">
+            <summary>
+            Close serial connection
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Central.DataReceivedHandler">
+            <summary>
+            Handler for reading bytes from connection
+            </summary>
+        </member>
+        <member name="F:FlakeTrain.FlakeLI.Central._ErrorInARow">
+            <summary>
+            Indicates the errors received in a row
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Central.QueueNewCommand(FlakeTrain.FlakeLIComunication.LICommandAndAnswer)">
+            <summary>
+            Enqueue a new command to the central command queue
+            </summary>
+            <param name="command">bytearray-format command</param>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Central.SendCommandAndReceiveAnswer(FlakeTrain.FlakeLIComunication.LICommandAndAnswer)">
+            <summary>
+            Send command to central and receive answer
+            </summary>
+            <param name="command"></param>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Central.ProcessBroadCast">
+            <summary>
+            gets triggered by LIListener when broadcast appears
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Central.GetInterfaceAndCentralInfo">
+            <summary>
+            Fetch infos from central an dinterface
+            </summary>summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Central.GetCentralState">
+            <summary>
+            Fetch central state
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Central.System#IDisposable#Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Central.#ctor(System.String,System.Int32,FlakeTrain.FlakeComPort.ComPortParity,System.Int32,FlakeTrain.FlakeComPort.ComPortStopBits)">
+            <summary>
+            Creates a new insance of a central class
+            </summary>
+            <param name="port">Serial port for connetion to interface (eg. 'COM2')</param>
+            <param name="baudRate">Baudrate of serial port to interface</param>
+            <param name="parityBits">ParityBits of serial port to interface</param>
+            <param name="dataBits">DataBits of serial port to interface</param>
+            <param name="stopBits">StopBits of serial port to interface</param>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.Config">
+            <summary>
+            Configuration for central
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.SerialPortConnection">
+            <summary>
+            The connection to the interface via serial port
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.Port">
+            <summary>
+            Serial port for connetion to interface
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.BaudRate">
+            <summary>
+            Baudrate of serial port to interface
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.ParityBits">
+            <summary>
+            ParityBits of serial port to interface
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.DataBits">
+            <summary>
+            DataBits of serial port to interface
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.StopBits">
+            <summary>
+            StopBits of serial port to interface
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.LastAnswer">
+            <summary>
+            Last answer of the central
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.LastCommand">
+            <summary>
+            Last command to the central
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.EmergencyStop">
+            <summary>
+            Indicator for emergency stop
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.EmergencyOff">
+            <summary>
+            Indicator for emergency off
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.StartMode">
+            <summary>
+            Start type of the central as Text
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.ProgramMode">
+            <summary>
+            Indicator of programmode
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.ColdReset">
+            <summary>
+            Indicator of a cold start or reset
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Central.RamCheckError">
+            <summary>
+            Indicator of a ram error in central
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.FlakeLIConfigData">
+            <summary>
+            Class for Configurateion of central
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.FlakeLIConfigData.TimeToWaitForLIAnswer_ms">
+            <summary>
+            How long does the central wait for an answer after sending a command
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.FlakeLIConfigData.TimeoutForLIResponse_s">
+            <summary>
+            Timeout for a locomotive to wait for an answer of a central
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.FlakeLIConfigData.AllowedCentralErrorsInARow">
+            <summary>
+            Number of errors to ignore before stopping sending
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.FlakeLIConfigData.CentralFetchInfoTries">
+            <summary>
+            Tries for fetching central informations
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.FlakeLIConfiguration">
+            <summary>
+            Configuration class
+            </summary>
+        </member>
+        <member name="F:FlakeTrain.FlakeLI.FlakeLIConfiguration._Path">
+            <summary>
+            path to config file
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.FlakeLIConfiguration.#ctor">
+            <summary>
+            creates a new config
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.FlakeLIConfiguration.Read">
+            <summary>
+            reads the config from disk
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.FlakeLIConfiguration.Write(System.String)">
+            <summary>
+            writes config to disk
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.FlakeLIConfiguration.Data">
+            <summary>
+            data class of current config
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.ILIEntity">
+            <summary>
+            Interface for entity classes
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.ILIEntity.RegisterCentral(FlakeTrain.FlakeLI.Central)">
+            <summary>
+            Funcition for registering a central backwords to an entity
+            </summary>
+            <param name="central"></param>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.ILIEntity.EmergencyStop">
+            <summary>
+            Stop all movement
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.ILIEntity.Address">
+            <summary>
+            Address of Entity
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.ILIEntity.ExtendedAddress">
+            <summary>
+            Extended address of entity
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.Locomotive.Locomotive">
+            <summary>
+            locomotive class representation of an entity
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.#ctor(System.Int32,FlakeTrain.FlakeBase.Enums.LocomotiveSpeedSections.LocomotiveSpeedSections,System.Boolean)">
+            <summary>
+            Create a new instance of a locomotive
+            </summary>
+            <param name="address">The digital address of the locomotive (0-255)</param>
+            <param name="speedSections">How many steps may the speed take</param>
+            <param name="useExtendedAdress">usage of the extended address (0-9999)</param>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.RegisterCentral(FlakeTrain.FlakeLI.Central)">
+            <summary>
+            Store the central, to which the locomotive is registered
+            </summary>
+            <param name="central">A representation of a central</param>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.EmergencyStop">
+            <summary>
+            Stop all movement!
+            </summary>
+        </member>
+        <member name="F:FlakeTrain.FlakeLI.Locomotive.Locomotive._ExtendedAdress">
+            <summary>
+            Adresses of locomotive (basic and extended)
+            </summary>
+        </member>
+        <member name="F:FlakeTrain.FlakeLI.Locomotive.Locomotive._UseExtendedAdress">
+            <summary>
+            Use the extended address (information for central)
+            </summary>
+        </member>
+        <member name="F:FlakeTrain.FlakeLI.Locomotive.Locomotive._Functions">
+            <summary>
+            Dictionalry of locomotive functions and their stats
+            </summary>
+        </member>
+        <member name="F:FlakeTrain.FlakeLI.Locomotive.Locomotive._SpeedSections">
+            <summary>
+            digital speed sections of decoder
+            </summary>
+        </member>
+        <member name="F:FlakeTrain.FlakeLI.Locomotive.Locomotive._Central">
+            <summary>
+            Central to which the locomotive is registered
+            </summary>
+        </member>
+        <member name="F:FlakeTrain.FlakeLI.Locomotive.Locomotive._LocomotiveLocked">
+            <summary>
+            Digitalsystem: is locomotive locked by another expressnetcontroller
+            </summary>
+        </member>
+        <member name="F:FlakeTrain.FlakeLI.Locomotive.Locomotive._CurrentDirection">
+            <summary>
+            Digitalsystem: current direction of locomotive
+            </summary>
+        </member>
+        <member name="F:FlakeTrain.FlakeLI.Locomotive.Locomotive._CurrentSpeed">
+            <summary>
+            Digitalsystem: current speed of locomotive
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.GetLocomotiveInfo(System.Boolean)">
+            <summary>
+            Read the current locomotive stats from central
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.SetStatsByLocomotiveInfoAnswer(FlakeTrain.FlakeLIComunication.Answers.CommonLocomotiveInfo,System.Boolean)">
+            <summary>
+            Set the locomotive stats by a stats-answer-byte array
+            </summary>
+            <param name="answer">answer of getstats command</param>
+            <param name="overwrightSpeedsections">if true, the speedsection settings will be overwritten (not recommended for init)</param>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.SetStatsByLocomotiveInfoAnswer(FlakeTrain.FlakeLIComunication.Answers.LocomotiveFunctionStateExt)">
+            <summary>
+            Set the locomotive function states of F13 to F28
+            </summary>
+            <param name="answer">answer of getstates command</param>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.SetStatsByLocomotiveInfoAnswer(FlakeTrain.FlakeLIComunication.Answers.LocomotiveFunctionTypeLo,System.Boolean)">
+            <summary>
+            Set the locomotive function types of F0 to F12
+            </summary>
+            <param name="answer">answer of getstates command</param>
+            <param name="overwrightFunctionTypes">if true, the function type settings will be overwritten (not recommended for init)</param>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.SetStatsByLocomotiveInfoAnswer(FlakeTrain.FlakeLIComunication.Answers.LocomotiveFunctionTypeHi,System.Boolean)">
+            <summary>
+            Set the locomotive function types of F13 to F28
+            </summary>
+            <param name="answer">answer of getstates command</param>
+            <param name="overwrightFunctionTypes">if true, the function type settings will be overwritten (not recommended for init)</param>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.ToggleDirection">
+            <summary>
+            Switches the direction of the locomotive
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.SetSpeedAndDirection(System.Int32,FlakeTrain.FlakeBase.Enums.LocomotiveDirection.LocomotiveDirection,System.Boolean)">
+            <summary>
+            Sets a new speed to the locomotive
+            </summary>
+            <param name="value">Numeric value depending on the locomotive's speed steps</param>
+            <param name="direction">Sets the direction of the locomotive</param>
+            <param name="useRealSpeed">if a max speed in mph or kmh is set use this key to set a real speed instead of bitvalue</param>
+            <remarks>set the direction to 'none' to use the active direction</remarks>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.BreakToStop">
+            <summary>
+            Breaks down the locomotive to zero speed
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.EmergencyBreak">
+            <summary>
+            stops the locomotive immediately
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.CalculateSpeedValue(System.Int32)">
+            <summary>
+            Cuts big speed values
+            </summary>
+            <param name="value">input speed value</param>
+            <returns>Returns a speed value smaler or equal the maximum value set by the locomotive speed steps</returns>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.GetSpeedAndDirection">
+            <summary>
+            calculates the speed and direction byte from current values
+            </summary>
+            <returns>Returnes a byte with coding fpr speed and direction</returns>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.Drive">
+            <summary>
+            Make the locomotive drive
+            </summary>
+            <remarks>uses the current speed and direction settings</remarks>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.ReadLocomotiveInfoArray">
+            <summary>
+            Gets information about locomotives stats from central
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.ReadLocomotiveFunctionsExt">
+            <summary>
+            Gets information function state F13 to F28
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.ReadLocomotiveFunctionTypesLo">
+            <summary>
+            Gets information function type F0 to F12
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.ReadLocomotiveFunctionTypesHi">
+            <summary>
+            Gets information function type F13 to F28
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.ReadLocomotiveFunctionTypeshi">
+            <summary>
+            Gets information function type F13 to F28
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.SetLocomotiveFunction(System.Int32,System.Boolean)">
+            <summary>
+            Sets a function of a locomotive to a value
+            </summary>
+            <param name="functionNumber">f-number</param>
+            <param name="setFunction">set (1) or unset (0) the function</param>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.InitializeLocomotiveFunctionTypes">
+            <summary>
+            Set the functiontypes of all functions in central
+            </summary>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.AddFunction(FlakeTrain.FlakeController.Locomotive.LocomotiveFunction)">
+            <summary>
+            Adds a new function to the locomotive
+            </summary>
+            <param name="function">the function like light or horn, etc.</param>
+        </member>
+        <member name="M:FlakeTrain.FlakeLI.Locomotive.Locomotive.ToggleFunction(System.Int32)">
+            <summary>
+            Switches a locomotive function
+            </summary>
+            <param name="functionNumber">f-number</param>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Locomotive.Locomotive.Address">
+            <summary>
+            The digital address of the locomotive (0-255)
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Locomotive.Locomotive.ExtendedAddress">
+            <summary>
+            The extendet digital address of teh locomotive (0-9999)
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Locomotive.Locomotive.Description">
+            <summary>
+            Descriptive informations about the locomotive
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Locomotive.Locomotive.MaxSpeedReal">
+            <summary>
+            Real max speed in km/h or mph
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Locomotive.Locomotive.CurrentSpeed">
+            <summary>
+            Returns the current speed of locomotive in steps
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Locomotive.Locomotive.CurrentSpeedReal">
+            <summary>
+            Returns the current real speed of the locomotive
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Locomotive.Locomotive.Direction">
+            <summary>
+            Gets or sets the direction of the locomotive
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Locomotive.Locomotive.ListLocomotiveFunktions">
+            <summary>
+            Retrieve a list of available locomotive functions
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.BCAllLocosOff">
+            <summary>
+              Looks up a localized string similar to The Broadcast All Locomotives Off was sent..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.BCAllOff">
+            <summary>
+              Looks up a localized string similar to The Broadcast All Off was sent..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.BCAllOn">
+            <summary>
+              Looks up a localized string similar to The Broadcast All On was sent..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.BCProgramMode">
+            <summary>
+              Looks up a localized string similar to The Broadcast Program Mode was sent..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.CentralStateInfo">
+            <summary>
+              Looks up a localized string similar to Receiving central state info..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.CentralVersionInfo">
+            <summary>
+              Looks up a localized string similar to Receiving version of central..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.CommandNotAvailable">
+            <summary>
+              Looks up a localized string similar to The command is not recognized..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.CommonAnswer">
+            <summary>
+              Looks up a localized string similar to Command was sent to central..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.CommonLocomotiveInfo">
+            <summary>
+              Looks up a localized string similar to Return information about a locomotive..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.ErrorSending">
+            <summary>
+              Looks up a localized string similar to While sending a command a error occured (i.g. wrong header info in array)..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.ErrorUnknown">
+            <summary>
+              Looks up a localized string similar to The central didn&apos;t understand the last command..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.LIAddressInfo">
+            <summary>
+              Looks up a localized string similar to Receiving address info from LI-USB interface..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.LIVersionInfo">
+            <summary>
+              Looks up a localized string similar to Receiving version info about LI-interface..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.LocomotiveFunctionStateExt">
+            <summary>
+              Looks up a localized string similar to Receiving locomotive function info of functions F13 to F28..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.LocomotiveFunctionTypeHi">
+            <summary>
+              Looks up a localized string similar to Receiving locomotive function type of functions F13 to F28..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswerLogMsgs.LocomotiveFunctionTypeLo">
+            <summary>
+              Looks up a localized string similar to Receiving locomotive function type of functions F0 to F12..
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.BCAllLocosOffDesc">
+            <summary>
+              Looks up a localized string similar to The Broadcast All Locomotives Off was sent..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.BCAllLocosOffName">
+            <summary>
+              Looks up a localized string similar to Broadcast: All locomotives off.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.BCAllOffDesc">
+            <summary>
+              Looks up a localized string similar to The Broadcast All Off was sent..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.BCAllOffName">
+            <summary>
+              Looks up a localized string similar to Broadcasr: All Off.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.BCAllOnDesc">
+            <summary>
+              Looks up a localized string similar to The Broadcast All On was sent..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.BCAllOnName">
+            <summary>
+              Looks up a localized string similar to Broadcast: All On.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.BCProgramModeDesc">
+            <summary>
+              Looks up a localized string similar to The Broadcast Program Mode was sent..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.BCProgramModeName">
+            <summary>
+              Looks up a localized string similar to Broadcast: Programm mode.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.CentralStateInfoDesc">
+            <summary>
+              Looks up a localized string similar to Consists info about central state..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.CentralStateInfoName">
+            <summary>
+              Looks up a localized string similar to Central state info.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.CentralTypeDCP">
+            <summary>
+              Looks up a localized string similar to DCP-Central (Compact or Commander).
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.CentralTypeLH200">
+            <summary>
+              Looks up a localized string similar to LH 200 Central.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.CentralTypeLZ100">
+            <summary>
+              Looks up a localized string similar to LZ 100 Central.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.CentralVersionInfoDesc">
+            <summary>
+              Looks up a localized string similar to Contains version of central connected to interface..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.CentralVersionInfoName">
+            <summary>
+              Looks up a localized string similar to Version of central.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.CommandNotAvailableDesc">
+            <summary>
+              Looks up a localized string similar to The command is not recognized..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.CommandNotAvailableName">
+            <summary>
+              Looks up a localized string similar to Command not acailable.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.CommonAnswerDesc">
+            <summary>
+              Looks up a localized string similar to Command was sent to central..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.CommonAnswerName">
+            <summary>
+              Looks up a localized string similar to Common answer.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.CommonLocomotiveInfoDesc">
+            <summary>
+              Looks up a localized string similar to Common information about a locomotive..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.CommonLocomotiveInfoName">
+            <summary>
+              Looks up a localized string similar to Common locomotive info.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.ErrorSendingDesc">
+            <summary>
+              Looks up a localized string similar to An error eccoured while sending a command to the central.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.ErrorSendingName">
+            <summary>
+              Looks up a localized string similar to Error sending command to central.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.ErrorUnknownDesc">
+            <summary>
+              Looks up a localized string similar to While receiving a command the central registered an error..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.ErrorUnknownName">
+            <summary>
+              Looks up a localized string similar to Central error while receiving command.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.LIAddressInfoDesc">
+            <summary>
+              Looks up a localized string similar to Contains address of LI-USB-interface..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.LIAddressInfoName">
+            <summary>
+              Looks up a localized string similar to Adress of interface.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.LIVersionInfoDesc">
+            <summary>
+              Looks up a localized string similar to Contains the version info about the LI-USB-interface..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.LIVersionInfoName">
+            <summary>
+              Looks up a localized string similar to Version of LI-USB-Interface..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.LocomotiveFunctionStateExtDesc">
+            <summary>
+              Looks up a localized string similar to Contains switch states of locomotive functions F13 to F28..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.LocomotiveFunctionStateExtName">
+            <summary>
+              Looks up a localized string similar to Locomotive function state F13 to F28.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.LocomotiveFunctionTypeHiDesc">
+            <summary>
+              Looks up a localized string similar to Contains type of locomotive functions F13 to F28..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.LocomotiveFunctionTypeHiName">
+            <summary>
+              Looks up a localized string similar to Locomotive function type F13 to F28.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.LocomotiveFunctionTypeLoDesc">
+            <summary>
+              Looks up a localized string similar to Contains type of locomotive functions F0 to F12..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIAnswers.LocomotiveFunctionTypeLoName">
+            <summary>
+              Looks up a localized string similar to Locomotive function type F0 to F12.
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.Resources.FlakeLIBase">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIBase.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIBase.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIBase.no">
+            <summary>
+              Looks up a localized string similar to no.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIBase.set">
+            <summary>
+              Looks up a localized string similar to set.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIBase.switching">
+            <summary>
+              Looks up a localized string similar to switching.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIBase.tapping">
+            <summary>
+              Looks up a localized string similar to tapping.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIBase.unset">
+            <summary>
+              Looks up a localized string similar to unset.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIBase.yes">
+            <summary>
+              Looks up a localized string similar to yes.
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.Resources.FlakeLICommands">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.DriveCommandDesc">
+            <summary>
+              Looks up a localized string similar to Makes the locomotive drive with given speed in given direction..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.DriveCommandName">
+            <summary>
+              Looks up a localized string similar to Locomotive drive command.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetCentralStateInfoDesc">
+            <summary>
+              Looks up a localized string similar to Requesting central state info..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetCentralStateInfoName">
+            <summary>
+              Looks up a localized string similar to Get central state info.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetCentralVersionDesc">
+            <summary>
+              Looks up a localized string similar to Requesting central version info..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetCentralVersionName">
+            <summary>
+              Looks up a localized string similar to Get central version.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetLIUSBAddressDesc">
+            <summary>
+              Looks up a localized string similar to Fetch adress of LI-USB-interface..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetLIUSBAddressName">
+            <summary>
+              Looks up a localized string similar to Get LI-USB address.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetLIUSBVersionDesc">
+            <summary>
+              Looks up a localized string similar to Fetch version info about LI-USB interface..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetLIUSBVersionName">
+            <summary>
+              Looks up a localized string similar to Get LI-USB version.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetLocomotiveFunctionStateDesc">
+            <summary>
+              Looks up a localized string similar to Gets the switch state of function F13 to F28..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetLocomotiveFunctionStateName">
+            <summary>
+              Looks up a localized string similar to Get locomotive function switch state.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetLocomotiveFunctionTypesHidesc">
+            <summary>
+              Looks up a localized string similar to Get the type (switch or tap) of the functions F13 to F28 of a locomotive..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetLocomotiveFunctionTypesHiName">
+            <summary>
+              Looks up a localized string similar to Get locomotive function type (F13 to F28).
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetLocomotiveFunctionTypesLoDesc">
+            <summary>
+              Looks up a localized string similar to Get the type (switch or tap) of the first 13 functions of a locomotive..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetLocomotiveFunctionTypesLoName">
+            <summary>
+              Looks up a localized string similar to Get locomotive function type (F0 to F12).
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetLocomotiveInfoDesc">
+            <summary>
+              Looks up a localized string similar to Requesting information about locomotive..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.GetLocomotiveInfoName">
+            <summary>
+              Looks up a localized string similar to Get locomotive info.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.SetLCentralStartModeDesc">
+            <summary>
+              Looks up a localized string similar to Sets the start mode of the central.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.SetLCentralStartModeName">
+            <summary>
+              Looks up a localized string similar to Set central start mode.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.SetLFunctionRefreshModeDesc">
+            <summary>
+              Looks up a localized string similar to Sets the refresh mode for functions of a locomotive.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.SetLFunctionRefreshModeName">
+            <summary>
+              Looks up a localized string similar to Set function refresh mode.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.SetLIUSBAddressDesc">
+            <summary>
+              Looks up a localized string similar to Set the address of th interface..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.SetLIUSBAddressName">
+            <summary>
+              Looks up a localized string similar to Ste LI-UBS address.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.SetLocomotiveFunctionDesc">
+            <summary>
+              Looks up a localized string similar to Sets a function of a locomotive..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.SetLocomotiveFunctionName">
+            <summary>
+              Looks up a localized string similar to Set locomotive function.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.SetLocomotiveFunctionTypeDesc">
+            <summary>
+              Looks up a localized string similar to Sets the function type of a locomotive function..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommands.SetLocomotiveFunctionTypeName">
+            <summary>
+              Looks up a localized string similar to Set function type.
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.DriveCommand">
+            <summary>
+              Looks up a localized string similar to Locomotive &apos;{0}&apos; set to speed &apos;{1}[steps]&apos; in direction &apos;{2}&apos;..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.GetCentralStateInfo">
+            <summary>
+              Looks up a localized string similar to Requesting the state info of central..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.GetCentralVersion">
+            <summary>
+              Looks up a localized string similar to Get the version of the central..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.GetLIUSBAddress">
+            <summary>
+              Looks up a localized string similar to Fetching address of interface..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.GetLIUSBVersion">
+            <summary>
+              Looks up a localized string similar to Fetching info about interface version..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.GetLocomotiveFunctionState">
+            <summary>
+              Looks up a localized string similar to Requesting function (F13 to F28) state about locomotove &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.GetLocomotiveFunctionTypesHi">
+            <summary>
+              Looks up a localized string similar to Requesting function (F13 to F28) type about locomotove &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.GetLocomotiveFunctionTypesLo">
+            <summary>
+              Looks up a localized string similar to Requesting function (F0 to F12) type about locomotove &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.GetLocomotiveInfo">
+            <summary>
+              Looks up a localized string similar to Requesting Info about locomotove &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.SetLCentralStartMode">
+            <summary>
+              Looks up a localized string similar to Setting the startmode of the central to &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.SetLFunctionRefreshMode">
+            <summary>
+              Looks up a localized string similar to Setting the refresh mode to &apos;{0}&apos; for locomotive &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.SetLIUSBAddress">
+            <summary>
+              Looks up a localized string similar to Setting address of interface to &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.SetLocomotiveFunction">
+            <summary>
+              Looks up a localized string similar to Function &apos;{0}&apos; of locomotive &apos;{1}&apos; gets {2}..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLICommandsLogMsgs.SetLocomotiveFunctionType">
+            <summary>
+              Looks up a localized string similar to Setting functiontype of function &apos;F{0}&apos; of locomotive &apos;{1}&apos; to &apos;{2}&apos;..
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.Resources.FlakeLIErrors">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIErrors.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIErrors.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIErrors.AddressNotInRange">
+            <summary>
+              Looks up a localized string similar to The Given Address is out of Range (0-9999)..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIErrors.AnswerEmpty">
+            <summary>
+              Looks up a localized string similar to The received answer was empty or in incorrect format..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIErrors.ComPortNotAvailable">
+            <summary>
+              Looks up a localized string similar to The serial port was not available..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIErrors.ErrorSendingCommad">
+            <summary>
+              Looks up a localized string similar to Several errors ({0}) occured while seinding a command. The process has been terminated..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIErrors.InterfaceAddressCouldNotBeSet">
+            <summary>
+              Looks up a localized string similar to The address ({0}) for interface was not correct. Please use 1 to 31..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIErrors.LITimeout">
+            <summary>
+              Looks up a localized string similar to A timeout occured while waiting for a central answer..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIErrors.UnknownAnswer">
+            <summary>
+              Looks up a localized string similar to The central answer was unknown!.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIErrors.WrongAnswerFormat">
+            <summary>
+              Looks up a localized string similar to Wrong answer format: the checksum was not correct!.
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.Resources.FlakeLILocomotive">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLILocomotive.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLILocomotive.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLILocomotive.EmptyDescription">
+            <summary>
+              Looks up a localized string similar to  - no description for function{0} -.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLILocomotive.Function">
+            <summary>
+              Looks up a localized string similar to function{0}.
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.AllOnSet">
+            <summary>
+              Looks up a localized string similar to A general start signal was toggled..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.CentralStateInfo">
+            <summary>
+              Looks up a localized string similar to Central state: emergency stop: &apos;{0}&apos; - emergency off: &apos;{1}&apos; - central start mode: &apos;{2}&apos; - program mode active: &apos;{3}&apos; - cold start: &apos;{4}&apos; - ram check error: &apos;{5}&apos;..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.CentralVersionInfo">
+            <summary>
+              Looks up a localized string similar to Central software version: &apos;{0}&apos; - Central type: &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.EmergencyOffToggle">
+            <summary>
+              Looks up a localized string similar to An emergency off was toggled..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.EmergencyStopToggle">
+            <summary>
+              Looks up a localized string similar to Anemergency stop was toggled..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.ErrorReceivingFunctionNumber">
+            <summary>
+              Looks up a localized string similar to The given function number was either too large, or too small..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.LIInfoandAddress">
+            <summary>
+              Looks up a localized string similar to LI-USB-interface version: &apos;{0}&apos; - LI-UBS-interface codenumber: &apos;{1}&apos; - LI-UBS-interface address: &apos;{2}&apos;.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.LocomotiveSpeedTooHighForCalc">
+            <summary>
+              Looks up a localized string similar to The given locomotive speed was out of range (too high)..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.LocomotiveSpeedTooLowForCalc">
+            <summary>
+              Looks up a localized string similar to The given locomotive speed was out of range (too low)..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.NotRecognizedCentralType">
+            <summary>
+              Looks up a localized string similar to The central type was not recognized..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.NotSupportetSpeedSections">
+            <summary>
+              Looks up a localized string similar to The given speed section value is not supported..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.NutSupportetDirection">
+            <summary>
+              Looks up a localized string similar to The given direction is not supported..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.ProgrammodeToggle">
+            <summary>
+              Looks up a localized string similar to The Central was switched to programming mode..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.StartLIListener">
+            <summary>
+              Looks up a localized string similar to Starting LI-USB-Listener on Port &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.WarningNotRegisteredLocoFunction">
+            <summary>
+              Looks up a localized string similar to The function you want to switch is not registered to this locomotive..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIMsgs.WrongLIAddressReceived">
+            <summary>
+              Looks up a localized string similar to A wrong address ({0}) was received from the LI interface..
+            </summary>
+        </member>
+        <member name="T:FlakeTrain.FlakeLI.Resources.FlakeLIWarnings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIWarnings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIWarnings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIWarnings.MaxSpeedNotSet">
+            <summary>
+              Looks up a localized string similar to The real maximal speed was not set. To drive the locomotive, the max speed was set to {0}..
+            </summary>
+        </member>
+        <member name="P:FlakeTrain.FlakeLI.Resources.FlakeLIWarnings.TooManyTriesFetchCentralInfo">
+            <summary>
+              Looks up a localized string similar to Too many tries fetching central informations..
+            </summary>
+        </member>
+    </members>
+</doc>

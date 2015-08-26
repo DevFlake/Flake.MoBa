@@ -1,0 +1,115 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.Test.Console", "Flake.MoBa.Test.Console\Flake.MoBa.Test.Console.csproj", "{23742D33-4E71-48A2-B651-E1EECE7058A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.XpressNetLi", "Flake.MoBa.XpressNetLi\Flake.MoBa.XpressNetLi.csproj", "{A13938F6-0054-4694-8401-FC676776BD79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.XpressNetLi.Base", "Flake.MoBa.XpressNetLi.Base\Flake.MoBa.XpressNetLi.Base.csproj", "{5514A9E4-D748-48C7-8E7F-DD1588440E15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.ComPort", "Flake.MoBa.ComPort\Flake.MoBa.ComPort.csproj", "{EAB05665-C769-4FA2-ABE0-38510833AF1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.Log", "Flake.MoBa.Log\Flake.MoBa.Log.csproj", "{9EDE82C3-B314-48D9-B741-298C7D3BB98F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.XpressNetLi.Comunication", "Flake.MoBa.XpressNetLi.Comunication\Flake.MoBa.XpressNetLi.Comunication.csproj", "{CC32A1AE-D6A5-450B-8886-EABE2C818048}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.XpressNetLi.Controller", "Flake.MoBa.XpressNetLi.Controller\Flake.MoBa.XpressNetLi.Controller.csproj", "{60BA5A46-2648-41B0-9818-307206670DB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		DebugComPortInterface|Any CPU = DebugComPortInterface|Any CPU
+		DebugComPortInterface|x86 = DebugComPortInterface|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23742D33-4E71-48A2-B651-E1EECE7058A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23742D33-4E71-48A2-B651-E1EECE7058A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23742D33-4E71-48A2-B651-E1EECE7058A8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{23742D33-4E71-48A2-B651-E1EECE7058A8}.DebugComPortInterface|Any CPU.ActiveCfg = Debug|Any CPU
+		{23742D33-4E71-48A2-B651-E1EECE7058A8}.DebugComPortInterface|Any CPU.Build.0 = Debug|Any CPU
+		{23742D33-4E71-48A2-B651-E1EECE7058A8}.DebugComPortInterface|x86.ActiveCfg = Debug|Any CPU
+		{23742D33-4E71-48A2-B651-E1EECE7058A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23742D33-4E71-48A2-B651-E1EECE7058A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23742D33-4E71-48A2-B651-E1EECE7058A8}.Release|x86.ActiveCfg = Release|Any CPU
+		{A13938F6-0054-4694-8401-FC676776BD79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13938F6-0054-4694-8401-FC676776BD79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13938F6-0054-4694-8401-FC676776BD79}.Debug|x86.ActiveCfg = Debug|x86
+		{A13938F6-0054-4694-8401-FC676776BD79}.Debug|x86.Build.0 = Debug|x86
+		{A13938F6-0054-4694-8401-FC676776BD79}.DebugComPortInterface|Any CPU.ActiveCfg = DebugComPortInterface|Any CPU
+		{A13938F6-0054-4694-8401-FC676776BD79}.DebugComPortInterface|Any CPU.Build.0 = DebugComPortInterface|Any CPU
+		{A13938F6-0054-4694-8401-FC676776BD79}.DebugComPortInterface|x86.ActiveCfg = DebugComPortInterface|x86
+		{A13938F6-0054-4694-8401-FC676776BD79}.DebugComPortInterface|x86.Build.0 = DebugComPortInterface|x86
+		{A13938F6-0054-4694-8401-FC676776BD79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13938F6-0054-4694-8401-FC676776BD79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A13938F6-0054-4694-8401-FC676776BD79}.Release|x86.ActiveCfg = Release|x86
+		{A13938F6-0054-4694-8401-FC676776BD79}.Release|x86.Build.0 = Release|x86
+		{5514A9E4-D748-48C7-8E7F-DD1588440E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5514A9E4-D748-48C7-8E7F-DD1588440E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5514A9E4-D748-48C7-8E7F-DD1588440E15}.Debug|x86.ActiveCfg = Debug|x86
+		{5514A9E4-D748-48C7-8E7F-DD1588440E15}.Debug|x86.Build.0 = Debug|x86
+		{5514A9E4-D748-48C7-8E7F-DD1588440E15}.DebugComPortInterface|Any CPU.ActiveCfg = Debug|Any CPU
+		{5514A9E4-D748-48C7-8E7F-DD1588440E15}.DebugComPortInterface|Any CPU.Build.0 = Debug|Any CPU
+		{5514A9E4-D748-48C7-8E7F-DD1588440E15}.DebugComPortInterface|x86.ActiveCfg = Debug|x86
+		{5514A9E4-D748-48C7-8E7F-DD1588440E15}.DebugComPortInterface|x86.Build.0 = Debug|x86
+		{5514A9E4-D748-48C7-8E7F-DD1588440E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5514A9E4-D748-48C7-8E7F-DD1588440E15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5514A9E4-D748-48C7-8E7F-DD1588440E15}.Release|x86.ActiveCfg = Release|x86
+		{5514A9E4-D748-48C7-8E7F-DD1588440E15}.Release|x86.Build.0 = Release|x86
+		{EAB05665-C769-4FA2-ABE0-38510833AF1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAB05665-C769-4FA2-ABE0-38510833AF1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAB05665-C769-4FA2-ABE0-38510833AF1C}.Debug|x86.ActiveCfg = Debug|x86
+		{EAB05665-C769-4FA2-ABE0-38510833AF1C}.Debug|x86.Build.0 = Debug|x86
+		{EAB05665-C769-4FA2-ABE0-38510833AF1C}.DebugComPortInterface|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAB05665-C769-4FA2-ABE0-38510833AF1C}.DebugComPortInterface|Any CPU.Build.0 = Debug|Any CPU
+		{EAB05665-C769-4FA2-ABE0-38510833AF1C}.DebugComPortInterface|x86.ActiveCfg = Debug|x86
+		{EAB05665-C769-4FA2-ABE0-38510833AF1C}.DebugComPortInterface|x86.Build.0 = Debug|x86
+		{EAB05665-C769-4FA2-ABE0-38510833AF1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAB05665-C769-4FA2-ABE0-38510833AF1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAB05665-C769-4FA2-ABE0-38510833AF1C}.Release|x86.ActiveCfg = Release|x86
+		{EAB05665-C769-4FA2-ABE0-38510833AF1C}.Release|x86.Build.0 = Release|x86
+		{9EDE82C3-B314-48D9-B741-298C7D3BB98F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EDE82C3-B314-48D9-B741-298C7D3BB98F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EDE82C3-B314-48D9-B741-298C7D3BB98F}.Debug|x86.ActiveCfg = Debug|x86
+		{9EDE82C3-B314-48D9-B741-298C7D3BB98F}.Debug|x86.Build.0 = Debug|x86
+		{9EDE82C3-B314-48D9-B741-298C7D3BB98F}.DebugComPortInterface|Any CPU.ActiveCfg = DebugComPortInterface|Any CPU
+		{9EDE82C3-B314-48D9-B741-298C7D3BB98F}.DebugComPortInterface|Any CPU.Build.0 = DebugComPortInterface|Any CPU
+		{9EDE82C3-B314-48D9-B741-298C7D3BB98F}.DebugComPortInterface|x86.ActiveCfg = DebugComPortInterface|x86
+		{9EDE82C3-B314-48D9-B741-298C7D3BB98F}.DebugComPortInterface|x86.Build.0 = DebugComPortInterface|x86
+		{9EDE82C3-B314-48D9-B741-298C7D3BB98F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EDE82C3-B314-48D9-B741-298C7D3BB98F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EDE82C3-B314-48D9-B741-298C7D3BB98F}.Release|x86.ActiveCfg = Release|x86
+		{9EDE82C3-B314-48D9-B741-298C7D3BB98F}.Release|x86.Build.0 = Release|x86
+		{CC32A1AE-D6A5-450B-8886-EABE2C818048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC32A1AE-D6A5-450B-8886-EABE2C818048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC32A1AE-D6A5-450B-8886-EABE2C818048}.Debug|x86.ActiveCfg = Debug|x86
+		{CC32A1AE-D6A5-450B-8886-EABE2C818048}.Debug|x86.Build.0 = Debug|x86
+		{CC32A1AE-D6A5-450B-8886-EABE2C818048}.DebugComPortInterface|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC32A1AE-D6A5-450B-8886-EABE2C818048}.DebugComPortInterface|Any CPU.Build.0 = Debug|Any CPU
+		{CC32A1AE-D6A5-450B-8886-EABE2C818048}.DebugComPortInterface|x86.ActiveCfg = Debug|x86
+		{CC32A1AE-D6A5-450B-8886-EABE2C818048}.DebugComPortInterface|x86.Build.0 = Debug|x86
+		{CC32A1AE-D6A5-450B-8886-EABE2C818048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC32A1AE-D6A5-450B-8886-EABE2C818048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC32A1AE-D6A5-450B-8886-EABE2C818048}.Release|x86.ActiveCfg = Release|x86
+		{CC32A1AE-D6A5-450B-8886-EABE2C818048}.Release|x86.Build.0 = Release|x86
+		{60BA5A46-2648-41B0-9818-307206670DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60BA5A46-2648-41B0-9818-307206670DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60BA5A46-2648-41B0-9818-307206670DB7}.Debug|x86.ActiveCfg = Debug|x86
+		{60BA5A46-2648-41B0-9818-307206670DB7}.Debug|x86.Build.0 = Debug|x86
+		{60BA5A46-2648-41B0-9818-307206670DB7}.DebugComPortInterface|Any CPU.ActiveCfg = Debug|Any CPU
+		{60BA5A46-2648-41B0-9818-307206670DB7}.DebugComPortInterface|Any CPU.Build.0 = Debug|Any CPU
+		{60BA5A46-2648-41B0-9818-307206670DB7}.DebugComPortInterface|x86.ActiveCfg = Debug|x86
+		{60BA5A46-2648-41B0-9818-307206670DB7}.DebugComPortInterface|x86.Build.0 = Debug|x86
+		{60BA5A46-2648-41B0-9818-307206670DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60BA5A46-2648-41B0-9818-307206670DB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60BA5A46-2648-41B0-9818-307206670DB7}.Release|x86.ActiveCfg = Release|x86
+		{60BA5A46-2648-41B0-9818-307206670DB7}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

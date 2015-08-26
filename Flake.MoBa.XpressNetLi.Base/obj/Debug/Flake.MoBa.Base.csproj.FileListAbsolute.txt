@@ -1,0 +1,6 @@
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Base\obj\Debug\Flake.MoBa.Base.Resources.CentralStartMode.resources
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Base\obj\Debug\Flake.MoBa.Base.Resources.FlakeBaseErrors.resources
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Base\obj\Debug\Flake.MoBa.Base.Resources.LocoFunctionRefreshMode.resources
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Base\obj\Debug\Flake.MoBa.Base.Resources.LocomotiveDirection.resources
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Base\obj\Debug\Flake.MoBa.Base.Resources.LocomotiveSpeedSections.resources
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Base\obj\Debug\Flake.MoBa.Base.csproj.GenerateResource.Cache

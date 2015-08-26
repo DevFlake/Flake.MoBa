@@ -1,0 +1,8 @@
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Log\bin\Debug\EntityFramework.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Log\bin\Debug\EntityFramework.xml
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Log\bin\Debug\Flake.MoBa.Log.dll.config
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Log\bin\Debug\Flake.MoBa.Log.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Log\bin\Debug\Flake.MoBa.Log.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Log\obj\Debug\Flake.MoBa.Log.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Log\obj\Debug\Flake.MoBa.Log.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Log\obj\Debug\Flake.MoBa.Log.csprojResolveAssemblyReference.cache

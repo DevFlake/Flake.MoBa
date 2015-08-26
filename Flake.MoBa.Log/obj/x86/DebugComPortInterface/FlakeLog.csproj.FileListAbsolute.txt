@@ -1,0 +1,5 @@
+C:\private-dev\FlakeTrain\FlakeLog\bin\x86\DebugComPortInterface\FlakeTrain.FlakeLog.dll
+C:\private-dev\FlakeTrain\FlakeLog\bin\x86\DebugComPortInterface\FlakeTrain.FlakeLog.pdb
+C:\private-dev\FlakeTrain\FlakeLog\obj\x86\DebugComPortInterface\ResolveAssemblyReference.cache
+C:\private-dev\FlakeTrain\FlakeLog\obj\x86\DebugComPortInterface\FlakeTrain.FlakeLog.dll
+C:\private-dev\FlakeTrain\FlakeLog\obj\x86\DebugComPortInterface\FlakeTrain.FlakeLog.pdb

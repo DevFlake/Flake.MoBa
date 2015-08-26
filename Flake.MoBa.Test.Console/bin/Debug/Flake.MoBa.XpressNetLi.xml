@@ -1,0 +1,1030 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Flake.MoBa.XpressNetLi</name>
+    </assembly>
+    <members>
+        <member name="T:Flake.MoBa.XpressNetLi.Central">
+            <summary>
+            Central Class representing a digital central and an interface
+            </summary>
+        </member>
+        <member name="F:Flake.MoBa.XpressNetLi.Central._RigisteredEntities">
+            <summary>
+            All registered entities like locomotives or others with addresses
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.RegisterEntity(Flake.MoBa.XpressNetLi.ILIEntity)">
+            <summary>
+            Registers an entity to the central
+            </summary>
+            <param name="item">entity item</param>
+            <example>locomotive</example>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.Config">
+            <summary>
+            Configuration for central
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.SerialPortConnection">
+            <summary>
+            The connection to the interface via serial port
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.InitConnection(System.String,System.Int32,Flake.MoBa.ComPort.ComPortParity,System.Int32,Flake.MoBa.ComPort.ComPortStopBits)">
+            <summary>
+            Initializes a new connection to the interface
+            </summary>
+            <remarks>Uses the credentials Port, StopBites, aso.</remarks>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.CloseConnection">
+            <summary>
+            Close serial connection
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.Port">
+            <summary>
+            Serial port for connetion to interface
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.BaudRate">
+            <summary>
+            Baudrate of serial port to interface
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.ParityBits">
+            <summary>
+            ParityBits of serial port to interface
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.DataBits">
+            <summary>
+            DataBits of serial port to interface
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.StopBits">
+            <summary>
+            StopBits of serial port to interface
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.DataReceivedHandler">
+            <summary>
+            Handler for reading bytes from connection
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.LastAnswer">
+            <summary>
+            Last answer of the central
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.LastCommand">
+            <summary>
+            Last command to the central
+            </summary>
+        </member>
+        <member name="F:Flake.MoBa.XpressNetLi.Central._ErrorInARow">
+            <summary>
+            Indicates the errors received in a row
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.QueueNewCommand(Flake.MoBa.XpressNetLi.Comunication.LICommandAndAnswer)">
+            <summary>
+            Enqueue a new command to the central command queue
+            </summary>
+            <param name="command">bytearray-format command</param>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.SendCommandAndReceiveAnswer(Flake.MoBa.XpressNetLi.Comunication.LICommandAndAnswer)">
+            <summary>
+            Send command to central and receive answer
+            </summary>
+            <param name="command"></param>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.ProcessBroadCast">
+            <summary>
+            gets triggered by LIListener when broadcast appears
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.GetInterfaceAndCentralInfo">
+            <summary>
+            Fetch infos from central an dinterface
+            </summary>summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.GetCentralState">
+            <summary>
+            Fetch central state
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.EmergencyStop">
+            <summary>
+            Indicator for emergency stop
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.EmergencyOff">
+            <summary>
+            Indicator for emergency off
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.StartMode">
+            <summary>
+            Start type of the central as Text
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.ProgramMode">
+            <summary>
+            Indicator of programmode
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.ColdReset">
+            <summary>
+            Indicator of a cold start or reset
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.RamCheckError">
+            <summary>
+            Indicator of a ram error in central
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.System#IDisposable#Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.#ctor(System.String,System.Int32,Flake.MoBa.ComPort.ComPortParity,System.Int32,Flake.MoBa.ComPort.ComPortStopBits)">
+            <summary>
+            Creates a new insance of a central class
+            </summary>
+            <param name="port">Serial port for connetion to interface (eg. 'COM2')</param>
+            <param name="baudRate">Baudrate of serial port to interface</param>
+            <param name="parityBits">ParityBits of serial port to interface</param>
+            <param name="dataBits">DataBits of serial port to interface</param>
+            <param name="stopBits">StopBits of serial port to interface</param>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.#ctor(Flake.MoBa.ComPort.IComPort)">
+            <summary>
+            Creates a new XpressNet LI central
+            </summary>
+            <param name="serialPortConnection">an existing serialport connection</param>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.FlakeLIConfigData">
+            <summary>
+            Class for Configurateion of central
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.FlakeLIConfigData.TimeToWaitForLIAnswer_ms">
+            <summary>
+            How long does the central wait for an answer after sending a command
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.FlakeLIConfigData.TimeoutForLIResponse_s">
+            <summary>
+            Timeout for a locomotive to wait for an answer of a central
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.FlakeLIConfigData.AllowedCentralErrorsInARow">
+            <summary>
+            Number of errors to ignore before stopping sending
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.FlakeLIConfigData.CentralFetchInfoTries">
+            <summary>
+            Tries for fetching central informations
+            </summary>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.FlakeLIConfiguration">
+            <summary>
+            Configuration class
+            </summary>
+        </member>
+        <member name="F:Flake.MoBa.XpressNetLi.FlakeLIConfiguration._Path">
+            <summary>
+            path to config file
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.FlakeLIConfiguration.Data">
+            <summary>
+            data class of current config
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.FlakeLIConfiguration.#ctor">
+            <summary>
+            creates a new config
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.FlakeLIConfiguration.Read">
+            <summary>
+            reads the config from disk
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.FlakeLIConfiguration.Write(System.String)">
+            <summary>
+            writes config to disk
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.ILIEntity">
+            <summary>
+            Interface for entity classes
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.ILIEntity.Address">
+            <summary>
+            Address of Entity
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.ILIEntity.ExtendedAddress">
+            <summary>
+            Extended address of entity
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.ILIEntity.RegisterCentral(Flake.MoBa.XpressNetLi.Central)">
+            <summary>
+            Funcition for registering a central backwords to an entity
+            </summary>
+            <param name="central"></param>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.ILIEntity.EmergencyStop">
+            <summary>
+            Stop all movement
+            </summary>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.BCAllLocosOff">
+            <summary>
+              Looks up a localized string similar to The Broadcast All Locomotives Off was sent..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.BCAllOff">
+            <summary>
+              Looks up a localized string similar to The Broadcast All Off was sent..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.BCAllOn">
+            <summary>
+              Looks up a localized string similar to The Broadcast All On was sent..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.BCProgramMode">
+            <summary>
+              Looks up a localized string similar to The Broadcast Program Mode was sent..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.CentralStateInfo">
+            <summary>
+              Looks up a localized string similar to Receiving central state info..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.CentralVersionInfo">
+            <summary>
+              Looks up a localized string similar to Receiving version of central..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.CommandNotAvailable">
+            <summary>
+              Looks up a localized string similar to The command is not recognized..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.CommonAnswer">
+            <summary>
+              Looks up a localized string similar to Command was sent to central..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.CommonLocomotiveInfo">
+            <summary>
+              Looks up a localized string similar to Return information about a locomotive..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.ErrorSending">
+            <summary>
+              Looks up a localized string similar to While sending a command a error occured (i.g. wrong header info in array)..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.ErrorUnknown">
+            <summary>
+              Looks up a localized string similar to The central didn&apos;t understand the last command..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.LIAddressInfo">
+            <summary>
+              Looks up a localized string similar to Receiving address info from LI-USB interface..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.LIVersionInfo">
+            <summary>
+              Looks up a localized string similar to Receiving version info about LI-interface..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.LocomotiveFunctionStateExt">
+            <summary>
+              Looks up a localized string similar to Receiving locomotive function info of functions F13 to F28..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.LocomotiveFunctionTypeHi">
+            <summary>
+              Looks up a localized string similar to Receiving locomotive function type of functions F13 to F28..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswerLogMsgs.LocomotiveFunctionTypeLo">
+            <summary>
+              Looks up a localized string similar to Receiving locomotive function type of functions F0 to F12..
+            </summary>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.BCAllLocosOffDesc">
+            <summary>
+              Looks up a localized string similar to The Broadcast All Locomotives Off was sent..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.BCAllLocosOffName">
+            <summary>
+              Looks up a localized string similar to Broadcast: All locomotives off.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.BCAllOffDesc">
+            <summary>
+              Looks up a localized string similar to The Broadcast All Off was sent..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.BCAllOffName">
+            <summary>
+              Looks up a localized string similar to Broadcasr: All Off.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.BCAllOnDesc">
+            <summary>
+              Looks up a localized string similar to The Broadcast All On was sent..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.BCAllOnName">
+            <summary>
+              Looks up a localized string similar to Broadcast: All On.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.BCProgramModeDesc">
+            <summary>
+              Looks up a localized string similar to The Broadcast Program Mode was sent..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.BCProgramModeName">
+            <summary>
+              Looks up a localized string similar to Broadcast: Programm mode.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.CentralStateInfoDesc">
+            <summary>
+              Looks up a localized string similar to Consists info about central state..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.CentralStateInfoName">
+            <summary>
+              Looks up a localized string similar to Central state info.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.CentralTypeDCP">
+            <summary>
+              Looks up a localized string similar to DCP-Central (Compact or Commander).
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.CentralTypeLH200">
+            <summary>
+              Looks up a localized string similar to LH 200 Central.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.CentralTypeLZ100">
+            <summary>
+              Looks up a localized string similar to LZ 100 Central.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.CentralVersionInfoDesc">
+            <summary>
+              Looks up a localized string similar to Contains version of central connected to interface..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.CentralVersionInfoName">
+            <summary>
+              Looks up a localized string similar to Version of central.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.CommandNotAvailableDesc">
+            <summary>
+              Looks up a localized string similar to The command is not recognized..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.CommandNotAvailableName">
+            <summary>
+              Looks up a localized string similar to Command not acailable.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.CommonAnswerDesc">
+            <summary>
+              Looks up a localized string similar to Command was sent to central..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.CommonAnswerName">
+            <summary>
+              Looks up a localized string similar to Common answer.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.CommonLocomotiveInfoDesc">
+            <summary>
+              Looks up a localized string similar to Common information about a locomotive..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.CommonLocomotiveInfoName">
+            <summary>
+              Looks up a localized string similar to Common locomotive info.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.ErrorSendingDesc">
+            <summary>
+              Looks up a localized string similar to An error eccoured while sending a command to the central.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.ErrorSendingName">
+            <summary>
+              Looks up a localized string similar to Error sending command to central.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.ErrorUnknownDesc">
+            <summary>
+              Looks up a localized string similar to While receiving a command the central registered an error..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.ErrorUnknownName">
+            <summary>
+              Looks up a localized string similar to Central error while receiving command.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.LIAddressInfoDesc">
+            <summary>
+              Looks up a localized string similar to Contains address of LI-USB-interface..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.LIAddressInfoName">
+            <summary>
+              Looks up a localized string similar to Adress of interface.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.LIVersionInfoDesc">
+            <summary>
+              Looks up a localized string similar to Contains the version info about the LI-USB-interface..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.LIVersionInfoName">
+            <summary>
+              Looks up a localized string similar to Version of LI-USB-Interface..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.LocomotiveFunctionStateExtDesc">
+            <summary>
+              Looks up a localized string similar to Contains switch states of locomotive functions F13 to F28..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.LocomotiveFunctionStateExtName">
+            <summary>
+              Looks up a localized string similar to Locomotive function state F13 to F28.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.LocomotiveFunctionTypeHiDesc">
+            <summary>
+              Looks up a localized string similar to Contains type of locomotive functions F13 to F28..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.LocomotiveFunctionTypeHiName">
+            <summary>
+              Looks up a localized string similar to Locomotive function type F13 to F28.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.LocomotiveFunctionTypeLoDesc">
+            <summary>
+              Looks up a localized string similar to Contains type of locomotive functions F0 to F12..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIAnswers.LocomotiveFunctionTypeLoName">
+            <summary>
+              Looks up a localized string similar to Locomotive function type F0 to F12.
+            </summary>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.Resources.FlakeLIBase">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIBase.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIBase.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIBase.no">
+            <summary>
+              Looks up a localized string similar to no.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIBase.set">
+            <summary>
+              Looks up a localized string similar to set.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIBase.switching">
+            <summary>
+              Looks up a localized string similar to switching.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIBase.tapping">
+            <summary>
+              Looks up a localized string similar to tapping.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIBase.unset">
+            <summary>
+              Looks up a localized string similar to unset.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIBase.yes">
+            <summary>
+              Looks up a localized string similar to yes.
+            </summary>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.DriveCommandDesc">
+            <summary>
+              Looks up a localized string similar to Makes the locomotive drive with given speed in given direction..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.DriveCommandName">
+            <summary>
+              Looks up a localized string similar to Locomotive drive command.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetCentralStateInfoDesc">
+            <summary>
+              Looks up a localized string similar to Requesting central state info..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetCentralStateInfoName">
+            <summary>
+              Looks up a localized string similar to Get central state info.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetCentralVersionDesc">
+            <summary>
+              Looks up a localized string similar to Requesting central version info..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetCentralVersionName">
+            <summary>
+              Looks up a localized string similar to Get central version.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetLIUSBAddressDesc">
+            <summary>
+              Looks up a localized string similar to Fetch adress of LI-USB-interface..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetLIUSBAddressName">
+            <summary>
+              Looks up a localized string similar to Get LI-USB address.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetLIUSBVersionDesc">
+            <summary>
+              Looks up a localized string similar to Fetch version info about LI-USB interface..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetLIUSBVersionName">
+            <summary>
+              Looks up a localized string similar to Get LI-USB version.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetLocomotiveFunctionStateDesc">
+            <summary>
+              Looks up a localized string similar to Gets the switch state of function F13 to F28..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetLocomotiveFunctionStateName">
+            <summary>
+              Looks up a localized string similar to Get locomotive function switch state.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetLocomotiveFunctionTypesHidesc">
+            <summary>
+              Looks up a localized string similar to Get the type (switch or tap) of the functions F13 to F28 of a locomotive..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetLocomotiveFunctionTypesHiName">
+            <summary>
+              Looks up a localized string similar to Get locomotive function type (F13 to F28).
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetLocomotiveFunctionTypesLoDesc">
+            <summary>
+              Looks up a localized string similar to Get the type (switch or tap) of the first 13 functions of a locomotive..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetLocomotiveFunctionTypesLoName">
+            <summary>
+              Looks up a localized string similar to Get locomotive function type (F0 to F12).
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetLocomotiveInfoDesc">
+            <summary>
+              Looks up a localized string similar to Requesting information about locomotive..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.GetLocomotiveInfoName">
+            <summary>
+              Looks up a localized string similar to Get locomotive info.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.SetLCentralStartModeDesc">
+            <summary>
+              Looks up a localized string similar to Sets the start mode of the central.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.SetLCentralStartModeName">
+            <summary>
+              Looks up a localized string similar to Set central start mode.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.SetLFunctionRefreshModeDesc">
+            <summary>
+              Looks up a localized string similar to Sets the refresh mode for functions of a locomotive.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.SetLFunctionRefreshModeName">
+            <summary>
+              Looks up a localized string similar to Set function refresh mode.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.SetLIUSBAddressDesc">
+            <summary>
+              Looks up a localized string similar to Set the address of th interface..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.SetLIUSBAddressName">
+            <summary>
+              Looks up a localized string similar to Ste LI-UBS address.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.SetLocomotiveFunctionDesc">
+            <summary>
+              Looks up a localized string similar to Sets a function of a locomotive..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.SetLocomotiveFunctionName">
+            <summary>
+              Looks up a localized string similar to Set locomotive function.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.SetLocomotiveFunctionTypeDesc">
+            <summary>
+              Looks up a localized string similar to Sets the function type of a locomotive function..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommands.SetLocomotiveFunctionTypeName">
+            <summary>
+              Looks up a localized string similar to Set function type.
+            </summary>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.DriveCommand">
+            <summary>
+              Looks up a localized string similar to Locomotive &apos;{0}&apos; set to speed &apos;{1}[steps]&apos; in direction &apos;{2}&apos;..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.GetCentralStateInfo">
+            <summary>
+              Looks up a localized string similar to Requesting the state info of central..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.GetCentralVersion">
+            <summary>
+              Looks up a localized string similar to Get the version of the central..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.GetLIUSBAddress">
+            <summary>
+              Looks up a localized string similar to Fetching address of interface..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.GetLIUSBVersion">
+            <summary>
+              Looks up a localized string similar to Fetching info about interface version..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.GetLocomotiveFunctionState">
+            <summary>
+              Looks up a localized string similar to Requesting function (F13 to F28) state about locomotove &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.GetLocomotiveFunctionTypesHi">
+            <summary>
+              Looks up a localized string similar to Requesting function (F13 to F28) type about locomotove &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.GetLocomotiveFunctionTypesLo">
+            <summary>
+              Looks up a localized string similar to Requesting function (F0 to F12) type about locomotove &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.GetLocomotiveInfo">
+            <summary>
+              Looks up a localized string similar to Requesting Info about locomotove &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.SetLCentralStartMode">
+            <summary>
+              Looks up a localized string similar to Setting the startmode of the central to &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.SetLFunctionRefreshMode">
+            <summary>
+              Looks up a localized string similar to Setting the refresh mode to &apos;{0}&apos; for locomotive &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.SetLIUSBAddress">
+            <summary>
+              Looks up a localized string similar to Setting address of interface to &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.SetLocomotiveFunction">
+            <summary>
+              Looks up a localized string similar to Function &apos;{0}&apos; of locomotive &apos;{1}&apos; gets {2}..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLICommandsLogMsgs.SetLocomotiveFunctionType">
+            <summary>
+              Looks up a localized string similar to Setting functiontype of function &apos;F{0}&apos; of locomotive &apos;{1}&apos; to &apos;{2}&apos;..
+            </summary>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.Resources.FlakeLIErrors">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIErrors.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIErrors.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIErrors.AddressNotInRange">
+            <summary>
+              Looks up a localized string similar to The Given Address is out of Range (0-9999)..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIErrors.AnswerEmpty">
+            <summary>
+              Looks up a localized string similar to The received answer was empty or in incorrect format..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIErrors.ComPortNotAvailable">
+            <summary>
+              Looks up a localized string similar to The serial port was not available..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIErrors.ErrorSendingCommad">
+            <summary>
+              Looks up a localized string similar to Several errors ({0}) occured while seinding a command. The process has been terminated..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIErrors.InterfaceAddressCouldNotBeSet">
+            <summary>
+              Looks up a localized string similar to The address ({0}) for interface was not correct. Please use 1 to 31..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIErrors.LITimeout">
+            <summary>
+              Looks up a localized string similar to A timeout occured while waiting for a central answer..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIErrors.UnknownAnswer">
+            <summary>
+              Looks up a localized string similar to The central answer was unknown!.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIErrors.WrongAnswerFormat">
+            <summary>
+              Looks up a localized string similar to Wrong answer format: the checksum was not correct!.
+            </summary>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.Resources.FlakeLILocomotive">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLILocomotive.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLILocomotive.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLILocomotive.EmptyDescription">
+            <summary>
+              Looks up a localized string similar to  - no description for function{0} -.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLILocomotive.Function">
+            <summary>
+              Looks up a localized string similar to function{0}.
+            </summary>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.AllOnSet">
+            <summary>
+              Looks up a localized string similar to A general start signal was toggled..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.CentralStateInfo">
+            <summary>
+              Looks up a localized string similar to Central state: emergency stop: &apos;{0}&apos; - emergency off: &apos;{1}&apos; - central start mode: &apos;{2}&apos; - program mode active: &apos;{3}&apos; - cold start: &apos;{4}&apos; - ram check error: &apos;{5}&apos;..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.CentralVersionInfo">
+            <summary>
+              Looks up a localized string similar to Central software version: &apos;{0}&apos; - Central type: &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.EmergencyOffToggle">
+            <summary>
+              Looks up a localized string similar to An emergency off was toggled..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.EmergencyStopToggle">
+            <summary>
+              Looks up a localized string similar to Anemergency stop was toggled..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.ErrorReceivingFunctionNumber">
+            <summary>
+              Looks up a localized string similar to The given function number was either too large, or too small..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.LIInfoandAddress">
+            <summary>
+              Looks up a localized string similar to LI-USB-interface version: &apos;{0}&apos; - LI-UBS-interface codenumber: &apos;{1}&apos; - LI-UBS-interface address: &apos;{2}&apos;.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.LocomotiveSpeedTooHighForCalc">
+            <summary>
+              Looks up a localized string similar to The given locomotive speed was out of range (too high)..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.LocomotiveSpeedTooLowForCalc">
+            <summary>
+              Looks up a localized string similar to The given locomotive speed was out of range (too low)..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.NotRecognizedCentralType">
+            <summary>
+              Looks up a localized string similar to The central type was not recognized..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.NotSupportetSpeedSections">
+            <summary>
+              Looks up a localized string similar to The given speed section value is not supported..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.NutSupportetDirection">
+            <summary>
+              Looks up a localized string similar to The given direction is not supported..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.ProgrammodeToggle">
+            <summary>
+              Looks up a localized string similar to The Central was switched to programming mode..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.StartLIListener">
+            <summary>
+              Looks up a localized string similar to Starting LI-USB-Listener on Port &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.WarningNotRegisteredLocoFunction">
+            <summary>
+              Looks up a localized string similar to The function you want to switch is not registered to this locomotive..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIMsgs.WrongLIAddressReceived">
+            <summary>
+              Looks up a localized string similar to A wrong address ({0}) was received from the LI interface..
+            </summary>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.Resources.FlakeLIWarnings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIWarnings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIWarnings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIWarnings.MaxSpeedNotSet">
+            <summary>
+              Looks up a localized string similar to The real maximal speed was not set. To drive the locomotive, the max speed was set to {0}..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.FlakeLIWarnings.TooManyTriesFetchCentralInfo">
+            <summary>
+              Looks up a localized string similar to Too many tries fetching central informations..
+            </summary>
+        </member>
+    </members>
+</doc>

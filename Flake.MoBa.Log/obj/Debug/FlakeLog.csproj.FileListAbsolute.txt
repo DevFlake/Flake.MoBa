@@ -1,0 +1,12 @@
+C:\private-dev\FlakeTrainController\FlakeLog\bin\Debug\FlakeLog.dll
+C:\private-dev\FlakeTrainController\FlakeLog\bin\Debug\FlakeLog.pdb
+C:\private-dev\FlakeTrainController\FlakeLog\obj\Debug\ResolveAssemblyReference.cache
+C:\private-dev\FlakeTrainController\FlakeLog\obj\Debug\FlakeLog.dll
+C:\private-dev\FlakeTrainController\FlakeLog\obj\Debug\FlakeLog.pdb
+C:\tfs-checkedout\FlakeTrain\FlakeLog\bin\Debug\FlakeTrain.FlakeLog.dll.config
+C:\tfs-checkedout\FlakeTrain\FlakeLog\bin\Debug\FlakeTrain.FlakeLog.dll
+C:\tfs-checkedout\FlakeTrain\FlakeLog\bin\Debug\FlakeTrain.FlakeLog.pdb
+C:\tfs-checkedout\FlakeTrain\FlakeLog\bin\Debug\EntityFramework.dll
+C:\tfs-checkedout\FlakeTrain\FlakeLog\bin\Debug\EntityFramework.xml
+C:\tfs-checkedout\FlakeTrain\FlakeLog\obj\Debug\FlakeTrain.FlakeLog.dll
+C:\tfs-checkedout\FlakeTrain\FlakeLog\obj\Debug\FlakeTrain.FlakeLog.pdb
