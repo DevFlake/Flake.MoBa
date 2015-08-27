@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F21F8F98-918F-4EA5-8561-9D338A518FC6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Flake.MoBa.XpressNetLi.Entities</RootNamespace>
+    <AssemblyName>Flake.MoBa.XpressNetLi.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Locomotive\Locomotive.cs" />
+    <Compile Include="Locomotive\LocomotiveDesc.cs" />
+    <Compile Include="Locomotive\LocomotiveFunction.cs" />
+    <Compile Include="Locomotive\LocomotiveFunctionType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\FlakeLIErrors.Designer.cs">
+      <DependentUpon>FlakeLIErrors.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\FlakeLIMsgs.Designer.cs">
+      <DependentUpon>FlakeLIMsgs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\FlakeLIWarnings.Designer.cs">
+      <DependentUpon>FlakeLIWarnings.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\FlakeLocomotive.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlakeLocomotive.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Flake.MoBa.ComPort\Flake.MoBa.ComPort.csproj">
+      <Project>{eab05665-c769-4fa2-abe0-38510833af1c}</Project>
+      <Name>Flake.MoBa.ComPort</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.Log\Flake.MoBa.Log.csproj">
+      <Project>{9ede82c3-b314-48d9-b741-298c7d3bb98f}</Project>
+      <Name>Flake.MoBa.Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Base\Flake.MoBa.XpressNetLi.Base.csproj">
+      <Project>{5514a9e4-d748-48c7-8e7f-dd1588440e15}</Project>
+      <Name>Flake.MoBa.XpressNetLi.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.XPressNetLi.Configuration\Flake.MoBa.XPressNetLi.Configuration.csproj">
+      <Project>{7bb790ce-c630-4bdc-ae31-ada72c8961c8}</Project>
+      <Name>Flake.MoBa.XPressNetLi.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Entities.Interfaces\Flake.MoBa.XpressNetLi.Entities.Interfaces.csproj">
+      <Project>{2c6f0abb-e49c-4874-b7d2-901f9882624f}</Project>
+      <Name>Flake.MoBa.XpressNetLi.Entities.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\FlakeLIErrors.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlakeLIErrors.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FlakeLIMsgs.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlakeLIMsgs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FlakeLIWarnings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlakeLIWarnings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FlakeLocomotive.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlakeLocomotive.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

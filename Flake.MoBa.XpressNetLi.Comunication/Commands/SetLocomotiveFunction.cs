@@ -1,9 +1,8 @@
 ﻿using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
-using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 using Flake.MoBa.XpressNetLi.Base;
 using logme = Flake.MoBa.Log.FlakeLog;
 using System.Collections.Generic;
-using Flake.MoBa.XpressNetLi.Controller;
 using System.Linq;
 
 namespace Flake.MoBa.XpressNetLi.Comunication.Commands
@@ -11,7 +10,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
     /// <summary>
     /// Commad for setting locomotive function
     /// </summary>
-    public class SetLocomotiveFunction : CommandBase, ILICommunication
+    public class SetLocomotiveFunction : CommandBase, ILiCommunication
     {
         /// <summary>
         /// internal log message
@@ -30,7 +29,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// <param name="functionNumber">function-number to switch</param>
         /// <param name="setFunction">set (1) or unset (0) the function</param>
         /// <param name="currentFunctions">current function state dictionary</param>
-        public SetLocomotiveFunction(HiLoAddress extAddress, int functionNumber, bool setFunction, Dictionary<int, FlakeTrain.FlakeController.Locomotive.LocomotiveFunction> currentFunctions)
+        public SetLocomotiveFunction(HiLoAddress extAddress, int functionNumber, bool setFunction, Dictionary<int, LocomotiveFunction> currentFunctions)
             : base(i18n.FlakeComunicationCommands.SetLocomotiveFunctionName, i18n.FlakeComunicationCommands.SetLocomotiveFunctionDesc)
         {
             _Functions = new Dictionary<int, bool>();

@@ -1,5 +1,5 @@
 ﻿using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
-using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 using Flake.MoBa.XpressNetLi.Base;
 
 namespace Flake.MoBa.XpressNetLi.Comunication.Commands
@@ -7,7 +7,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
     /// <summary>
     /// Commad for getting central Version
     /// </summary>
-    public class GetCentralVersion : CommandBase, ILICommunication
+    public class GetCentralVersion : CommandBase, ILiCommunication
     {
         string _LogMsg;
 

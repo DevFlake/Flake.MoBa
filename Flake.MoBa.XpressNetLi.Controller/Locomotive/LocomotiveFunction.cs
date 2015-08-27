@@ -1,6 +1,6 @@
 ﻿using i18n = Flake.MoBa.XpressNetLi.Controller.Resources;
 
-namespace FlakeTrain.FlakeController.Locomotive
+namespace Flake.MoBa.XpressNetLi.Controller.Locomotive
 {
     /// <summary>
     /// Class for a locomotive funktion

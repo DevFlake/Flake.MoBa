@@ -1,12 +1,12 @@
 ﻿using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
-using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 
 namespace Flake.MoBa.XpressNetLi.Comunication.Commands
 {
     /// <summary>
     /// Commad for getting LI USB Address
     /// </summary>
-    public class GetLIUSBAddress : CommandBase, ILICommunication
+    public class GetLIUSBAddress : CommandBase, ILiCommunication
     {
         string _LogMsg;
 

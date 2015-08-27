@@ -1,0 +1,13 @@
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\bin\Debug\Flake.MoBa.XpressNetLi.Entities.Interfaces.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\bin\Debug\Flake.MoBa.XpressNetLi.Entities.Interfaces.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\bin\Debug\Flake.MoBa.ComPort.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\bin\Debug\Flake.MoBa.XpressNetLi.Base.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\bin\Debug\Flake.MoBa.Log.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\bin\Debug\Flake.MoBa.ComPort.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\bin\Debug\Flake.MoBa.XpressNetLi.Base.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\bin\Debug\Flake.MoBa.Log.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\obj\Debug\Flake.MoBa.XpressNetLi.Entities.Interfaces.csprojResolveAssemblyReference.cache
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\obj\Debug\Flake.MoBa.XpressNetLi.Entities.Interfaces.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\obj\Debug\Flake.MoBa.XpressNetLi.Entities.Interfaces.pdb

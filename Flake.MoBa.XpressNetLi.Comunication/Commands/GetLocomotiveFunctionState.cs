@@ -1,13 +1,13 @@
 ﻿using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
-using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
-using Flake.MoBa.XpressNetLi.Controller;
+using Flake.MoBa.XpressNetLi.Entities.Interfaces;
+using Flake.MoBa.XpressNetLi.Base;
 
 namespace Flake.MoBa.XpressNetLi.Comunication.Commands
 {
     /// <summary>
     /// Commad for getting locomotive functions switch state for function 13 to 28
     /// </summary>
-    public class GetLocomotiveFunctionState : CommandBase, ILICommunication
+    public class GetLocomotiveFunctionState : CommandBase, ILiCommunication
     {
         string _LogMsg;
 

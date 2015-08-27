@@ -3,7 +3,7 @@
     /// <summary>
     /// Interface for an answer of central
     /// </summary>
-    public interface ILICommunication
+    public interface ILiCommunication
     {
         /// <summary>
         /// Answer in a bytearray

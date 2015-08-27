@@ -20,3 +20,4 @@ E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Base\bin\Debug\Flake.MoBa.L
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Base\bin\Debug\EntityFramework.xml
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Base\obj\Debug\Flake.MoBa.XpressNetLi.Base.dll
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Base\obj\Debug\Flake.MoBa.XpressNetLi.Base.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Base\obj\Debug\Flake.MoBa.XpressNetLi.Base.Resources.FlakeControllerErrors.resources

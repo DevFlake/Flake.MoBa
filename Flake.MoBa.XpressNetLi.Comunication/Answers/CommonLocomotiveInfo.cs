@@ -1,4 +1,4 @@
-﻿using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+﻿using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 using System.Collections.Generic;
 using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
 using logme = Flake.MoBa.Log.FlakeLog;
@@ -9,7 +9,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
     /// <summary>
     /// CommonLocomotiveInfo class
     /// </summary>
-    public class CommonLocomotiveInfo : AnswerBase, ILICommunication
+    public class CommonLocomotiveInfo : AnswerBase, ILiCommunication
     {
         /// <summary>
         /// identifier of bytearray

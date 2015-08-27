@@ -1,5 +1,5 @@
 ﻿using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
-using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 using logme = Flake.MoBa.Log.FlakeLog;
 
 namespace Flake.MoBa.XpressNetLi.Comunication.Commands
@@ -7,7 +7,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
     /// <summary>
     /// Commad for setting LI USB Address
     /// </summary>
-    public class SetLIUSBAddress : CommandBase, ILICommunication
+    public class SetLIUSBAddress : CommandBase, ILiCommunication
     {
         string _LogMsg;
 

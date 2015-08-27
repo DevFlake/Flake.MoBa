@@ -1,11 +1,11 @@
 ﻿using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
-using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 namespace Flake.MoBa.XpressNetLi.Comunication.Commands
 {
     /// <summary>
     /// Commad for getting LI USB Version
     /// </summary>
-    public class GetLIUSBVersion : CommandBase, ILICommunication
+    public class GetLIUSBVersion : CommandBase, ILiCommunication
     {
         string _LogMsg;
 

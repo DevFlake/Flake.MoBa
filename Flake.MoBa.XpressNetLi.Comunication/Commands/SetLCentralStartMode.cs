@@ -1,12 +1,12 @@
 ﻿using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
-using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 
 namespace Flake.MoBa.XpressNetLi.Comunication.Commands
 {
     /// <summary>
     /// Commad for setting startmode of central
     /// </summary>
-    public class SetLCentralStartMode : CommandBase, ILICommunication
+    public class SetLCentralStartMode : CommandBase, ILiCommunication
     {
         /// <summary>
         /// internal log message

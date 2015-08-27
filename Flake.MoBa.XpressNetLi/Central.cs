@@ -7,29 +7,30 @@ using logme = Flake.MoBa.Log.FlakeLog;
 using Flake.MoBa.XpressNetLi.Comunication;
 using Flake.MoBa.ComPort;
 using Flake.MoBa.XpressNetLi.Comunication.Answers;
-using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
 using Flake.MoBa.XpressNetLi.Comunication.Commands;
+using Flake.MoBa.XpressNetLi.Entities.Interfaces;
+using Flake.MoBa.XPressNetLi.Configuration;
 
 namespace Flake.MoBa.XpressNetLi
 {
     /// <summary>
     /// Central Class representing a digital central and an interface
     /// </summary>
-    public class Central : IDisposable
+    public class Central : IDisposable, ICentral
     {
         #region class data warehouse
 
         /// <summary>
         /// All registered entities like locomotives or others with addresses
         /// </summary>
-        List<ILIEntity> _RigisteredEntities;
+        List<ILiEntity> _RigisteredEntities;
 
         /// <summary>
         /// Registers an entity to the central
         /// </summary>
         /// <param name="item">entity item</param>
         /// <example>locomotive</example>
-        public void RegisterEntity(ILIEntity item)
+        public void RegisterEntity(ILiEntity item)
         {
             _RigisteredEntities.Add(item);
             item.RegisterCentral(this);
@@ -38,7 +39,7 @@ namespace Flake.MoBa.XpressNetLi
         /// <summary>
         /// Configuration for central
         /// </summary>
-        public FlakeLIConfiguration Config { get; private set; }
+        public ConfigurationSet Config { get; private set; }
 
         #endregion class data warehouse
 
@@ -174,12 +175,12 @@ namespace Flake.MoBa.XpressNetLi
         /// <summary>
         /// Last answer of the central
         /// </summary>
-        private ILICommunication LastAnswer { get; set; }
+        private ILiCommunication LastAnswer { get; set; }
 
         /// <summary>
         /// Last command to the central
         /// </summary>
-        private ILICommunication LastCommand { get; set; }
+        private ILiCommunication LastCommand { get; set; }
 
         /// <summary>
         /// Indicates the errors received in a row
@@ -190,7 +191,7 @@ namespace Flake.MoBa.XpressNetLi
         /// Enqueue a new command to the central command queue
         /// </summary>
         /// <param name="command">bytearray-format command</param>
-        public void QueueNewCommand(LICommandAndAnswer command)
+        public void QueueNewCommand(ILiCommandAndAnswer command)
         {
             SendCommandAndReceiveAnswer(command);
         }
@@ -199,7 +200,7 @@ namespace Flake.MoBa.XpressNetLi
         /// Send command to central and receive answer
         /// </summary>
         /// <param name="command"></param>
-        private void SendCommandAndReceiveAnswer(LICommandAndAnswer command)
+        private void SendCommandAndReceiveAnswer(ILiCommandAndAnswer command)
         {
             bool retry = true;
             while (retry)
@@ -296,8 +297,8 @@ namespace Flake.MoBa.XpressNetLi
                 {
                     tries++;
                     // get the interface info
-                    LICommandAndAnswer liVersion = new LICommandAndAnswer(new GetLIUSBVersion());
-                    LICommandAndAnswer liAddress = new LICommandAndAnswer(new GetLIUSBAddress());
+                    LiCommandAndAnswer liVersion = new LiCommandAndAnswer(new GetLIUSBVersion());
+                    LiCommandAndAnswer liAddress = new LiCommandAndAnswer(new GetLIUSBAddress());
                     QueueNewCommand(liVersion);
                     QueueNewCommand(liAddress);
                     LIVersionInfo livi = liVersion.Answer as LIVersionInfo;
@@ -305,7 +306,7 @@ namespace Flake.MoBa.XpressNetLi
                     logme.Log(string.Format(i18n.FlakeLIMsgs.LIInfoandAddress, livi.LIVersion.ToString("0.0"), livi.LICodenumber.ToString(), liadd.LIAddress.ToString()), logme.LogLevel.limsg);
 
                     // get the central version info
-                    LICommandAndAnswer centralVersion = new LICommandAndAnswer(new GetCentralVersion());
+                    LiCommandAndAnswer centralVersion = new LiCommandAndAnswer(new GetCentralVersion());
                     QueueNewCommand(centralVersion);
                     CentralVersionInfo cvi = centralVersion.Answer as CentralVersionInfo;
                     logme.Log(string.Format(i18n.FlakeLIMsgs.CentralVersionInfo, cvi.CentralVersion.ToString("0.0"), cvi.CentralTypeName), logme.LogLevel.limsg);
@@ -330,7 +331,7 @@ namespace Flake.MoBa.XpressNetLi
         private void GetCentralState()
         {
             // get the central state info
-            LICommandAndAnswer centralState = new LICommandAndAnswer(new GetCentralStateInfo());
+            LiCommandAndAnswer centralState = new LiCommandAndAnswer(new GetCentralStateInfo());
             QueueNewCommand(centralState);
             CentralStateInfo csi = centralState.Answer as CentralStateInfo;
 
@@ -409,9 +410,9 @@ namespace Flake.MoBa.XpressNetLi
         /// <param name="stopBits">StopBits of serial port to interface</param>
         public Central(string port = "COM2", int baudRate = 57600, ComPortParity parityBits = ComPortParity.None, int dataBits = 8, ComPortStopBits stopBits = ComPortStopBits.One)
         {
-            Config = new FlakeLIConfiguration();
+            Config = new ConfigurationSet();
 
-            _RigisteredEntities = new List<ILIEntity>();
+            _RigisteredEntities = new List<ILiEntity>();
             _ErrorInARow = 0;
 
             // Open connection to interface
@@ -432,9 +433,9 @@ namespace Flake.MoBa.XpressNetLi
         /// <param name="serialPortConnection">an existing serialport connection</param>
         public Central(IComPort serialPortConnection)
         {
-            Config = new FlakeLIConfiguration();
+            Config = new ConfigurationSet();
 
-            _RigisteredEntities = new List<ILIEntity>();
+            _RigisteredEntities = new List<ILiEntity>();
             _ErrorInARow = 0;
 
             // Open connection to interface

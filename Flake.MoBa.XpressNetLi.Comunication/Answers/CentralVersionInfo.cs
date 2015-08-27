@@ -1,4 +1,4 @@
-﻿using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+﻿using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 using logme = Flake.MoBa.Log.FlakeLog;
 using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
 using System;
@@ -8,7 +8,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
     /// <summary>
     /// Command central version class
     /// </summary>
-    public class CentralVersionInfo : AnswerBase, ILICommunication
+    public class CentralVersionInfo : AnswerBase, ILiCommunication
     {
         /// <summary>
         /// Creats a LIVersionInfo class

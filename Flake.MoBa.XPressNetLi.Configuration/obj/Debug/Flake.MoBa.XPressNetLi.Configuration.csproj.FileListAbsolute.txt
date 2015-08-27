@@ -1,0 +1,5 @@
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Flake.MoBa.XPressNetLi.Configuration.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Flake.MoBa.XPressNetLi.Configuration.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Flake.MoBa.XPressNetLi.Configuration.csprojResolveAssemblyReference.cache

@@ -1,13 +1,13 @@
 ﻿using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
-using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
-using Flake.MoBa.XpressNetLi.Controller;
+using Flake.MoBa.XpressNetLi.Entities.Interfaces;
+using Flake.MoBa.XpressNetLi.Base;
 
 namespace Flake.MoBa.XpressNetLi.Comunication.Commands
 {
     /// <summary>
     /// Commad for getting base locomotive info
     /// </summary>
-    public class GetLocomotiveInfo : CommandBase, ILICommunication
+    public class GetLocomotiveInfo : CommandBase, ILiCommunication
     {
         string _LogMsg;
 

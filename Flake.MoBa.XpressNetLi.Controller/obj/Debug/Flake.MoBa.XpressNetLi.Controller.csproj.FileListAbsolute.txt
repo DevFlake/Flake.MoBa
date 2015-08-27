@@ -1,7 +1,4 @@
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Controller\obj\Debug\Flake.MoBa.XpressNetLi.Controller.csprojResolveAssemblyReference.cache
-E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Controller\obj\Debug\Flake.MoBa.XpressNetLi.Controller.Resources.FlakeControllerErrors.resources
-E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Controller\obj\Debug\Flake.MoBa.XpressNetLi.Controller.Resources.FlakeControllerLocomotive.resources
-E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Controller\obj\Debug\Flake.MoBa.XpressNetLi.Controller.csproj.GenerateResource.Cache
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Controller\bin\Debug\Flake.MoBa.XpressNetLi.Controller.dll
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Controller\bin\Debug\Flake.MoBa.XpressNetLi.Controller.pdb
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Controller\bin\Debug\Flake.MoBa.XpressNetLi.Base.dll

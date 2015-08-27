@@ -1,13 +1,13 @@
 ﻿using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
 using Flake.MoBa.XpressNetLi.Base;
-using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 
 namespace Flake.MoBa.XpressNetLi.Comunication.Commands
 {
     /// <summary>
     /// Commad for getting central state
     /// </summary>
-    public class GetCentralStateInfo : CommandBase, ILICommunication
+    public class GetCentralStateInfo : CommandBase, ILiCommunication
     {
         string _LogMsg;
 

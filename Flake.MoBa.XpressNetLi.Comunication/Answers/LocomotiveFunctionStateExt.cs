@@ -1,4 +1,4 @@
-﻿using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+﻿using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 using System.Collections.Generic;
 using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
 
@@ -7,7 +7,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
     /// <summary>
     /// LocomotiveFunctionStateExt class (function state info F13 to F28)
     /// </summary>
-    public class LocomotiveFunctionStateExt : AnswerBase, ILICommunication
+    public class LocomotiveFunctionStateExt : AnswerBase, ILiCommunication
     {
         /// <summary>
         /// 5thframe of bytearray

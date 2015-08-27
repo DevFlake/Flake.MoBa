@@ -113,8 +113,7 @@
     <Compile Include="Commands\SetLocomotiveFunction.cs" />
     <Compile Include="Commands\SetLocomotiveFunctionType.cs" />
     <Compile Include="CommunicationHelper.cs" />
-    <Compile Include="Interfaces\ILICommunication.cs" />
-    <Compile Include="LICommandAndAnswer.cs" />
+    <Compile Include="LiCommandAndAnswer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\FlakeComunicationAnswers.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -195,6 +194,13 @@
       <Project>{60ba5a46-2648-41b0-9818-307206670db7}</Project>
       <Name>Flake.MoBa.XpressNetLi.Controller</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Entities.Interfaces\Flake.MoBa.XpressNetLi.Entities.Interfaces.csproj">
+      <Project>{2c6f0abb-e49c-4874-b7d2-901f9882624f}</Project>
+      <Name>Flake.MoBa.XpressNetLi.Entities.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

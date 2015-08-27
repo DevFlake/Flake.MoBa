@@ -1,9 +1,8 @@
 ﻿using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
-using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 using Flake.MoBa.XpressNetLi.Base;
 using logme = Flake.MoBa.Log.FlakeLog;
 using System.Collections.Generic;
-using Flake.MoBa.XpressNetLi.Controller;
 using System.Linq;
 
 namespace Flake.MoBa.XpressNetLi.Comunication.Commands
@@ -11,7 +10,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
     /// <summary>
     /// Commad for setting locomotive function types
     /// </summary>
-    public class SetLocomotiveFunctionType : CommandBase, ILICommunication
+    public class SetLocomotiveFunctionType : CommandBase, ILiCommunication
     {
         /// <summary>
         /// internal log message
@@ -30,13 +29,13 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// <param name="functionNumber">function-number to switch</param>
         /// <param name="setTapping">set on tapping (1) or switching (0) the function</param>
         /// <param name="currentFunctions">current function state dictionary</param>
-        public SetLocomotiveFunctionType(HiLoAddress extAddress, int functionNumber, bool setTapping, Dictionary<int, FlakeTrain.FlakeController.Locomotive.LocomotiveFunction> currentFunctions)
+        public SetLocomotiveFunctionType(HiLoAddress extAddress, int functionNumber, bool setTapping, Dictionary<int, LocomotiveFunction> currentFunctions)
             : base(i18n.FlakeComunicationCommands.SetLocomotiveFunctionTypeName, i18n.FlakeComunicationCommands.SetLocomotiveFunctionTypeDesc)
         {
             _Functions = new Dictionary<int, bool>();
             foreach (var f in currentFunctions)
             {
-                if (!_Functions.Keys.Contains(f.Key)) _Functions.Add(f.Key, (f.Value.Type == FlakeTrain.FlakeController.Locomotive.LocomotiveFunctionType.tapping));
+                if (!_Functions.Keys.Contains(f.Key)) _Functions.Add(f.Key, (f.Value.Type == LocomotiveFunctionType.tapping));
             }
             if (_Functions.Keys.Contains(functionNumber)) _Functions[functionNumber] = setTapping;
 

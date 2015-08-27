@@ -120,11 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Central.cs" />
-    <Compile Include="FlakeLIConfigData.cs" />
-    <Compile Include="FlakeLIConfiguration.cs" />
-    <Compile Include="Interfaces\IEntity.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Resources\FlakeLIAnswerLogMsgs.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -224,16 +219,34 @@
       <Project>{9ede82c3-b314-48d9-b741-298c7d3bb98f}</Project>
       <Name>Flake.MoBa.Log</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Base\Flake.MoBa.XpressNetLi.Base.csproj">
+      <Project>{5514a9e4-d748-48c7-8e7f-dd1588440e15}</Project>
+      <Name>Flake.MoBa.XpressNetLi.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Comunication\Flake.MoBa.XpressNetLi.Comunication.csproj">
       <Project>{cc32a1ae-d6a5-450b-8886-eabe2c818048}</Project>
       <Name>Flake.MoBa.XpressNetLi.Comunication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.XPressNetLi.Configuration\Flake.MoBa.XPressNetLi.Configuration.csproj">
+      <Project>{7bb790ce-c630-4bdc-ae31-ada72c8961c8}</Project>
+      <Name>Flake.MoBa.XPressNetLi.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Controller\Flake.MoBa.XpressNetLi.Controller.csproj">
       <Project>{60ba5a46-2648-41b0-9818-307206670db7}</Project>
       <Name>Flake.MoBa.XpressNetLi.Controller</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Entities.Interfaces\Flake.MoBa.XpressNetLi.Entities.Interfaces.csproj">
+      <Project>{2c6f0abb-e49c-4874-b7d2-901f9882624f}</Project>
+      <Name>Flake.MoBa.XpressNetLi.Entities.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Entities\Flake.MoBa.XpressNetLi.Entities.csproj">
+      <Project>{f21f8f98-918f-4ea5-8561-9d338a518fc6}</Project>
+      <Name>Flake.MoBa.XpressNetLi.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

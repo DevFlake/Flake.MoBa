@@ -1,4 +1,4 @@
-﻿using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+﻿using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
 
 
@@ -7,7 +7,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
     /// <summary>
     /// ErrorSending class
     /// </summary>
-    public class ErrorSending : AnswerBase, ILICommunication
+    public class ErrorSending : AnswerBase, ILiCommunication
     {
         /// <summary>
         /// Creats a CommonAnswer class

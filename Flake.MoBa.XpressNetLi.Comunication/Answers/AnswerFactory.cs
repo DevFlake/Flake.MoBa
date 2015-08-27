@@ -2,7 +2,7 @@
 using System.Linq;
 using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
 using logme = Flake.MoBa.Log.FlakeLog;
-using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 
 namespace Flake.MoBa.XpressNetLi.Comunication.Answers
 {
@@ -16,9 +16,9 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="answerArray">bytearray from central</param>
         /// <returns>returns a representational class to the central given bytearray</returns>
-        public static ILICommunication CreateNew(byte[] answerArray)
+        public static ILiCommunication CreateNew(byte[] answerArray)
         {
-            ILICommunication answer = GetNewAnswer(answerArray);
+            ILiCommunication answer = GetNewAnswer(answerArray);
             return answer;
         }
 
@@ -27,7 +27,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="answerArray">answer array without leading bytes (2)</param>
         /// <returns>returns a representing representation of an answer :-)</returns>
-        private static ILICommunication GetNewAnswer(byte[] answerArray)
+        private static ILiCommunication GetNewAnswer(byte[] answerArray)
         {
             if (TestAnswerForXORByte(answerArray))
             {

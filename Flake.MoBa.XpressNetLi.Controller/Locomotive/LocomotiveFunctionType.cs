@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace FlakeTrain.FlakeController.Locomotive
+﻿namespace Flake.MoBa.XpressNetLi.Controller.Locomotive
 {
     /// <summary>
     /// Representation of function type of locomotive

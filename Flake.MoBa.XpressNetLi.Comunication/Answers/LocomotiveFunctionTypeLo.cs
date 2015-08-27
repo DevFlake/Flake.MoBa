@@ -1,4 +1,4 @@
-﻿using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+﻿using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 using System.Collections.Generic;
 using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
 
@@ -7,7 +7,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
     /// <summary>
     /// LocomotiveFunctionTypeLo class (function type info F0 to F12)
     /// </summary>
-    public class LocomotiveFunctionTypeLo : AnswerBase, ILICommunication
+    public class LocomotiveFunctionTypeLo : AnswerBase, ILiCommunication
     {
         /// <summary>
         /// 5thframe of bytearray

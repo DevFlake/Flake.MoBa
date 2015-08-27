@@ -1,4 +1,4 @@
-﻿using Flake.MoBa.XpressNetLi.Comunication.Interfaces;
+﻿using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 using i18n = Flake.MoBa.XpressNetLi.Comunication.Resources;
 
 namespace Flake.MoBa.XpressNetLi.Comunication.Answers
@@ -6,7 +6,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
     /// <summary>
     /// Command central state class
     /// </summary>
-    public class CentralStateInfo : AnswerBase, ILICommunication
+    public class CentralStateInfo : AnswerBase, ILiCommunication
     {
         /// <summary>
         /// Creats a CentralStateInfo class
