@@ -5,6 +5,10 @@ using i18n = Flake.MoBa.XpressNetLi.Entities.Resources;
 using logme = Flake.MoBa.Log.FlakeLog;
 using Flake.MoBa.XpressNetLi.Entities.Interfaces;
 using Flake.MoBa.XpressNetLi.Base;
+using Flake.MoBa.Base;
+using Flake.MoBa.XpressNetLi.Comunication.Answers;
+using Flake.MoBa.XpressNetLi.Comunication.Commands;
+using Flake.MoBa.XpressNetLi.Comunication;
 
 namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
 {
@@ -54,7 +58,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
             _CurrentDirection = Base.Enums.LocomotiveDirection.LocomotiveDirection.forward;
             _CurrentSpeed = 0;
             _LocomotiveLocked = false;
-            _Functions = new Dictionary<int, LocomotiveFunction>();
+            _functions = new Dictionary<int, LocomotiveFunction>();
             Description = new LocomotiveDesc();
             MaxSpeedReal = -1;
         }
@@ -92,7 +96,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// <summary>
         /// Dictionalry of locomotive functions and their stats
         /// </summary>
-        private Dictionary<int, LocomotiveFunction> _Functions;
+        private Dictionary<int, LocomotiveFunction> _functions;
 
         /// <summary>
         /// digital speed sections of decoder
@@ -156,7 +160,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
                 // functions
                 foreach (int i in answer.Functions.Keys)
                 {
-                    if (_Functions.Keys.Contains(i) && _Functions[i].Active != answer.Functions[i]) _Functions[i].Toggle();
+                    if (_functions.Keys.Contains(i) && _functions[i].Active != answer.Functions[i]) _functions[i].Toggle();
                 }
             }
             else
@@ -176,7 +180,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
                 // functions
                 foreach (int i in answer.Functions.Keys)
                 {
-                    if (_Functions.Keys.Contains(i) && _Functions[i].Active != answer.Functions[i]) _Functions[i].Toggle();
+                    if (_functions.Keys.Contains(i) && _functions[i].Active != answer.Functions[i]) _functions[i].Toggle();
                 }
             }
             else
@@ -199,9 +203,9 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
                     // functions
                     foreach (int i in answer.Functions.Keys)
                     {
-                        if (_Functions.Keys.Contains(i))
+                        if (_functions.Keys.Contains(i))
                         {
-                            _Functions[i].Type = (answer.Functions[i]) ? (LocomotiveFunctionType.tapping) : (LocomotiveFunctionType.switching);
+                            _functions[i].Type = (answer.Functions[i]) ? (LocomotiveFunctionType.tapping) : (LocomotiveFunctionType.switching);
                         }
                     }
                 }
@@ -226,9 +230,9 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
                     // functions
                     foreach (int i in answer.Functions.Keys)
                     {
-                        if (_Functions.Keys.Contains(i))
+                        if (_functions.Keys.Contains(i))
                         {
-                            _Functions[i].Type = (answer.Functions[i]) ? (LocomotiveFunctionType.tapping) : (LocomotiveFunctionType.switching);
+                            _functions[i].Type = (answer.Functions[i]) ? (LocomotiveFunctionType.tapping) : (LocomotiveFunctionType.switching);
                         }
                     }
                 }
@@ -534,7 +538,9 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// <param name="setFunction">set (1) or unset (0) the function</param>
         private void SetLocomotiveFunction(int functionNumber, bool setFunction)
         {
-            SetLocomotiveFunction cmd = new SetLocomotiveFunction(_ExtendedAdress, functionNumber, setFunction, _Functions);
+            var tmp = new Dictionary<int, bool>();
+             _functions.Foreach(a => tmp.Add(a.Key, a.Value.Active));
+            SetLocomotiveFunction cmd = new SetLocomotiveFunction(_ExtendedAdress, functionNumber, setFunction, tmp);
             _Central.QueueNewCommand(new LiCommandAndAnswer(cmd));
         }
 
@@ -543,7 +549,9 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// </summary>
         private void InitializeLocomotiveFunctionTypes()
         {
-            SetLocomotiveFunctionType cmd = new SetLocomotiveFunctionType(_ExtendedAdress, 0, _Functions[0].Type == LocomotiveFunctionType.tapping, _Functions);
+            var tmp = new Dictionary<int, bool>();
+            _functions.Foreach(a => tmp.Add(a.Key, a.Value.Type == LocomotiveFunctionType.tapping)); 
+            SetLocomotiveFunctionType cmd = new SetLocomotiveFunctionType(_ExtendedAdress, 0, _functions[0].Type == LocomotiveFunctionType.tapping, tmp);
             _Central.QueueNewCommand(new LiCommandAndAnswer(cmd));
         }
 
@@ -557,13 +565,13 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// <param name="function">the function like light or horn, etc.</param>
         public void AddFunction(LocomotiveFunction function)
         {
-            if (_Functions.ContainsKey(function.FNumber))
+            if (_functions.ContainsKey(function.FNumber))
             {
-                _Functions[function.FNumber] = function;
+                _functions[function.FNumber] = function;
             }
             else
             {
-                _Functions.Add(function.FNumber, function);
+                _functions.Add(function.FNumber, function);
             }
         }
 
@@ -575,9 +583,9 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
             get
             {
                 Dictionary<int, string> ret = new Dictionary<int, string>();
-                foreach (int f in _Functions.Keys)
+                foreach (int f in _functions.Keys)
                 {
-                    ret.Add(f, _Functions[f].Name);
+                    ret.Add(f, _functions[f].Name);
                 }
                 return ret;
             }
@@ -589,10 +597,10 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// <param name="functionNumber">f-number</param>
         public void ToggleFunction(int functionNumber)
         {
-            if (_Functions.Keys.Contains(functionNumber))
+            if (_functions.Keys.Contains(functionNumber))
             {
-                SetLocomotiveFunction(functionNumber, !_Functions[functionNumber].Active);
-                _Functions[functionNumber].Toggle();
+                SetLocomotiveFunction(functionNumber, !_functions[functionNumber].Active);
+                _functions[functionNumber].Toggle();
             }
             else
             {

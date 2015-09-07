@@ -29,13 +29,14 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// <param name="functionNumber">function-number to switch</param>
         /// <param name="setTapping">set on tapping (1) or switching (0) the function</param>
         /// <param name="currentFunctions">current function state dictionary</param>
-        public SetLocomotiveFunctionType(HiLoAddress extAddress, int functionNumber, bool setTapping, Dictionary<int, LocomotiveFunction> currentFunctions)
+        public SetLocomotiveFunctionType(HiLoAddress extAddress, int functionNumber, bool setTapping, Dictionary<int, bool> currentFunctionsTypeIsTapping)
             : base(i18n.FlakeComunicationCommands.SetLocomotiveFunctionTypeName, i18n.FlakeComunicationCommands.SetLocomotiveFunctionTypeDesc)
         {
+            // TODO Merge Dictioniaries
             _Functions = new Dictionary<int, bool>();
-            foreach (var f in currentFunctions)
+            foreach (var f in currentFunctionsTypeIsTapping)
             {
-                if (!_Functions.Keys.Contains(f.Key)) _Functions.Add(f.Key, (f.Value.Type == LocomotiveFunctionType.tapping));
+                if (!_Functions.Keys.Contains(f.Key)) _Functions.Add(f.Key, f.Value);
             }
             if (_Functions.Keys.Contains(functionNumber)) _Functions[functionNumber] = setTapping;
 

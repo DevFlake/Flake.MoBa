@@ -29,13 +29,14 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// <param name="functionNumber">function-number to switch</param>
         /// <param name="setFunction">set (1) or unset (0) the function</param>
         /// <param name="currentFunctions">current function state dictionary</param>
-        public SetLocomotiveFunction(HiLoAddress extAddress, int functionNumber, bool setFunction, Dictionary<int, LocomotiveFunction> currentFunctions)
+        public SetLocomotiveFunction(HiLoAddress extAddress, int functionNumber, bool setFunction, Dictionary<int, bool> currentFunctionsActivationState)
             : base(i18n.FlakeComunicationCommands.SetLocomotiveFunctionName, i18n.FlakeComunicationCommands.SetLocomotiveFunctionDesc)
         {
+            // TODO Merge Dictioniaries
             _Functions = new Dictionary<int, bool>();
-            foreach (var f in currentFunctions)
+            foreach (var f in currentFunctionsActivationState)
             {
-                if (!_Functions.Keys.Contains(f.Key)) _Functions.Add(f.Key, f.Value.Active);
+                if (!_Functions.Keys.Contains(f.Key)) _Functions.Add(f.Key, f.Value);
             }
             if (_Functions.Keys.Contains(functionNumber)) _Functions[functionNumber] = setFunction;
 

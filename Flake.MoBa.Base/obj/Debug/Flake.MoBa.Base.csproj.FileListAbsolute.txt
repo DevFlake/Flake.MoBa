@@ -1,0 +1,5 @@
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Base\bin\Debug\Flake.MoBa.Base.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Base\bin\Debug\Flake.MoBa.Base.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Base\obj\Debug\Flake.MoBa.Base.csprojResolveAssemblyReference.cache
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Base\obj\Debug\Flake.MoBa.Base.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Base\obj\Debug\Flake.MoBa.Base.pdb

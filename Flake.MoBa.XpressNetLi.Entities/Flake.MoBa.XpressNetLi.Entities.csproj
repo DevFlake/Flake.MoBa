@@ -67,6 +67,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Flake.MoBa.Base\Flake.MoBa.Base.csproj">
+      <Project>{fbfaf887-6878-40ce-bbe8-a727824905dd}</Project>
+      <Name>Flake.MoBa.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Flake.MoBa.ComPort\Flake.MoBa.ComPort.csproj">
       <Project>{eab05665-c769-4fa2-abe0-38510833af1c}</Project>
       <Name>Flake.MoBa.ComPort</Name>
@@ -78,6 +82,10 @@
     <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Base\Flake.MoBa.XpressNetLi.Base.csproj">
       <Project>{5514a9e4-d748-48c7-8e7f-dd1588440e15}</Project>
       <Name>Flake.MoBa.XpressNetLi.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Comunication\Flake.MoBa.XpressNetLi.Comunication.csproj">
+      <Project>{cc32a1ae-d6a5-450b-8886-eabe2c818048}</Project>
+      <Name>Flake.MoBa.XpressNetLi.Comunication</Name>
     </ProjectReference>
     <ProjectReference Include="..\Flake.MoBa.XPressNetLi.Configuration\Flake.MoBa.XPressNetLi.Configuration.csproj">
       <Project>{7bb790ce-c630-4bdc-ae31-ada72c8961c8}</Project>
