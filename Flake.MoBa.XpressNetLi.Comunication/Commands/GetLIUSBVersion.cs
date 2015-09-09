@@ -13,10 +13,10 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// Construcor
         /// </summary>
         public GetLIUSBVersion()
-            : base(i18n.FlakeComunicationCommands.GetLIUSBVersionName, i18n.FlakeComunicationCommands.GetLIUSBVersionDesc)
+            : base(i18n.Commands.GetLIUSBVersionName, i18n.Commands.GetLIUSBVersionDesc)
         {
             _ByteArray = new byte[] { 255, 254, 240, 240 };
-            _LogMsg = string.Format(i18n.FlakeComunicationCommandsLogMsgs.GetLIUSBVersion);
+            _LogMsg = string.Format(i18n.LogMessages.GetLIUSBVersion);
         }
 
         /// <summary>

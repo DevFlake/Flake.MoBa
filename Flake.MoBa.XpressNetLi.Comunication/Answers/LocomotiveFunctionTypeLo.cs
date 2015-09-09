@@ -29,7 +29,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="byteArray">bytearray from central</param>
         public LocomotiveFunctionTypeLo(byte[] byteArray)
-            : base(i18n.FlakeComunicationAnswers.LocomotiveFunctionTypeLoName, i18n.FlakeComunicationAnswers.LocomotiveFunctionTypeLoDesc)
+            : base(i18n.Answers.LocomotiveFunctionTypeLoName, i18n.Answers.LocomotiveFunctionTypeLoDesc)
         {
             _ByteArray = byteArray;
             _F0 = Base.FlakeHelper.ReverseBitArray(Base.FlakeHelper.ConvertDecimalToBinary((int)_ByteArray[4], 8).Substring(3, 5));
@@ -48,7 +48,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         public string LogMessage
         {
-            get { return i18n.FlakeComunicationAnswerLogMsgs.LocomotiveFunctionTypeLo; }
+            get { return i18n.LogMessages.LocomotiveFunctionTypeLo; }
         }
 
         /// <summary>

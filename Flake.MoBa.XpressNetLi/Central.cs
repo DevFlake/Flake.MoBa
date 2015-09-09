@@ -64,7 +64,7 @@ namespace Flake.MoBa.XpressNetLi
             catch (System.UnauthorizedAccessException notavail)
             {
                 // COM Port in use
-                logme.Log(i18n.FlakeLIErrors.ComPortNotAvailable, logme.LogLevel.error);
+                logme.Log(i18n.ErrorMessages.ComPortNotAvailable, logme.LogLevel.error);
                 notavail.ToString(); // foo
                 return;
             }
@@ -218,7 +218,7 @@ namespace Flake.MoBa.XpressNetLi
                     if (DateTime.Now > tmp.AddSeconds(Config.Data.TimeoutForLIResponse_s))
                     {
                         // timeout
-                        logme.Log(Resources.FlakeLIErrors.LITimeout, logme.LogLevel.error, command.Command.ByteArray);
+                        logme.Log(i18n.ErrorMessages.LITimeout, logme.LogLevel.error, command.Command.ByteArray);
                         return;
                     }
                 }
@@ -233,7 +233,7 @@ namespace Flake.MoBa.XpressNetLi
                     {
                         // Too much errors in a row
                         retry = false;
-                        logme.Log(string.Format(Resources.FlakeLIErrors.ErrorSendingCommad, Config.Data.AllowedCentralErrorsInARow.ToString()), logme.LogLevel.error, command.Command.ByteArray);
+                        logme.Log(string.Format(i18n.ErrorMessages.ErrorSendingCommad, Config.Data.AllowedCentralErrorsInARow.ToString()), logme.LogLevel.error, command.Command.ByteArray);
                         return;
                     }
                 }
@@ -259,7 +259,7 @@ namespace Flake.MoBa.XpressNetLi
             if (LastAnswer.GetType() == typeof(BCAllOff))
             {
                 EmergencyOff = true;
-                logme.Log(i18n.FlakeLIMsgs.EmergencyOffToggle, logme.LogLevel.info);
+                logme.Log(i18n.XpressNetLiMessages.EmergencyOffToggle, logme.LogLevel.info);
                 return;
             }
             if (LastAnswer.GetType() == typeof(BCAllOn))
@@ -267,19 +267,19 @@ namespace Flake.MoBa.XpressNetLi
                 EmergencyOff = false;
                 EmergencyStop = false;
                 ProgramMode = false;
-                logme.Log(i18n.FlakeLIMsgs.AllOnSet, logme.LogLevel.info);
+                logme.Log(i18n.XpressNetLiMessages.AllOnSet, logme.LogLevel.info);
                 return;
             }
             if (LastAnswer.GetType() == typeof(BCAllLocosOff))
             {
                 EmergencyStop = true;
-                logme.Log(i18n.FlakeLIMsgs.EmergencyStopToggle, logme.LogLevel.info);
+                logme.Log(i18n.XpressNetLiMessages.EmergencyStopToggle, logme.LogLevel.info);
                 return;
             }
             if (LastAnswer.GetType() == typeof(BCProgramMode))
             {
                 ProgramMode = true;
-                logme.Log(i18n.FlakeLIMsgs.ProgrammodeToggle, logme.LogLevel.info);
+                logme.Log(i18n.XpressNetLiMessages.ProgrammodeToggle, logme.LogLevel.info);
                 return;
             }
         }
@@ -303,13 +303,13 @@ namespace Flake.MoBa.XpressNetLi
                     QueueNewCommand(liAddress);
                     LIVersionInfo livi = liVersion.Answer as LIVersionInfo;
                     LIAddressInfo liadd = liAddress.Answer as LIAddressInfo;
-                    logme.Log(string.Format(i18n.FlakeLIMsgs.LIInfoandAddress, livi.LIVersion.ToString("0.0"), livi.LICodenumber.ToString(), liadd.LIAddress.ToString()), logme.LogLevel.limsg);
+                    logme.Log(string.Format(i18n.XpressNetLiMessages.LIInfoandAddress, livi.LIVersion.ToString("0.0"), livi.LICodenumber.ToString(), liadd.LIAddress.ToString()), logme.LogLevel.limsg);
 
                     // get the central version info
                     LiCommandAndAnswer centralVersion = new LiCommandAndAnswer(new GetCentralVersion());
                     QueueNewCommand(centralVersion);
                     CentralVersionInfo cvi = centralVersion.Answer as CentralVersionInfo;
-                    logme.Log(string.Format(i18n.FlakeLIMsgs.CentralVersionInfo, cvi.CentralVersion.ToString("0.0"), cvi.CentralTypeName), logme.LogLevel.limsg);
+                    logme.Log(string.Format(i18n.XpressNetLiMessages.CentralVersionInfo, cvi.CentralVersion.ToString("0.0"), cvi.CentralTypeName), logme.LogLevel.limsg);
 
                     GetCentralState();
                     noError = true;
@@ -321,7 +321,7 @@ namespace Flake.MoBa.XpressNetLi
             }
             if (noError == false && tries > Config.Data.CentralFetchInfoTries)
             {
-                logme.Log(i18n.FlakeLIWarnings.TooManyTriesFetchCentralInfo, logme.LogLevel.warning);
+                logme.Log(i18n.ErrorMessages.TooManyTriesFetchCentralInfo, logme.LogLevel.warning);
             }
         }
 
@@ -343,11 +343,11 @@ namespace Flake.MoBa.XpressNetLi
             this.RamCheckError = csi.RamCheckError;
 
             string msg =
-                string.Format(i18n.FlakeLIMsgs.CentralStateInfo, ((EmergencyStop) ? (i18n.FlakeLIBase.yes) : (i18n.FlakeLIBase.no)),
-                ((EmergencyOff) ? (i18n.FlakeLIBase.yes) : (i18n.FlakeLIBase.no)), StartMode,
-                ((ProgramMode) ? (i18n.FlakeLIBase.yes) : (i18n.FlakeLIBase.no)),
-                ((ColdReset) ? (i18n.FlakeLIBase.yes) : (i18n.FlakeLIBase.no)),
-                ((RamCheckError) ? (i18n.FlakeLIBase.yes) : (i18n.FlakeLIBase.no)));
+                string.Format(i18n.XpressNetLiMessages.CentralStateInfo, ((EmergencyStop) ? (i18n.GrammarBase.yes) : (i18n.GrammarBase.no)),
+                ((EmergencyOff) ? (i18n.GrammarBase.yes) : (i18n.GrammarBase.no)), StartMode,
+                ((ProgramMode) ? (i18n.GrammarBase.yes) : (i18n.GrammarBase.no)),
+                ((ColdReset) ? (i18n.GrammarBase.yes) : (i18n.GrammarBase.no)),
+                ((RamCheckError) ? (i18n.GrammarBase.yes) : (i18n.GrammarBase.no)));
 
             logme.Log(msg, logme.LogLevel.limsg);
         }
@@ -420,7 +420,7 @@ namespace Flake.MoBa.XpressNetLi
 
             // start command queue worker process
             //System.Threading.ThreadPool.QueueUserWorkItem(delegate { _AnswerListener = new LIListener(this); }, null);
-            logme.Log(string.Format(i18n.FlakeLIMsgs.StartLIListener, Port), logme.LogLevel.info);
+            logme.Log(string.Format(i18n.XpressNetLiMessages.StartLIListener, Port), logme.LogLevel.info);
             SerialPortConnection.ComDataReceived += new ComPortEventHandler(DataReceivedHandler);
 
             GetInterfaceAndCentralInfo();
@@ -444,7 +444,7 @@ namespace Flake.MoBa.XpressNetLi
 
             // start command queue worker process
             //System.Threading.ThreadPool.QueueUserWorkItem(delegate { _AnswerListener = new LIListener(this); }, null);
-            logme.Log(string.Format(i18n.FlakeLIMsgs.StartLIListener, Port), logme.LogLevel.info);
+            logme.Log(string.Format(i18n.XpressNetLiMessages.StartLIListener, Port), logme.LogLevel.info);
             SerialPortConnection.ComDataReceived += new ComPortEventHandler(DataReceivedHandler);
 
             GetInterfaceAndCentralInfo();

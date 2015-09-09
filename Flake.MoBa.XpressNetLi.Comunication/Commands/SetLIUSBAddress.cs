@@ -15,14 +15,14 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// Construcor
         /// </summary>
         public SetLIUSBAddress(int address)
-            : base(i18n.FlakeComunicationCommands.SetLIUSBAddressName, i18n.FlakeComunicationCommands.SetLIUSBAddressDesc)
+            : base(i18n.Commands.SetLIUSBAddressName, i18n.Commands.SetLIUSBAddressDesc)
         {
             if (address < 1 || address > 31)
             {
-                logme.Log(string.Format(i18n.FlakeComunicationErrors.InterfaceAddressCouldNotBeSet, address.ToString()), logme.LogLevel.error);
+                logme.Log(string.Format(i18n.ErrorMessages.InterfaceAddressCouldNotBeSet, address.ToString()), logme.LogLevel.error);
             }
             _ByteArray = new byte[] { 255, 254, 242, 0, (byte)address };
-            _LogMsg = string.Format(i18n.FlakeComunicationCommandsLogMsgs.SetLIUSBAddress, address.ToString());
+            _LogMsg = string.Format(i18n.LogMessages.SetLIUSBAddress, address.ToString());
         }
 
         /// <summary>

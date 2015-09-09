@@ -44,8 +44,8 @@ namespace Flake.MoBa.XpressNetLi.Base
         /// <returns>bool-array with lenght of 8</returns>
         public static bool[] GetBitsOfHexByte(string value, bool UseLittleEndian = true)
         {
-            if (value.Length != 2) throw new Exception(i18n.FlakeBaseErrors.HexNot2Digits);
-            if (!IsStringHexFormat(value)) throw new Exception(i18n.FlakeBaseErrors.NoHexSign);
+            if (value.Length != 2) throw new Exception(i18n.ErrorMessages.HexNot2Digits);
+            if (!IsStringHexFormat(value)) throw new Exception(i18n.ErrorMessages.NoHexSign);
             List<bool> ret = new List<bool>();
             string binary = ConvertHexToBinary(value);
             while (binary.Length < 8) { binary = "0" + binary; } // add leading zeros
@@ -62,7 +62,7 @@ namespace Flake.MoBa.XpressNetLi.Base
         /// <remarks>big endian</remarks>
         private static string ConvertHexToBinary(string value)
         {
-            if (!IsStringHexFormat(value)) throw new Exception(i18n.FlakeBaseErrors.NoHexSign);
+            if (!IsStringHexFormat(value)) throw new Exception(i18n.ErrorMessages.NoHexSign);
             string ret = string.Empty;
             ret = Convert.ToString(Convert.ToInt32(value, 16), 2);
             return ret;
@@ -102,8 +102,8 @@ namespace Flake.MoBa.XpressNetLi.Base
         /// <returns>representing bytevalue</returns>
         public static byte ConvertTwoDigitHexToByte(string value)
         {
-            if (value.Length != 2) throw new Exception(i18n.FlakeBaseErrors.HexNot2Digits);
-            if (!IsStringHexFormat(value)) throw new Exception(i18n.FlakeBaseErrors.NoHexSign);
+            if (value.Length != 2) throw new Exception(i18n.ErrorMessages.HexNot2Digits);
+            if (!IsStringHexFormat(value)) throw new Exception(i18n.ErrorMessages.NoHexSign);
             if (value.ToLower().StartsWith("0x"))
             {
                 value = value.TrimStart(new char[] { '0', 'x' });

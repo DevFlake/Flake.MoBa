@@ -14,11 +14,11 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// Construcor
         /// </summary>
         public GetLIUSBAddress()
-            : base(i18n.FlakeComunicationCommands.GetLIUSBAddressName, i18n.FlakeComunicationCommands.GetLIUSBAddressDesc)
+            : base(i18n.Commands.GetLIUSBAddressName, i18n.Commands.GetLIUSBAddressDesc)
         {
             _ByteArray = new byte[] { 255, 254, 242, 1, 0 };
             CommunicationHelper.AddChecksumByteToArray(ref _ByteArray);
-            _LogMsg = string.Format(i18n.FlakeComunicationCommandsLogMsgs.GetLIUSBAddress);
+            _LogMsg = string.Format(i18n.LogMessages.GetLIUSBAddress);
         }
 
         /// <summary>

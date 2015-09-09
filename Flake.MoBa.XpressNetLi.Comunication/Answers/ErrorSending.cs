@@ -14,7 +14,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="byteArray">bytearray from central</param>
         public ErrorSending(byte[] byteArray)
-            : base(i18n.FlakeComunicationAnswers.ErrorSendingName, i18n.FlakeComunicationAnswers.ErrorSendingDesc)
+            : base(i18n.Answers.ErrorSendingName, i18n.Answers.ErrorSendingDesc)
         {
             _ByteArray = byteArray;
         }
@@ -24,7 +24,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         public string LogMessage
         {
-            get { return i18n.FlakeComunicationAnswerLogMsgs.ErrorSending; }
+            get { return i18n.LogMessages.ErrorSending; }
         }
     }
 }

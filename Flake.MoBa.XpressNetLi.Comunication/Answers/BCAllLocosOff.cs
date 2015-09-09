@@ -13,7 +13,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="byteArray">bytearray from central</param>
         public BCAllLocosOff(byte[] byteArray)
-            : base(i18n.FlakeComunicationAnswers.BCAllLocosOffName, i18n.FlakeComunicationAnswers.BCAllLocosOffDesc, true)
+            : base(i18n.Answers.BCAllLocosOffName, i18n.Answers.BCAllLocosOffDesc, true)
         {
             _ByteArray = byteArray;
         }
@@ -23,7 +23,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         public string LogMessage
         {
-            get { return i18n.FlakeComunicationAnswerLogMsgs.BCAllLocosOff; }
+            get { return i18n.LogMessages.BCAllLocosOff; }
         }
     }
 }

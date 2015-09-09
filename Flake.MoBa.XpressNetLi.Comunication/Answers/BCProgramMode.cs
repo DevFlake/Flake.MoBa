@@ -13,7 +13,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="byteArray">bytearray from central</param>
         public BCProgramMode(byte[] byteArray)
-            : base(i18n.FlakeComunicationAnswers.BCProgramModeName, i18n.FlakeComunicationAnswers.BCProgramModeDesc, true)
+            : base(i18n.Answers.BCProgramModeName, i18n.Answers.BCProgramModeDesc, true)
         {
             _ByteArray = byteArray;
         }
@@ -23,7 +23,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         public string LogMessage
         {
-            get { return i18n.FlakeComunicationAnswerLogMsgs.BCProgramMode; }
+            get { return i18n.LogMessages.BCProgramMode; }
         }
     }
 }

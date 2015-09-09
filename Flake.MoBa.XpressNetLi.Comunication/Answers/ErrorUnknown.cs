@@ -13,7 +13,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="byteArray">bytearray from central</param>
         public ErrorUnknown(byte[] byteArray)
-            : base(i18n.FlakeComunicationAnswers.ErrorUnknownName, i18n.FlakeComunicationAnswers.ErrorUnknownDesc)
+            : base(i18n.Answers.ErrorUnknownName, i18n.Answers.ErrorUnknownDesc)
         {
             _ByteArray = byteArray;
         }
@@ -23,7 +23,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         public string LogMessage
         {
-            get { return i18n.FlakeComunicationAnswerLogMsgs.ErrorUnknown; }
+            get { return i18n.LogMessages.ErrorUnknown; }
         }
     }
 }

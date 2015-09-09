@@ -15,10 +15,10 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// Construcor
         /// </summary>
         public GetCentralStateInfo()
-            : base(i18n.FlakeComunicationCommands.GetCentralStateInfoName, i18n.FlakeComunicationCommands.GetCentralStateInfoDesc)
+            : base(i18n.Commands.GetCentralStateInfoName, i18n.Commands.GetCentralStateInfoDesc)
         {
             _ByteArray = new byte[] { 255, 254, FlakeHelper.ConvertTwoDigitHexToByte("21"), FlakeHelper.ConvertTwoDigitHexToByte("24"), FlakeHelper.ConvertTwoDigitHexToByte("05") };
-            _LogMsg = string.Format(i18n.FlakeComunicationCommandsLogMsgs.GetCentralStateInfo);
+            _LogMsg = string.Format(i18n.LogMessages.GetCentralStateInfo);
         }
 
         /// <summary>

@@ -14,7 +14,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="byteArray">bytearray from central</param>
         public CommonAnswer(byte[] byteArray)
-            : base(i18n.FlakeComunicationAnswers.CommonAnswerName, i18n.FlakeComunicationAnswers.CommonAnswerDesc)
+            : base(i18n.Answers.CommonAnswerName, i18n.Answers.CommonAnswerDesc)
         {
             _ByteArray = byteArray;
         }
@@ -24,7 +24,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         public string LogMessage
         {
-            get { return i18n.FlakeComunicationAnswerLogMsgs.CommonAnswer; }
+            get { return i18n.LogMessages.CommonAnswer; }
         }
     }
 }

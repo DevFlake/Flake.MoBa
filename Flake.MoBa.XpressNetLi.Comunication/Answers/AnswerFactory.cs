@@ -140,10 +140,10 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
             }
             else
             {
-                logme.Log(i18n.FlakeComunicationErrors.WrongAnswerFormat, logme.LogLevel.error);
+                logme.Log(i18n.ErrorMessages.WrongAnswerFormat, logme.LogLevel.error);
                 return null;
             }
-            logme.Log(i18n.FlakeComunicationErrors.UnknownAnswer, logme.LogLevel.error);
+            logme.Log(i18n.ErrorMessages.UnknownAnswer, logme.LogLevel.error);
             return null;
         }
 

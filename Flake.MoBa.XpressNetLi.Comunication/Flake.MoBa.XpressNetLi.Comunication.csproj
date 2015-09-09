@@ -115,71 +115,36 @@
     <Compile Include="CommunicationHelper.cs" />
     <Compile Include="LiCommandAndAnswer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\FlakeComunicationAnswers.Designer.cs">
+    <Compile Include="Resources\Answers.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeComunicationAnswers.resx</DependentUpon>
+      <DependentUpon>Answers.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\FlakeComunicationAnswerLogMsgs.Designer.cs">
+    <Compile Include="Resources\Commands.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeComunicationAnswerLogMsgs.resx</DependentUpon>
+      <DependentUpon>Commands.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\FlakeComunicationBase.Designer.cs">
+    <Compile Include="Resources\ComunicationMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeComunicationBase.resx</DependentUpon>
+      <DependentUpon>ComunicationMessages.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\FlakeComunicationCommands.Designer.cs">
+    <Compile Include="Resources\ErrorMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeComunicationCommands.resx</DependentUpon>
+      <DependentUpon>ErrorMessages.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\FlakeComunicationCommandsLogMsgs.Designer.cs">
+    <Compile Include="Resources\GrammarBase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeComunicationCommandsLogMsgs.resx</DependentUpon>
+      <DependentUpon>GrammarBase.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\FlakeComunicationErrors.Designer.cs">
+    <Compile Include="Resources\LogMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeComunicationErrors.resx</DependentUpon>
+      <DependentUpon>LogMessages.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\FlakeComunicationMsgs.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeComunicationMsgs.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\FlakeComunicationAnswerLogMsgs.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeComunicationAnswerLogMsgs.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeComunicationAnswers.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeComunicationAnswers.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeComunicationBase.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeComunicationBase.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeComunicationCommands.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeComunicationCommands.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeComunicationCommandsLogMsgs.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeComunicationCommandsLogMsgs.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeComunicationErrors.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeComunicationErrors.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeComunicationMsgs.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeComunicationMsgs.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Flake.MoBa.Log\Flake.MoBa.Log.csproj">
@@ -190,10 +155,6 @@
       <Project>{5514a9e4-d748-48c7-8e7f-dd1588440e15}</Project>
       <Name>Flake.MoBa.XpressNetLi.Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Controller\Flake.MoBa.XpressNetLi.Controller.csproj">
-      <Project>{60ba5a46-2648-41b0-9818-307206670db7}</Project>
-      <Name>Flake.MoBa.XpressNetLi.Controller</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Entities.Interfaces\Flake.MoBa.XpressNetLi.Entities.Interfaces.csproj">
       <Project>{2c6f0abb-e49c-4874-b7d2-901f9882624f}</Project>
       <Name>Flake.MoBa.XpressNetLi.Entities.Interfaces</Name>
@@ -201,6 +162,32 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Answers.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Answers.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Commands.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Commands.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ComunicationMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ComunicationMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ErrorMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\GrammarBase.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GrammarBase.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LogMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LogMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -13,7 +13,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="byteArray">bytearray from central</param>
         public LIVersionInfo(byte[] byteArray)
-            : base(i18n.FlakeComunicationAnswers.LIVersionInfoName, i18n.FlakeComunicationAnswers.LIVersionInfoDesc)
+            : base(i18n.Answers.LIVersionInfoName, i18n.Answers.LIVersionInfoDesc)
         {
             _ByteArray = byteArray;
             LICodenumber = (int)_ByteArray[4];
@@ -25,7 +25,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         public string LogMessage
         {
-            get { return i18n.FlakeComunicationAnswerLogMsgs.LIVersionInfo; }
+            get { return i18n.LogMessages.LIVersionInfo; }
         }
 
         /// <summary>

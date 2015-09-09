@@ -18,12 +18,12 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// </summary>
         /// <param name="mode">Startmode for central</param>
         public SetLCentralStartMode(Base.Enums.CentralStartMode.CentralStartMode mode)
-            : base(i18n.FlakeComunicationCommands.SetLCentralStartModeName, i18n.FlakeComunicationCommands.SetLCentralStartModeDesc)
+            : base(i18n.Commands.SetLCentralStartModeName, i18n.Commands.SetLCentralStartModeDesc)
         {
             byte databyte = (byte)Base.FlakeHelper.ConvertBinaryStringToDecimal(string.Format("00000{0}00", (mode == Base.Enums.CentralStartMode.CentralStartMode.auto) ? ("1") : ("0")));
             _ByteArray = new byte[] { 255, 254, 34, 34, databyte };
             CommunicationHelper.AddChecksumByteToArray(ref _ByteArray);
-            _LogMsg = string.Format(i18n.FlakeComunicationCommandsLogMsgs.SetLCentralStartMode, new Base.Enums.CentralStartMode.CentralStartModeExtended(mode).Name);
+            _LogMsg = string.Format(i18n.LogMessages.SetLCentralStartMode, new Base.Enums.CentralStartMode.CentralStartModeExtended(mode).Name);
         }
 
         /// <summary>

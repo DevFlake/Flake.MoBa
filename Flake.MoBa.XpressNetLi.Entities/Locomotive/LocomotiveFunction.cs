@@ -50,8 +50,8 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// <remarks>the name of the function will be set automatically from number</remarks>
         public LocomotiveFunction(int fNumber)
         {
-            Name = string.Format(i18n.FlakeLocomotive.Function, fNumber.ToString());
-            Description = string.Format(i18n.FlakeLocomotive.EmptyDescription, fNumber.ToString());
+            Name = string.Format(i18n.Locomotive.Function, fNumber.ToString());
+            Description = string.Format(i18n.Locomotive.EmptyDescription, fNumber.ToString());
             Type = LocomotiveFunctionType.switching;
             FNumber = fNumber;
             Active = false;

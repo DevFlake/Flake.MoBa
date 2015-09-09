@@ -115,48 +115,50 @@
     <Compile Include="HiLoAddress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\CentralStartMode.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>CentralStartMode.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Resources\FlakeBaseErrors.Designer.cs">
+    <Compile Include="Resources\ErrorMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeBaseErrors.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\FlakeControllerErrors.Designer.cs">
-      <DependentUpon>FlakeControllerErrors.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorMessages.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\LocoFunctionRefreshMode.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>LocoFunctionRefreshMode.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Resources\LocomotiveDirection.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>LocomotiveDirection.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Resources\LocomotiveSpeedSections.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>LocomotiveSpeedSections.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Flake.MoBa.Log\Flake.MoBa.Log.csproj">
+      <Project>{9ede82c3-b314-48d9-b741-298c7d3bb98f}</Project>
+      <Name>Flake.MoBa.Log</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resources\CentralStartMode.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CentralStartMode.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeBaseErrors.resx">
+    <EmbeddedResource Include="Resources\ErrorMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeBaseErrors.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeControllerErrors.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeControllerErrors.Designer.cs</LastGenOutput>
+      <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\LocoFunctionRefreshMode.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -170,16 +172,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LocomotiveSpeedSections.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Flake.MoBa.Log\Flake.MoBa.Log.csproj">
-      <Project>{9ede82c3-b314-48d9-b741-298c7d3bb98f}</Project>
-      <Name>Flake.MoBa.Log</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

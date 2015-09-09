@@ -165,7 +165,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
             }
             else
             {
-                logme.Log(i18n.FlakeLIErrors.AnswerEmpty, logme.LogLevel.error, answer.ByteArray);
+                logme.Log(i18n.ErrorMessages.AnswerEmpty, logme.LogLevel.error, answer.ByteArray);
             }
         }
 
@@ -185,7 +185,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
             }
             else
             {
-                logme.Log(i18n.FlakeLIErrors.AnswerEmpty, logme.LogLevel.error, answer.ByteArray);
+                logme.Log(i18n.ErrorMessages.AnswerEmpty, logme.LogLevel.error, answer.ByteArray);
             }
         }
 
@@ -211,7 +211,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
                 }
                 else
                 {
-                    logme.Log(i18n.FlakeLIErrors.AnswerEmpty, logme.LogLevel.error);
+                    logme.Log(i18n.ErrorMessages.AnswerEmpty, logme.LogLevel.error);
                 }
             }
         }
@@ -238,7 +238,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
                 }
                 else
                 {
-                    logme.Log(i18n.FlakeLIErrors.AnswerEmpty, logme.LogLevel.error, answer.ByteArray);
+                    logme.Log(i18n.ErrorMessages.AnswerEmpty, logme.LogLevel.error, answer.ByteArray);
                 }
             }
         }
@@ -289,7 +289,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
                     _CurrentDirection = Base.Enums.LocomotiveDirection.LocomotiveDirection.backward;
                     break;
                 default:
-                    logme.Log(i18n.FlakeLIMsgs.NutSupportetDirection, logme.LogLevel.error);
+                    logme.Log(i18n.ComunicationMessages.NotSupportetDirection, logme.LogLevel.error);
                     break;
             }
             Drive();
@@ -314,7 +314,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
                 }
                 else
                 {
-                    logme.Log(string.Format(i18n.FlakeLIWarnings.MaxSpeedNotSet, value.ToString()), logme.LogLevel.warning);
+                    logme.Log(string.Format(i18n.ErrorMessages.MaxSpeedNotSet, value.ToString()), logme.LogLevel.warning);
                 }
             }
 
@@ -366,12 +366,12 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         {
             if (value < 0)
             {
-                logme.Log(i18n.FlakeLIMsgs.LocomotiveSpeedTooLowForCalc, logme.LogLevel.warning);
+                logme.Log(i18n.ComunicationMessages.LocomotiveSpeedTooLowForCalc, logme.LogLevel.warning);
                 return 0;
             }
             if (value > (int)_SpeedSections)
             {
-                logme.Log(i18n.FlakeLIMsgs.LocomotiveSpeedTooLowForCalc, logme.LogLevel.warning);
+                logme.Log(i18n.ComunicationMessages.LocomotiveSpeedTooLowForCalc, logme.LogLevel.warning);
                 return (int)_SpeedSections;
             }
             return value;
@@ -604,7 +604,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
             }
             else
             {
-                logme.Log(i18n.FlakeLIMsgs.WarningNotRegisteredLocoFunction, logme.LogLevel.warning);
+                logme.Log(i18n.ErrorMessages.WarningNotRegisteredLocoFunction, logme.LogLevel.warning);
             }
         }
 

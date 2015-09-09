@@ -20,11 +20,11 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// <param name="extAddress">Adress of locomotive</param>
         /// <param name="mode">Startmode for central</param>
         public SetLFunctionRefreshMode(HiLoAddress extAddress, Base.Enums.LocoFunctionRefreshMode.LocoFunctionRefreshMode mode)
-            : base(i18n.FlakeComunicationCommands.SetLFunctionRefreshModeName, i18n.FlakeComunicationCommands.SetLFunctionRefreshModeDesc)
+            : base(i18n.Commands.SetLFunctionRefreshModeName, i18n.Commands.SetLFunctionRefreshModeDesc)
         {
             _ByteArray = new byte[] { 255, 254, 228, 47, (byte)extAddress.Address_Hi, (byte)extAddress.Address_Lo, (byte)mode };
             CommunicationHelper.AddChecksumByteToArray(ref _ByteArray);
-            _LogMsg = string.Format(i18n.FlakeComunicationCommandsLogMsgs.SetLFunctionRefreshMode, new Base.Enums.LocoFunctionRefreshMode.LocoFunctionRefreshModeExtended(mode).Name, extAddress.Address.ToString());
+            _LogMsg = string.Format(i18n.LogMessages.SetLFunctionRefreshMode, new Base.Enums.LocoFunctionRefreshMode.LocoFunctionRefreshModeExtended(mode).Name, extAddress.Address.ToString());
         }
 
         /// <summary>

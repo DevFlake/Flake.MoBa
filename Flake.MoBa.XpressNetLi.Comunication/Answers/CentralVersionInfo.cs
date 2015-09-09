@@ -15,7 +15,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="byteArray">bytearray from central</param>
         public CentralVersionInfo(byte[] byteArray)
-            : base(i18n.FlakeComunicationAnswers.CentralVersionInfoName, i18n.FlakeComunicationAnswers.CentralVersionInfoDesc)
+            : base(i18n.Answers.CentralVersionInfoName, i18n.Answers.CentralVersionInfoDesc)
         {
             _ByteArray = byteArray;
             CentralVersion = Base.FlakeHelper.GetDecimalFromBCD(_ByteArray[4]);
@@ -31,7 +31,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
                     CentralType = TypeOfCentral.DPC;
                     break;
                 default:
-                    logme.Log(i18n.FlakeComunicationMsgs.NotRecognizedCentralType, logme.LogLevel.error, byteArray);
+                    logme.Log(i18n.ComunicationMessages.NotRecognizedCentralType, logme.LogLevel.error, byteArray);
                     break;
             }
         }
@@ -41,7 +41,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         public string LogMessage
         {
-            get { return i18n.FlakeComunicationAnswerLogMsgs.CentralVersionInfo; }
+            get { return i18n.LogMessages.CentralVersionInfo; }
         }
 
         /// <summary>
@@ -83,11 +83,11 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
                 switch (CentralType)
                 {
                     case TypeOfCentral.LZ100:
-                        return i18n.FlakeComunicationAnswers.CentralTypeLZ100;
+                        return i18n.Answers.CentralTypeLZ100;
                     case TypeOfCentral.LH200:
-                        return i18n.FlakeComunicationAnswers.CentralTypeLH200;
+                        return i18n.Answers.CentralTypeLH200;
                     case TypeOfCentral.DPC:
-                        return i18n.FlakeComunicationAnswers.CentralTypeDCP;
+                        return i18n.Answers.CentralTypeDCP;
                     default:
                         return String.Empty;
                 }

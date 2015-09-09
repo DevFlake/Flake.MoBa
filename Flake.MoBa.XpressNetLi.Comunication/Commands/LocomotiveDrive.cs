@@ -19,12 +19,12 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// <param name="driveForward">use forward direction</param>
         /// <param name="speedSections">speed section setup of locomotive</param>
         public LocomotiveDrive(HiLoAddress extAddress, int speedValue, bool driveForward, Base.Enums.LocomotiveSpeedSections.LocomotiveSpeedSections speedSections)
-            : base(i18n.FlakeComunicationCommands.DriveCommandName, i18n.FlakeComunicationCommands.DriveCommandDesc)
+            : base(i18n.Commands.DriveCommandName, i18n.Commands.DriveCommandDesc)
         {
             _ByteArray = new byte[] { 255, 254, 228, GetIdentifier(speedSections), (byte)extAddress.Address_Hi,
                         (byte)extAddress.Address_Lo, GetSpeedAndDirection(speedValue, driveForward, speedSections) };
             CommunicationHelper.AddChecksumByteToArray(ref _ByteArray);
-            _LogMsg = string.Format(i18n.FlakeComunicationCommandsLogMsgs.DriveCommand, extAddress.Address.ToString(), speedValue.ToString(), (driveForward) ?
+            _LogMsg = string.Format(i18n.LogMessages.DriveCommand, extAddress.Address.ToString(), speedValue.ToString(), (driveForward) ?
                 (new Base.Enums.LocomotiveDirection.LocomotiveDirectionExtended(Base.Enums.LocomotiveDirection.LocomotiveDirection.forward).Name) :
                 (new Base.Enums.LocomotiveDirection.LocomotiveDirectionExtended(Base.Enums.LocomotiveDirection.LocomotiveDirection.backward).Name));
         }

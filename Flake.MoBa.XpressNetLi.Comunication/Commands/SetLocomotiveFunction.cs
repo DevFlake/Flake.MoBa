@@ -30,7 +30,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// <param name="setFunction">set (1) or unset (0) the function</param>
         /// <param name="currentFunctions">current function state dictionary</param>
         public SetLocomotiveFunction(HiLoAddress extAddress, int functionNumber, bool setFunction, Dictionary<int, bool> currentFunctionsActivationState)
-            : base(i18n.FlakeComunicationCommands.SetLocomotiveFunctionName, i18n.FlakeComunicationCommands.SetLocomotiveFunctionDesc)
+            : base(i18n.Commands.SetLocomotiveFunctionName, i18n.Commands.SetLocomotiveFunctionDesc)
         {
             // TODO Merge Dictioniaries
             _Functions = new Dictionary<int, bool>();
@@ -45,7 +45,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
 
             _ByteArray = new byte[] { 255, 254, 228, identifier, (byte)extAddress.Address_Hi, (byte)extAddress.Address_Lo, data3byte };
             CommunicationHelper.AddChecksumByteToArray(ref _ByteArray);
-            _LogMsg = string.Format(i18n.FlakeComunicationCommandsLogMsgs.SetLocomotiveFunction, functionNumber.ToString(), extAddress.Address.ToString(), (setFunction) ? (i18n.FlakeComunicationBase.set) : (i18n.FlakeComunicationBase.unset));
+            _LogMsg = string.Format(i18n.LogMessages.SetLocomotiveFunction, functionNumber.ToString(), extAddress.Address.ToString(), (setFunction) ? (i18n.GrammarBase.set) : (i18n.GrammarBase.unset));
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
             if (functionNumber < -1 || functionNumber > 28)
             {
                 // if we arrive here there is an error in the choose of functionnumber (too large)
-                logme.Log(i18n.FlakeComunicationMsgs.ErrorReceivingFunctionNumber, logme.LogLevel.error);
+                logme.Log(i18n.ComunicationMessages.ErrorReceivingFunctionNumber, logme.LogLevel.error);
             }
             return data3byte;
         }

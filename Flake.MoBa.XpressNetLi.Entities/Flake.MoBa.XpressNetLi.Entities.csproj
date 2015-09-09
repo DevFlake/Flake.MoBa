@@ -45,25 +45,20 @@
     <Compile Include="Locomotive\LocomotiveFunction.cs" />
     <Compile Include="Locomotive\LocomotiveFunctionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\FlakeLIErrors.Designer.cs">
-      <DependentUpon>FlakeLIErrors.resx</DependentUpon>
+    <Compile Include="Resources\ComunicationMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>ComunicationMessages.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\FlakeLIMsgs.Designer.cs">
-      <DependentUpon>FlakeLIMsgs.resx</DependentUpon>
+    <Compile Include="Resources\ErrorMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorMessages.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\FlakeLIWarnings.Designer.cs">
-      <DependentUpon>FlakeLIWarnings.resx</DependentUpon>
+    <Compile Include="Resources\Locomotive.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Resources\FlakeLocomotive.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeLocomotive.resx</DependentUpon>
+      <DependentUpon>Locomotive.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -100,22 +95,21 @@
     <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\FlakeLIErrors.resx">
+    <EmbeddedResource Include="Resources\ComunicationMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeLIErrors.Designer.cs</LastGenOutput>
+      <LastGenOutput>ComunicationMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeLIMsgs.resx">
+    <EmbeddedResource Include="Resources\ErrorMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeLIMsgs.Designer.cs</LastGenOutput>
+      <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeLIWarnings.resx">
+    <EmbeddedResource Include="Resources\Locomotive.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeLIWarnings.Designer.cs</LastGenOutput>
+      <LastGenOutput>Locomotive.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeLocomotive.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeLocomotive.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

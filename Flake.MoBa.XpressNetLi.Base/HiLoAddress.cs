@@ -41,7 +41,7 @@ namespace Flake.MoBa.XpressNetLi.Base
         /// <param name="address">decimal number (0-9999)</param>
         public HiLoAddress(int address)
         {
-            if (address < 0 || address > 9999) throw new Exception(i18n.FlakeControllerErrors.AddressNotInRange);
+            if (address < 0 || address > 9999) throw new Exception(i18n.ErrorMessages.AddressNotInRange);
             Address = address;
             CalcHiLoAddresses();
         }

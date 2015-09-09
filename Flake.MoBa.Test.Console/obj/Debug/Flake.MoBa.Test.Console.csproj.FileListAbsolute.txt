@@ -20,3 +20,7 @@ E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\Flake.MoBa.Xpres
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.dll
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\Flake.MoBa.XpressNetLi.Entities.Interfaces.pdb
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\Flake.MoBa.Base.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\Flake.MoBa.XpressNetLi.Entities.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\Flake.MoBa.Base.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\Flake.MoBa.XpressNetLi.Entities.pdb

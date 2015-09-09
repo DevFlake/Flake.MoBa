@@ -120,89 +120,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Central.cs" />
-    <Compile Include="Resources\FlakeLIAnswerLogMsgs.Designer.cs">
+    <Compile Include="Resources\ErrorMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeLIAnswerLogMsgs.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\FlakeLIAnswers.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeLIAnswers.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\FlakeLIBase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeLIBase.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\FlakeLICommands.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeLICommands.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\FlakeLICommandsLogMsgs.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeLICommandsLogMsgs.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\FlakeLIErrors.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeLIErrors.resx</DependentUpon>
+      <DependentUpon>ErrorMessages.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\FlakeLILocomotive.Designer.cs">
+    <Compile Include="Resources\GrammarBase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeLILocomotive.resx</DependentUpon>
+      <DependentUpon>GrammarBase.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\FlakeLIMsgs.Designer.cs">
+    <Compile Include="Resources\XpressNetLiMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeLIMsgs.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\FlakeLIWarnings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FlakeLIWarnings.resx</DependentUpon>
+      <DependentUpon>XpressNetLiMessages.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\FlakeLIAnswerLogMsgs.resx">
+    <EmbeddedResource Include="Resources\ErrorMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeLIAnswerLogMsgs.Designer.cs</LastGenOutput>
+      <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeLIAnswers.resx">
+    <EmbeddedResource Include="Resources\GrammarBase.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeLIAnswers.Designer.cs</LastGenOutput>
+      <LastGenOutput>GrammarBase.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeLIBase.resx">
+    <EmbeddedResource Include="Resources\XpressNetLiMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeLIBase.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeLICommands.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeLICommands.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeLICommandsLogMsgs.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeLICommandsLogMsgs.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeLIErrors.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeLIErrors.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeLILocomotive.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeLILocomotive.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeLIMsgs.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeLIMsgs.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\FlakeLIWarnings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlakeLIWarnings.Designer.cs</LastGenOutput>
+      <LastGenOutput>XpressNetLiMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -231,10 +177,6 @@
       <Project>{7bb790ce-c630-4bdc-ae31-ada72c8961c8}</Project>
       <Name>Flake.MoBa.XPressNetLi.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Controller\Flake.MoBa.XpressNetLi.Controller.csproj">
-      <Project>{60ba5a46-2648-41b0-9818-307206670db7}</Project>
-      <Name>Flake.MoBa.XpressNetLi.Controller</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Entities.Interfaces\Flake.MoBa.XpressNetLi.Entities.Interfaces.csproj">
       <Project>{2c6f0abb-e49c-4874-b7d2-901f9882624f}</Project>
       <Name>Flake.MoBa.XpressNetLi.Entities.Interfaces</Name>
@@ -244,9 +186,7 @@
       <Name>Flake.MoBa.XpressNetLi.Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

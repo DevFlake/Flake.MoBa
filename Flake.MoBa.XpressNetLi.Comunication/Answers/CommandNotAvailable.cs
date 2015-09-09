@@ -14,7 +14,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="byteArray">bytearray from central</param>
         public CommandNotAvailable(byte[] byteArray)
-            : base(i18n.FlakeComunicationAnswers.CommandNotAvailableName, i18n.FlakeComunicationAnswers.CommandNotAvailableDesc)
+            : base(i18n.Answers.CommandNotAvailableName, i18n.Answers.CommandNotAvailableDesc)
         {
             _ByteArray = byteArray;
         }
@@ -24,7 +24,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         public string LogMessage
         {
-            get { return i18n.FlakeComunicationAnswerLogMsgs.CommandNotAvailable; }
+            get { return i18n.LogMessages.CommandNotAvailable; }
         }
     }
 }

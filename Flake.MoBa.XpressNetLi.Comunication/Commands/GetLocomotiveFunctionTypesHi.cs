@@ -16,11 +16,11 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// </summary>
         /// <param name="extAddress">Extended address of locomotive</param>
         public GetLocomotiveFunctionTypesHi(HiLoAddress extAddress)
-            : base(i18n.FlakeComunicationCommands.GetLocomotiveFunctionTypesHiName, i18n.FlakeComunicationCommands.GetLocomotiveFunctionTypesHidesc)
+            : base(i18n.Commands.GetLocomotiveFunctionTypesHiName, i18n.Commands.GetLocomotiveFunctionTypesHidesc)
         {
             _ByteArray = new byte[] { 255, 254, 227, 8, (byte)extAddress.Address_Hi, (byte)extAddress.Address_Lo };
             CommunicationHelper.AddChecksumByteToArray(ref _ByteArray);
-            _LogMsg = string.Format(i18n.FlakeComunicationCommandsLogMsgs.GetLocomotiveFunctionTypesHi, extAddress.Address.ToString());
+            _LogMsg = string.Format(i18n.LogMessages.GetLocomotiveFunctionTypesHi, extAddress.Address.ToString());
         }
 
         /// <summary>

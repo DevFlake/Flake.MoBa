@@ -41,7 +41,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="byteArray">bytearray from central</param>
         public CommonLocomotiveInfo(byte[] byteArray)
-            : base(i18n.FlakeComunicationAnswers.CommonLocomotiveInfoName, i18n.FlakeComunicationAnswers.CommonLocomotiveInfoDesc)
+            : base(i18n.Answers.CommonLocomotiveInfoName, i18n.Answers.CommonLocomotiveInfoDesc)
         {
             _ByteArray = byteArray;
             _Identifier = Base.FlakeHelper.ConvertDecimalToBinary((int)_ByteArray[3], 8);
@@ -62,7 +62,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         public string LogMessage
         {
-            get { return i18n.FlakeComunicationAnswerLogMsgs.CommonLocomotiveInfo; }
+            get { return i18n.LogMessages.CommonLocomotiveInfo; }
         }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
                     case 1: return Base.Enums.LocomotiveSpeedSections.LocomotiveSpeedSections.x27;
                     case 2: return Base.Enums.LocomotiveSpeedSections.LocomotiveSpeedSections.x28;
                     case 4: return Base.Enums.LocomotiveSpeedSections.LocomotiveSpeedSections.x128;
-                    default: logme.Log(i18n.FlakeComunicationMsgs.NotSupportetSpeedSections, logme.LogLevel.error);
+                    default: logme.Log(i18n.ComunicationMessages.NotSupportetSpeedSections, logme.LogLevel.error);
                         return Base.Enums.LocomotiveSpeedSections.LocomotiveSpeedSections.x128;
                 }
             }

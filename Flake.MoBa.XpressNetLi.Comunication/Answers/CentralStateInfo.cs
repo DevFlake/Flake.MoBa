@@ -13,7 +13,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="byteArray">bytearray from central</param>
         public CentralStateInfo(byte[] byteArray)
-            : base(i18n.FlakeComunicationAnswers.CentralStateInfoName, i18n.FlakeComunicationAnswers.CentralStateInfoDesc)
+            : base(i18n.Answers.CentralStateInfoName, i18n.Answers.CentralStateInfoDesc)
         {
             _ByteArray = byteArray;
 
@@ -31,7 +31,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         public string LogMessage
         {
-            get { return i18n.FlakeComunicationAnswerLogMsgs.CentralStateInfo; }
+            get { return i18n.LogMessages.CentralStateInfo; }
         }
 
         /// <summary>

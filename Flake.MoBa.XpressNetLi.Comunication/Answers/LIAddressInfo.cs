@@ -13,13 +13,13 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         /// <param name="byteArray">bytearray from central</param>
         public LIAddressInfo(byte[] byteArray)
-            : base(i18n.FlakeComunicationAnswers.LIAddressInfoName, i18n.FlakeComunicationAnswers.LIAddressInfoDesc)
+            : base(i18n.Answers.LIAddressInfoName, i18n.Answers.LIAddressInfoDesc)
         {
             _ByteArray = byteArray;
             LIAddress = (int)_ByteArray[4];
             if (LIAddress < 1 || LIAddress > 31)
             {
-                logme.Log(string.Format(i18n.FlakeComunicationMsgs.ErrorReceivingFunctionNumber, LIAddress.ToString()), logme.LogLevel.error, byteArray);
+                logme.Log(string.Format(i18n.ComunicationMessages.ErrorReceivingFunctionNumber, LIAddress.ToString()), logme.LogLevel.error, byteArray);
             }
         }
 
@@ -28,7 +28,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Answers
         /// </summary>
         public string LogMessage
         {
-            get { return i18n.FlakeComunicationAnswerLogMsgs.LIAddressInfo; }
+            get { return i18n.LogMessages.LIAddressInfo; }
         }
 
         /// <summary>

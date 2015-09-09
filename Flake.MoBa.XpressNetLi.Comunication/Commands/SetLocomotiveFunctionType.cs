@@ -30,7 +30,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
         /// <param name="setTapping">set on tapping (1) or switching (0) the function</param>
         /// <param name="currentFunctions">current function state dictionary</param>
         public SetLocomotiveFunctionType(HiLoAddress extAddress, int functionNumber, bool setTapping, Dictionary<int, bool> currentFunctionsTypeIsTapping)
-            : base(i18n.FlakeComunicationCommands.SetLocomotiveFunctionTypeName, i18n.FlakeComunicationCommands.SetLocomotiveFunctionTypeDesc)
+            : base(i18n.Commands.SetLocomotiveFunctionTypeName, i18n.Commands.SetLocomotiveFunctionTypeDesc)
         {
             // TODO Merge Dictioniaries
             _Functions = new Dictionary<int, bool>();
@@ -45,7 +45,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
 
             _ByteArray = new byte[] { 255, 254, 228, identifier, (byte)extAddress.Address_Hi, (byte)extAddress.Address_Lo, data3byte };
             CommunicationHelper.AddChecksumByteToArray(ref _ByteArray);
-            _LogMsg = string.Format(i18n.FlakeComunicationCommandsLogMsgs.SetLocomotiveFunctionType, functionNumber.ToString(), extAddress.Address.ToString(), (setTapping) ? (i18n.FlakeComunicationBase.tapping) : (i18n.FlakeComunicationBase.switching));
+            _LogMsg = string.Format(i18n.LogMessages.SetLocomotiveFunctionType, functionNumber.ToString(), extAddress.Address.ToString(), (setTapping) ? (i18n.GrammarBase.tapping) : (i18n.GrammarBase.switching));
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace Flake.MoBa.XpressNetLi.Comunication.Commands
             if (functionNumber < -1 || functionNumber > 28)
             {
                 // if we arrive here there is an error in the choose of functionnumber (too large)
-                logme.Log(i18n.FlakeComunicationMsgs.ErrorReceivingFunctionNumber, logme.LogLevel.error);
+                logme.Log(i18n.ComunicationMessages.ErrorReceivingFunctionNumber, logme.LogLevel.error);
             }
             return data3byte;
         }
