@@ -1,0 +1,968 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MoBaDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artikel">
+          <Key>
+            <PropertyRef Name="ArtikelNid" />
+          </Key>
+          <Property Name="ArtikelNid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Beschreibung" Type="varchar(max)" />
+          <Property Name="Artikelnummer" Type="varchar" MaxLength="100" />
+          <Property Name="HerstellerNid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dokumente">
+          <Key>
+            <PropertyRef Name="DokumentNid" />
+          </Key>
+          <Property Name="DokumentNid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dokument" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Beschreibung" Type="varchar(max)" />
+          <Property Name="Mimetype" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dateiendung" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DokumenteZuArtikeln">
+          <Key>
+            <PropertyRef Name="DokumentNid" />
+            <PropertyRef Name="ArtikelNid" />
+          </Key>
+          <Property Name="DokumentNid" Type="int" Nullable="false" />
+          <Property Name="ArtikelNid" Type="int" Nullable="false" />
+          <Property Name="DokumenttypNid" Type="int" Nullable="false" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Beschreibung" Type="varchar(max)" />
+          <Property Name="Ordnungsmerkmal" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DokumenteZuHerstellern">
+          <Key>
+            <PropertyRef Name="DokumentNid" />
+            <PropertyRef Name="HerstellerNid" />
+          </Key>
+          <Property Name="DokumentNid" Type="int" Nullable="false" />
+          <Property Name="HerstellerNid" Type="int" Nullable="false" />
+          <Property Name="DokumenttypNid" Type="int" Nullable="false" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Beschreibung" Type="varchar(max)" />
+          <Property Name="Ordnungsmerkmal" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Dokumenttypen">
+          <Key>
+            <PropertyRef Name="DokumenttypNid" />
+          </Key>
+          <Property Name="DokumenttypNid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Beschreibung" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Hersteller">
+          <Key>
+            <PropertyRef Name="HerstellerNid" />
+          </Key>
+          <Property Name="HerstellerNid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Beschreibung" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Links">
+          <Key>
+            <PropertyRef Name="LinkNid" />
+          </Key>
+          <Property Name="LinkNid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Link" Type="varchar(max)" Nullable="false" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Beschreibung" Type="varchar(max)" />
+          <Property Name="DokumentNid" Type="int" />
+        </EntityType>
+        <EntityType Name="LinksZuArtikeln">
+          <Key>
+            <PropertyRef Name="LinkNid" />
+            <PropertyRef Name="ArtikelNid" />
+          </Key>
+          <Property Name="LinkNid" Type="int" Nullable="false" />
+          <Property Name="ArtikelNid" Type="int" Nullable="false" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Beschreibung" Type="varchar(max)" />
+          <Property Name="Ordnungsmerkmal" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LinksZuHerstellern">
+          <Key>
+            <PropertyRef Name="LinkNid" />
+            <PropertyRef Name="HerstellerNid" />
+          </Key>
+          <Property Name="LinkNid" Type="int" Nullable="false" />
+          <Property Name="HerstellerNid" Type="int" Nullable="false" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Beschreibung" Type="varchar(max)" />
+          <Property Name="Ordnungsmerkmal" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Schlagworte">
+          <Key>
+            <PropertyRef Name="Schlagwort" />
+          </Key>
+          <Property Name="Schlagwort" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SchlagworteZuArtikeln">
+          <Key>
+            <PropertyRef Name="Schlagwort" />
+            <PropertyRef Name="ArtikelNid" />
+          </Key>
+          <Property Name="Schlagwort" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ArtikelNid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SchlagworteZuHerstellern">
+          <Key>
+            <PropertyRef Name="Schlagwort" />
+            <PropertyRef Name="HerstellerNid" />
+          </Key>
+          <Property Name="Schlagwort" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="HerstellerNid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Artikel_Hersteller">
+          <End Role="Hersteller" Type="Self.Hersteller" Multiplicity="1" />
+          <End Role="Artikel" Type="Self.Artikel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hersteller">
+              <PropertyRef Name="HerstellerNid" />
+            </Principal>
+            <Dependent Role="Artikel">
+              <PropertyRef Name="HerstellerNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DokumenteZuArtikeln_Artikel">
+          <End Role="Artikel" Type="Self.Artikel" Multiplicity="1" />
+          <End Role="DokumenteZuArtikeln" Type="Self.DokumenteZuArtikeln" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artikel">
+              <PropertyRef Name="ArtikelNid" />
+            </Principal>
+            <Dependent Role="DokumenteZuArtikeln">
+              <PropertyRef Name="ArtikelNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DokumenteZuArtikeln_Dokumente">
+          <End Role="Dokumente" Type="Self.Dokumente" Multiplicity="1" />
+          <End Role="DokumenteZuArtikeln" Type="Self.DokumenteZuArtikeln" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokumente">
+              <PropertyRef Name="DokumentNid" />
+            </Principal>
+            <Dependent Role="DokumenteZuArtikeln">
+              <PropertyRef Name="DokumentNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DokumenteZuArtikeln_Dokumenttypen">
+          <End Role="Dokumenttypen" Type="Self.Dokumenttypen" Multiplicity="1" />
+          <End Role="DokumenteZuArtikeln" Type="Self.DokumenteZuArtikeln" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokumenttypen">
+              <PropertyRef Name="DokumenttypNid" />
+            </Principal>
+            <Dependent Role="DokumenteZuArtikeln">
+              <PropertyRef Name="DokumenttypNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DokumenteZuHerstellern_Dokumente">
+          <End Role="Dokumente" Type="Self.Dokumente" Multiplicity="1" />
+          <End Role="DokumenteZuHerstellern" Type="Self.DokumenteZuHerstellern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokumente">
+              <PropertyRef Name="DokumentNid" />
+            </Principal>
+            <Dependent Role="DokumenteZuHerstellern">
+              <PropertyRef Name="DokumentNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DokumenteZuHerstellern_Dokumenttypen">
+          <End Role="Dokumenttypen" Type="Self.Dokumenttypen" Multiplicity="1" />
+          <End Role="DokumenteZuHerstellern" Type="Self.DokumenteZuHerstellern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokumenttypen">
+              <PropertyRef Name="DokumenttypNid" />
+            </Principal>
+            <Dependent Role="DokumenteZuHerstellern">
+              <PropertyRef Name="DokumenttypNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DokumenteZuHerstellern_Hersteller">
+          <End Role="Hersteller" Type="Self.Hersteller" Multiplicity="1" />
+          <End Role="DokumenteZuHerstellern" Type="Self.DokumenteZuHerstellern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hersteller">
+              <PropertyRef Name="HerstellerNid" />
+            </Principal>
+            <Dependent Role="DokumenteZuHerstellern">
+              <PropertyRef Name="HerstellerNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Links_Dokumente">
+          <End Role="Dokumente" Type="Self.Dokumente" Multiplicity="0..1" />
+          <End Role="Links" Type="Self.Links" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokumente">
+              <PropertyRef Name="DokumentNid" />
+            </Principal>
+            <Dependent Role="Links">
+              <PropertyRef Name="DokumentNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinksZuArtikeln_Artikel">
+          <End Role="Artikel" Type="Self.Artikel" Multiplicity="1" />
+          <End Role="LinksZuArtikeln" Type="Self.LinksZuArtikeln" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artikel">
+              <PropertyRef Name="ArtikelNid" />
+            </Principal>
+            <Dependent Role="LinksZuArtikeln">
+              <PropertyRef Name="ArtikelNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinksZuArtikeln_Links">
+          <End Role="Links" Type="Self.Links" Multiplicity="1" />
+          <End Role="LinksZuArtikeln" Type="Self.LinksZuArtikeln" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Links">
+              <PropertyRef Name="LinkNid" />
+            </Principal>
+            <Dependent Role="LinksZuArtikeln">
+              <PropertyRef Name="LinkNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinksZuHerstellern_Hersteller">
+          <End Role="Hersteller" Type="Self.Hersteller" Multiplicity="1" />
+          <End Role="LinksZuHerstellern" Type="Self.LinksZuHerstellern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hersteller">
+              <PropertyRef Name="HerstellerNid" />
+            </Principal>
+            <Dependent Role="LinksZuHerstellern">
+              <PropertyRef Name="HerstellerNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinksZuHerstellern_Links">
+          <End Role="Links" Type="Self.Links" Multiplicity="1" />
+          <End Role="LinksZuHerstellern" Type="Self.LinksZuHerstellern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Links">
+              <PropertyRef Name="LinkNid" />
+            </Principal>
+            <Dependent Role="LinksZuHerstellern">
+              <PropertyRef Name="LinkNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SchlagworteZuArtikeln_Artikel">
+          <End Role="Artikel" Type="Self.Artikel" Multiplicity="1" />
+          <End Role="SchlagworteZuArtikeln" Type="Self.SchlagworteZuArtikeln" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artikel">
+              <PropertyRef Name="ArtikelNid" />
+            </Principal>
+            <Dependent Role="SchlagworteZuArtikeln">
+              <PropertyRef Name="ArtikelNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SchlagworteZuArtikeln_Schlagworte">
+          <End Role="Schlagworte" Type="Self.Schlagworte" Multiplicity="1" />
+          <End Role="SchlagworteZuArtikeln" Type="Self.SchlagworteZuArtikeln" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schlagworte">
+              <PropertyRef Name="Schlagwort" />
+            </Principal>
+            <Dependent Role="SchlagworteZuArtikeln">
+              <PropertyRef Name="Schlagwort" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SchlagworteZuHerstellern_Hersteller">
+          <End Role="Hersteller" Type="Self.Hersteller" Multiplicity="1" />
+          <End Role="SchlagworteZuHerstellern" Type="Self.SchlagworteZuHerstellern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hersteller">
+              <PropertyRef Name="HerstellerNid" />
+            </Principal>
+            <Dependent Role="SchlagworteZuHerstellern">
+              <PropertyRef Name="HerstellerNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SchlagworteZuHerstellern_Schlagworte">
+          <End Role="Schlagworte" Type="Self.Schlagworte" Multiplicity="1" />
+          <End Role="SchlagworteZuHerstellern" Type="Self.SchlagworteZuHerstellern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schlagworte">
+              <PropertyRef Name="Schlagwort" />
+            </Principal>
+            <Dependent Role="SchlagworteZuHerstellern">
+              <PropertyRef Name="Schlagwort" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="InsertLinkZuArtikel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ArtikelNid" Type="int" Mode="In" />
+          <Parameter Name="Link" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Bezeichnung" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertLinkZuHersteller" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="HerstellerNid" Type="int" Mode="In" />
+          <Parameter Name="Link" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Bezeichnung" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertSchlagwortZuArtikel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ArtikelNid" Type="int" Mode="In" />
+          <Parameter Name="Schlagwort" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertSchlagwortZuHersteller" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="HerstellerNid" Type="int" Mode="In" />
+          <Parameter Name="Schlagwort" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="MoBaDbModelStoreContainer">
+          <EntitySet Name="Artikel" EntityType="Self.Artikel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dokumente" EntityType="Self.Dokumente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DokumenteZuArtikeln" EntityType="Self.DokumenteZuArtikeln" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DokumenteZuHerstellern" EntityType="Self.DokumenteZuHerstellern" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dokumenttypen" EntityType="Self.Dokumenttypen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hersteller" EntityType="Self.Hersteller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Links" EntityType="Self.Links" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LinksZuArtikeln" EntityType="Self.LinksZuArtikeln" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LinksZuHerstellern" EntityType="Self.LinksZuHerstellern" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schlagworte" EntityType="Self.Schlagworte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchlagworteZuArtikeln" EntityType="Self.SchlagworteZuArtikeln" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchlagworteZuHerstellern" EntityType="Self.SchlagworteZuHerstellern" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Artikel_Hersteller" Association="Self.FK_Artikel_Hersteller">
+            <End Role="Hersteller" EntitySet="Hersteller" />
+            <End Role="Artikel" EntitySet="Artikel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DokumenteZuArtikeln_Artikel" Association="Self.FK_DokumenteZuArtikeln_Artikel">
+            <End Role="Artikel" EntitySet="Artikel" />
+            <End Role="DokumenteZuArtikeln" EntitySet="DokumenteZuArtikeln" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DokumenteZuArtikeln_Dokumente" Association="Self.FK_DokumenteZuArtikeln_Dokumente">
+            <End Role="Dokumente" EntitySet="Dokumente" />
+            <End Role="DokumenteZuArtikeln" EntitySet="DokumenteZuArtikeln" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DokumenteZuArtikeln_Dokumenttypen" Association="Self.FK_DokumenteZuArtikeln_Dokumenttypen">
+            <End Role="Dokumenttypen" EntitySet="Dokumenttypen" />
+            <End Role="DokumenteZuArtikeln" EntitySet="DokumenteZuArtikeln" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DokumenteZuHerstellern_Dokumente" Association="Self.FK_DokumenteZuHerstellern_Dokumente">
+            <End Role="Dokumente" EntitySet="Dokumente" />
+            <End Role="DokumenteZuHerstellern" EntitySet="DokumenteZuHerstellern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DokumenteZuHerstellern_Dokumenttypen" Association="Self.FK_DokumenteZuHerstellern_Dokumenttypen">
+            <End Role="Dokumenttypen" EntitySet="Dokumenttypen" />
+            <End Role="DokumenteZuHerstellern" EntitySet="DokumenteZuHerstellern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DokumenteZuHerstellern_Hersteller" Association="Self.FK_DokumenteZuHerstellern_Hersteller">
+            <End Role="Hersteller" EntitySet="Hersteller" />
+            <End Role="DokumenteZuHerstellern" EntitySet="DokumenteZuHerstellern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Links_Dokumente" Association="Self.FK_Links_Dokumente">
+            <End Role="Dokumente" EntitySet="Dokumente" />
+            <End Role="Links" EntitySet="Links" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinksZuArtikeln_Artikel" Association="Self.FK_LinksZuArtikeln_Artikel">
+            <End Role="Artikel" EntitySet="Artikel" />
+            <End Role="LinksZuArtikeln" EntitySet="LinksZuArtikeln" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinksZuArtikeln_Links" Association="Self.FK_LinksZuArtikeln_Links">
+            <End Role="Links" EntitySet="Links" />
+            <End Role="LinksZuArtikeln" EntitySet="LinksZuArtikeln" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinksZuHerstellern_Hersteller" Association="Self.FK_LinksZuHerstellern_Hersteller">
+            <End Role="Hersteller" EntitySet="Hersteller" />
+            <End Role="LinksZuHerstellern" EntitySet="LinksZuHerstellern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinksZuHerstellern_Links" Association="Self.FK_LinksZuHerstellern_Links">
+            <End Role="Links" EntitySet="Links" />
+            <End Role="LinksZuHerstellern" EntitySet="LinksZuHerstellern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SchlagworteZuArtikeln_Artikel" Association="Self.FK_SchlagworteZuArtikeln_Artikel">
+            <End Role="Artikel" EntitySet="Artikel" />
+            <End Role="SchlagworteZuArtikeln" EntitySet="SchlagworteZuArtikeln" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SchlagworteZuArtikeln_Schlagworte" Association="Self.FK_SchlagworteZuArtikeln_Schlagworte">
+            <End Role="Schlagworte" EntitySet="Schlagworte" />
+            <End Role="SchlagworteZuArtikeln" EntitySet="SchlagworteZuArtikeln" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SchlagworteZuHerstellern_Hersteller" Association="Self.FK_SchlagworteZuHerstellern_Hersteller">
+            <End Role="Hersteller" EntitySet="Hersteller" />
+            <End Role="SchlagworteZuHerstellern" EntitySet="SchlagworteZuHerstellern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SchlagworteZuHerstellern_Schlagworte" Association="Self.FK_SchlagworteZuHerstellern_Schlagworte">
+            <End Role="Schlagworte" EntitySet="Schlagworte" />
+            <End Role="SchlagworteZuHerstellern" EntitySet="SchlagworteZuHerstellern" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MoBaDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Artikel">
+          <Key>
+            <PropertyRef Name="ArtikelNid" />
+          </Key>
+          <Property Name="ArtikelNid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Beschreibung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Artikelnummer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HerstellerNid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hersteller" Relationship="Self.FK_Artikel_Hersteller" FromRole="Artikel" ToRole="Hersteller" />
+          <NavigationProperty Name="DokumenteZuArtikeln" Relationship="Self.FK_DokumenteZuArtikeln_Artikel" FromRole="Artikel" ToRole="DokumenteZuArtikeln" />
+          <NavigationProperty Name="LinksZuArtikeln" Relationship="Self.FK_LinksZuArtikeln_Artikel" FromRole="Artikel" ToRole="LinksZuArtikeln" />
+          <NavigationProperty Name="Schlagworte" Relationship="Self.SchlagworteZuArtikeln" FromRole="Artikel" ToRole="Schlagworte" />
+        </EntityType>
+        <EntityType Name="Dokumente">
+          <Key>
+            <PropertyRef Name="DokumentNid" />
+          </Key>
+          <Property Name="DokumentNid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dokument" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Beschreibung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Mimetype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dateiendung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DokumenteZuArtikeln" Relationship="Self.FK_DokumenteZuArtikeln_Dokumente" FromRole="Dokumente" ToRole="DokumenteZuArtikeln" />
+          <NavigationProperty Name="DokumenteZuHerstellern" Relationship="Self.FK_DokumenteZuHerstellern_Dokumente" FromRole="Dokumente" ToRole="DokumenteZuHerstellern" />
+          <NavigationProperty Name="Links" Relationship="Self.FK_Links_Dokumente" FromRole="Dokumente" ToRole="Links" />
+        </EntityType>
+        <EntityType Name="DokumenteZuArtikeln">
+          <Key>
+            <PropertyRef Name="DokumentNid" />
+            <PropertyRef Name="ArtikelNid" />
+          </Key>
+          <Property Name="DokumentNid" Type="Int32" Nullable="false" />
+          <Property Name="ArtikelNid" Type="Int32" Nullable="false" />
+          <Property Name="DokumenttypNid" Type="Int32" Nullable="false" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Beschreibung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ordnungsmerkmal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Artikel" Relationship="Self.FK_DokumenteZuArtikeln_Artikel" FromRole="DokumenteZuArtikeln" ToRole="Artikel" />
+          <NavigationProperty Name="Dokumente" Relationship="Self.FK_DokumenteZuArtikeln_Dokumente" FromRole="DokumenteZuArtikeln" ToRole="Dokumente" />
+          <NavigationProperty Name="Dokumenttypen" Relationship="Self.FK_DokumenteZuArtikeln_Dokumenttypen" FromRole="DokumenteZuArtikeln" ToRole="Dokumenttypen" />
+        </EntityType>
+        <EntityType Name="DokumenteZuHerstellern">
+          <Key>
+            <PropertyRef Name="DokumentNid" />
+            <PropertyRef Name="HerstellerNid" />
+          </Key>
+          <Property Name="DokumentNid" Type="Int32" Nullable="false" />
+          <Property Name="HerstellerNid" Type="Int32" Nullable="false" />
+          <Property Name="DokumenttypNid" Type="Int32" Nullable="false" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Beschreibung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ordnungsmerkmal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Dokumente" Relationship="Self.FK_DokumenteZuHerstellern_Dokumente" FromRole="DokumenteZuHerstellern" ToRole="Dokumente" />
+          <NavigationProperty Name="Dokumenttypen" Relationship="Self.FK_DokumenteZuHerstellern_Dokumenttypen" FromRole="DokumenteZuHerstellern" ToRole="Dokumenttypen" />
+          <NavigationProperty Name="Hersteller" Relationship="Self.FK_DokumenteZuHerstellern_Hersteller" FromRole="DokumenteZuHerstellern" ToRole="Hersteller" />
+        </EntityType>
+        <EntityType Name="Dokumenttypen">
+          <Key>
+            <PropertyRef Name="DokumenttypNid" />
+          </Key>
+          <Property Name="DokumenttypNid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Beschreibung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DokumenteZuArtikeln" Relationship="Self.FK_DokumenteZuArtikeln_Dokumenttypen" FromRole="Dokumenttypen" ToRole="DokumenteZuArtikeln" />
+          <NavigationProperty Name="DokumenteZuHerstellern" Relationship="Self.FK_DokumenteZuHerstellern_Dokumenttypen" FromRole="Dokumenttypen" ToRole="DokumenteZuHerstellern" />
+        </EntityType>
+        <EntityType Name="Hersteller">
+          <Key>
+            <PropertyRef Name="HerstellerNid" />
+          </Key>
+          <Property Name="HerstellerNid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Beschreibung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Artikel" Relationship="Self.FK_Artikel_Hersteller" FromRole="Hersteller" ToRole="Artikel" />
+          <NavigationProperty Name="DokumenteZuHerstellern" Relationship="Self.FK_DokumenteZuHerstellern_Hersteller" FromRole="Hersteller" ToRole="DokumenteZuHerstellern" />
+          <NavigationProperty Name="LinksZuHerstellern" Relationship="Self.FK_LinksZuHerstellern_Hersteller" FromRole="Hersteller" ToRole="LinksZuHerstellern" />
+          <NavigationProperty Name="Schlagworte" Relationship="Self.SchlagworteZuHerstellern" FromRole="Hersteller" ToRole="Schlagworte" />
+        </EntityType>
+        <EntityType Name="Links">
+          <Key>
+            <PropertyRef Name="LinkNid" />
+          </Key>
+          <Property Name="LinkNid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Beschreibung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DokumentNid" Type="Int32" />
+          <NavigationProperty Name="Dokumente" Relationship="Self.FK_Links_Dokumente" FromRole="Links" ToRole="Dokumente" />
+          <NavigationProperty Name="LinksZuArtikeln" Relationship="Self.FK_LinksZuArtikeln_Links" FromRole="Links" ToRole="LinksZuArtikeln" />
+          <NavigationProperty Name="LinksZuHerstellern" Relationship="Self.FK_LinksZuHerstellern_Links" FromRole="Links" ToRole="LinksZuHerstellern" />
+        </EntityType>
+        <EntityType Name="LinksZuArtikeln">
+          <Key>
+            <PropertyRef Name="LinkNid" />
+            <PropertyRef Name="ArtikelNid" />
+          </Key>
+          <Property Name="LinkNid" Type="Int32" Nullable="false" />
+          <Property Name="ArtikelNid" Type="Int32" Nullable="false" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Beschreibung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ordnungsmerkmal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Artikel" Relationship="Self.FK_LinksZuArtikeln_Artikel" FromRole="LinksZuArtikeln" ToRole="Artikel" />
+          <NavigationProperty Name="Links" Relationship="Self.FK_LinksZuArtikeln_Links" FromRole="LinksZuArtikeln" ToRole="Links" />
+        </EntityType>
+        <EntityType Name="LinksZuHerstellern">
+          <Key>
+            <PropertyRef Name="LinkNid" />
+            <PropertyRef Name="HerstellerNid" />
+          </Key>
+          <Property Name="LinkNid" Type="Int32" Nullable="false" />
+          <Property Name="HerstellerNid" Type="Int32" Nullable="false" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Beschreibung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ordnungsmerkmal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Hersteller" Relationship="Self.FK_LinksZuHerstellern_Hersteller" FromRole="LinksZuHerstellern" ToRole="Hersteller" />
+          <NavigationProperty Name="Links" Relationship="Self.FK_LinksZuHerstellern_Links" FromRole="LinksZuHerstellern" ToRole="Links" />
+        </EntityType>
+        <EntityType Name="Schlagworte">
+          <Key>
+            <PropertyRef Name="Schlagwort" />
+          </Key>
+          <Property Name="Schlagwort" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Artikel" Relationship="Self.SchlagworteZuArtikeln" FromRole="Schlagworte" ToRole="Artikel" />
+          <NavigationProperty Name="Hersteller" Relationship="Self.SchlagworteZuHerstellern" FromRole="Schlagworte" ToRole="Hersteller" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Artikel_Hersteller">
+          <End Role="Hersteller" Type="Self.Hersteller" Multiplicity="1" />
+          <End Role="Artikel" Type="Self.Artikel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hersteller">
+              <PropertyRef Name="HerstellerNid" />
+            </Principal>
+            <Dependent Role="Artikel">
+              <PropertyRef Name="HerstellerNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DokumenteZuArtikeln_Artikel">
+          <End Role="Artikel" Type="Self.Artikel" Multiplicity="1" />
+          <End Role="DokumenteZuArtikeln" Type="Self.DokumenteZuArtikeln" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artikel">
+              <PropertyRef Name="ArtikelNid" />
+            </Principal>
+            <Dependent Role="DokumenteZuArtikeln">
+              <PropertyRef Name="ArtikelNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinksZuArtikeln_Artikel">
+          <End Role="Artikel" Type="Self.Artikel" Multiplicity="1" />
+          <End Role="LinksZuArtikeln" Type="Self.LinksZuArtikeln" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artikel">
+              <PropertyRef Name="ArtikelNid" />
+            </Principal>
+            <Dependent Role="LinksZuArtikeln">
+              <PropertyRef Name="ArtikelNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DokumenteZuArtikeln_Dokumente">
+          <End Role="Dokumente" Type="Self.Dokumente" Multiplicity="1" />
+          <End Role="DokumenteZuArtikeln" Type="Self.DokumenteZuArtikeln" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokumente">
+              <PropertyRef Name="DokumentNid" />
+            </Principal>
+            <Dependent Role="DokumenteZuArtikeln">
+              <PropertyRef Name="DokumentNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DokumenteZuHerstellern_Dokumente">
+          <End Role="Dokumente" Type="Self.Dokumente" Multiplicity="1" />
+          <End Role="DokumenteZuHerstellern" Type="Self.DokumenteZuHerstellern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokumente">
+              <PropertyRef Name="DokumentNid" />
+            </Principal>
+            <Dependent Role="DokumenteZuHerstellern">
+              <PropertyRef Name="DokumentNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Links_Dokumente">
+          <End Role="Dokumente" Type="Self.Dokumente" Multiplicity="0..1" />
+          <End Role="Links" Type="Self.Links" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokumente">
+              <PropertyRef Name="DokumentNid" />
+            </Principal>
+            <Dependent Role="Links">
+              <PropertyRef Name="DokumentNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DokumenteZuArtikeln_Dokumenttypen">
+          <End Role="Dokumenttypen" Type="Self.Dokumenttypen" Multiplicity="1" />
+          <End Role="DokumenteZuArtikeln" Type="Self.DokumenteZuArtikeln" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokumenttypen">
+              <PropertyRef Name="DokumenttypNid" />
+            </Principal>
+            <Dependent Role="DokumenteZuArtikeln">
+              <PropertyRef Name="DokumenttypNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DokumenteZuHerstellern_Dokumenttypen">
+          <End Role="Dokumenttypen" Type="Self.Dokumenttypen" Multiplicity="1" />
+          <End Role="DokumenteZuHerstellern" Type="Self.DokumenteZuHerstellern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokumenttypen">
+              <PropertyRef Name="DokumenttypNid" />
+            </Principal>
+            <Dependent Role="DokumenteZuHerstellern">
+              <PropertyRef Name="DokumenttypNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DokumenteZuHerstellern_Hersteller">
+          <End Role="Hersteller" Type="Self.Hersteller" Multiplicity="1" />
+          <End Role="DokumenteZuHerstellern" Type="Self.DokumenteZuHerstellern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hersteller">
+              <PropertyRef Name="HerstellerNid" />
+            </Principal>
+            <Dependent Role="DokumenteZuHerstellern">
+              <PropertyRef Name="HerstellerNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinksZuHerstellern_Hersteller">
+          <End Role="Hersteller" Type="Self.Hersteller" Multiplicity="1" />
+          <End Role="LinksZuHerstellern" Type="Self.LinksZuHerstellern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hersteller">
+              <PropertyRef Name="HerstellerNid" />
+            </Principal>
+            <Dependent Role="LinksZuHerstellern">
+              <PropertyRef Name="HerstellerNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinksZuArtikeln_Links">
+          <End Role="Links" Type="Self.Links" Multiplicity="1" />
+          <End Role="LinksZuArtikeln" Type="Self.LinksZuArtikeln" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Links">
+              <PropertyRef Name="LinkNid" />
+            </Principal>
+            <Dependent Role="LinksZuArtikeln">
+              <PropertyRef Name="LinkNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinksZuHerstellern_Links">
+          <End Role="Links" Type="Self.Links" Multiplicity="1" />
+          <End Role="LinksZuHerstellern" Type="Self.LinksZuHerstellern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Links">
+              <PropertyRef Name="LinkNid" />
+            </Principal>
+            <Dependent Role="LinksZuHerstellern">
+              <PropertyRef Name="LinkNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SchlagworteZuArtikeln">
+          <End Role="Artikel" Type="Self.Artikel" Multiplicity="*" />
+          <End Role="Schlagworte" Type="Self.Schlagworte" Multiplicity="*" />
+        </Association>
+        <Association Name="SchlagworteZuHerstellern">
+          <End Role="Hersteller" Type="Self.Hersteller" Multiplicity="*" />
+          <End Role="Schlagworte" Type="Self.Schlagworte" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="MoBaDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Artikel" EntityType="Self.Artikel" />
+          <EntitySet Name="Dokumente" EntityType="Self.Dokumente" />
+          <EntitySet Name="DokumenteZuArtikeln" EntityType="Self.DokumenteZuArtikeln" />
+          <EntitySet Name="DokumenteZuHerstellern" EntityType="Self.DokumenteZuHerstellern" />
+          <EntitySet Name="Dokumenttypen" EntityType="Self.Dokumenttypen" />
+          <EntitySet Name="Hersteller" EntityType="Self.Hersteller" />
+          <EntitySet Name="Links" EntityType="Self.Links" />
+          <EntitySet Name="LinksZuArtikeln" EntityType="Self.LinksZuArtikeln" />
+          <EntitySet Name="LinksZuHerstellern" EntityType="Self.LinksZuHerstellern" />
+          <EntitySet Name="Schlagworte" EntityType="Self.Schlagworte" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_Artikel_Hersteller" Association="Self.FK_Artikel_Hersteller">
+            <End Role="Hersteller" EntitySet="Hersteller" />
+            <End Role="Artikel" EntitySet="Artikel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DokumenteZuArtikeln_Artikel" Association="Self.FK_DokumenteZuArtikeln_Artikel">
+            <End Role="Artikel" EntitySet="Artikel" />
+            <End Role="DokumenteZuArtikeln" EntitySet="DokumenteZuArtikeln" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinksZuArtikeln_Artikel" Association="Self.FK_LinksZuArtikeln_Artikel">
+            <End Role="Artikel" EntitySet="Artikel" />
+            <End Role="LinksZuArtikeln" EntitySet="LinksZuArtikeln" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DokumenteZuArtikeln_Dokumente" Association="Self.FK_DokumenteZuArtikeln_Dokumente">
+            <End Role="Dokumente" EntitySet="Dokumente" />
+            <End Role="DokumenteZuArtikeln" EntitySet="DokumenteZuArtikeln" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DokumenteZuHerstellern_Dokumente" Association="Self.FK_DokumenteZuHerstellern_Dokumente">
+            <End Role="Dokumente" EntitySet="Dokumente" />
+            <End Role="DokumenteZuHerstellern" EntitySet="DokumenteZuHerstellern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Links_Dokumente" Association="Self.FK_Links_Dokumente">
+            <End Role="Dokumente" EntitySet="Dokumente" />
+            <End Role="Links" EntitySet="Links" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DokumenteZuArtikeln_Dokumenttypen" Association="Self.FK_DokumenteZuArtikeln_Dokumenttypen">
+            <End Role="Dokumenttypen" EntitySet="Dokumenttypen" />
+            <End Role="DokumenteZuArtikeln" EntitySet="DokumenteZuArtikeln" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DokumenteZuHerstellern_Dokumenttypen" Association="Self.FK_DokumenteZuHerstellern_Dokumenttypen">
+            <End Role="Dokumenttypen" EntitySet="Dokumenttypen" />
+            <End Role="DokumenteZuHerstellern" EntitySet="DokumenteZuHerstellern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DokumenteZuHerstellern_Hersteller" Association="Self.FK_DokumenteZuHerstellern_Hersteller">
+            <End Role="Hersteller" EntitySet="Hersteller" />
+            <End Role="DokumenteZuHerstellern" EntitySet="DokumenteZuHerstellern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinksZuHerstellern_Hersteller" Association="Self.FK_LinksZuHerstellern_Hersteller">
+            <End Role="Hersteller" EntitySet="Hersteller" />
+            <End Role="LinksZuHerstellern" EntitySet="LinksZuHerstellern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinksZuArtikeln_Links" Association="Self.FK_LinksZuArtikeln_Links">
+            <End Role="Links" EntitySet="Links" />
+            <End Role="LinksZuArtikeln" EntitySet="LinksZuArtikeln" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinksZuHerstellern_Links" Association="Self.FK_LinksZuHerstellern_Links">
+            <End Role="Links" EntitySet="Links" />
+            <End Role="LinksZuHerstellern" EntitySet="LinksZuHerstellern" />
+          </AssociationSet>
+          <AssociationSet Name="SchlagworteZuArtikeln" Association="Self.SchlagworteZuArtikeln">
+            <End Role="Artikel" EntitySet="Artikel" />
+            <End Role="Schlagworte" EntitySet="Schlagworte" />
+          </AssociationSet>
+          <AssociationSet Name="SchlagworteZuHerstellern" Association="Self.SchlagworteZuHerstellern">
+            <End Role="Hersteller" EntitySet="Hersteller" />
+            <End Role="Schlagworte" EntitySet="Schlagworte" />
+          </AssociationSet>
+          <FunctionImport Name="InsertLinkZuArtikel">
+            <Parameter Name="ArtikelNid" Mode="In" Type="Int32" />
+            <Parameter Name="Link" Mode="In" Type="String" />
+            <Parameter Name="Bezeichnung" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertLinkZuHersteller">
+            <Parameter Name="HerstellerNid" Mode="In" Type="Int32" />
+            <Parameter Name="Link" Mode="In" Type="String" />
+            <Parameter Name="Bezeichnung" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertSchlagwortZuArtikel">
+            <Parameter Name="ArtikelNid" Mode="In" Type="Int32" />
+            <Parameter Name="Schlagwort" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertSchlagwortZuHersteller">
+            <Parameter Name="HerstellerNid" Mode="In" Type="Int32" />
+            <Parameter Name="Schlagwort" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MoBaDbModelStoreContainer" CdmEntityContainer="MoBaDbEntities">
+          <EntitySetMapping Name="Artikel">
+            <EntityTypeMapping TypeName="MoBaDbModel.Artikel">
+              <MappingFragment StoreEntitySet="Artikel">
+                <ScalarProperty Name="ArtikelNid" ColumnName="ArtikelNid" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+                <ScalarProperty Name="Artikelnummer" ColumnName="Artikelnummer" />
+                <ScalarProperty Name="HerstellerNid" ColumnName="HerstellerNid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dokumente">
+            <EntityTypeMapping TypeName="MoBaDbModel.Dokumente">
+              <MappingFragment StoreEntitySet="Dokumente">
+                <ScalarProperty Name="DokumentNid" ColumnName="DokumentNid" />
+                <ScalarProperty Name="Dokument" ColumnName="Dokument" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+                <ScalarProperty Name="Mimetype" ColumnName="Mimetype" />
+                <ScalarProperty Name="Dateiendung" ColumnName="Dateiendung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DokumenteZuArtikeln">
+            <EntityTypeMapping TypeName="MoBaDbModel.DokumenteZuArtikeln">
+              <MappingFragment StoreEntitySet="DokumenteZuArtikeln">
+                <ScalarProperty Name="DokumentNid" ColumnName="DokumentNid" />
+                <ScalarProperty Name="ArtikelNid" ColumnName="ArtikelNid" />
+                <ScalarProperty Name="DokumenttypNid" ColumnName="DokumenttypNid" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+                <ScalarProperty Name="Ordnungsmerkmal" ColumnName="Ordnungsmerkmal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DokumenteZuHerstellern">
+            <EntityTypeMapping TypeName="MoBaDbModel.DokumenteZuHerstellern">
+              <MappingFragment StoreEntitySet="DokumenteZuHerstellern">
+                <ScalarProperty Name="DokumentNid" ColumnName="DokumentNid" />
+                <ScalarProperty Name="HerstellerNid" ColumnName="HerstellerNid" />
+                <ScalarProperty Name="DokumenttypNid" ColumnName="DokumenttypNid" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+                <ScalarProperty Name="Ordnungsmerkmal" ColumnName="Ordnungsmerkmal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dokumenttypen">
+            <EntityTypeMapping TypeName="MoBaDbModel.Dokumenttypen">
+              <MappingFragment StoreEntitySet="Dokumenttypen">
+                <ScalarProperty Name="DokumenttypNid" ColumnName="DokumenttypNid" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hersteller">
+            <EntityTypeMapping TypeName="MoBaDbModel.Hersteller">
+              <MappingFragment StoreEntitySet="Hersteller">
+                <ScalarProperty Name="HerstellerNid" ColumnName="HerstellerNid" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Links">
+            <EntityTypeMapping TypeName="MoBaDbModel.Links">
+              <MappingFragment StoreEntitySet="Links">
+                <ScalarProperty Name="LinkNid" ColumnName="LinkNid" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+                <ScalarProperty Name="DokumentNid" ColumnName="DokumentNid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinksZuArtikeln">
+            <EntityTypeMapping TypeName="MoBaDbModel.LinksZuArtikeln">
+              <MappingFragment StoreEntitySet="LinksZuArtikeln">
+                <ScalarProperty Name="LinkNid" ColumnName="LinkNid" />
+                <ScalarProperty Name="ArtikelNid" ColumnName="ArtikelNid" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+                <ScalarProperty Name="Ordnungsmerkmal" ColumnName="Ordnungsmerkmal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinksZuHerstellern">
+            <EntityTypeMapping TypeName="MoBaDbModel.LinksZuHerstellern">
+              <MappingFragment StoreEntitySet="LinksZuHerstellern">
+                <ScalarProperty Name="LinkNid" ColumnName="LinkNid" />
+                <ScalarProperty Name="HerstellerNid" ColumnName="HerstellerNid" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+                <ScalarProperty Name="Ordnungsmerkmal" ColumnName="Ordnungsmerkmal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schlagworte">
+            <EntityTypeMapping TypeName="MoBaDbModel.Schlagworte">
+              <MappingFragment StoreEntitySet="Schlagworte">
+                <ScalarProperty Name="Schlagwort" ColumnName="Schlagwort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MoBaDbModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="SchlagworteZuArtikeln" TypeName="MoBaDbModel.SchlagworteZuArtikeln" StoreEntitySet="SchlagworteZuArtikeln">
+            <EndProperty Name="Artikel">
+              <ScalarProperty Name="ArtikelNid" ColumnName="ArtikelNid" />
+            </EndProperty>
+            <EndProperty Name="Schlagworte">
+              <ScalarProperty Name="Schlagwort" ColumnName="Schlagwort" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SchlagworteZuHerstellern" TypeName="MoBaDbModel.SchlagworteZuHerstellern" StoreEntitySet="SchlagworteZuHerstellern">
+            <EndProperty Name="Hersteller">
+              <ScalarProperty Name="HerstellerNid" ColumnName="HerstellerNid" />
+            </EndProperty>
+            <EndProperty Name="Schlagworte">
+              <ScalarProperty Name="Schlagwort" ColumnName="Schlagwort" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="InsertLinkZuArtikel" FunctionName="MoBaDbModel.Store.InsertLinkZuArtikel" />
+          <FunctionImportMapping FunctionImportName="InsertLinkZuHersteller" FunctionName="MoBaDbModel.Store.InsertLinkZuHersteller" />
+          <FunctionImportMapping FunctionImportName="InsertSchlagwortZuArtikel" FunctionName="MoBaDbModel.Store.InsertSchlagwortZuArtikel" />
+          <FunctionImportMapping FunctionImportName="InsertSchlagwortZuHersteller" FunctionName="MoBaDbModel.Store.InsertSchlagwortZuHersteller" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

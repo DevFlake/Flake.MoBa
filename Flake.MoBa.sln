@@ -23,6 +23,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.XpressNetLi.Enti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.Base", "Flake.MoBa.Base\Flake.MoBa.Base.csproj", "{FBFAF887-6878-40CE-BBE8-A727824905DD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Flake.MoBa.Db", "Flake.MoBa.Db", "{B5231913-32CD-4D2C-B60C-F500CBCD3B74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.Db.Dal", "Flake.MoBa.Db.Dal\Flake.MoBa.Db.Dal.csproj", "{DE27B612-3215-45F1-BF09-84DE081D69F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.Db.DataClasses", "Flake.MoBa.Db.DataClasses\Flake.MoBa.Db.DataClasses.csproj", "{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.Db.Test.Console", "Flake.MoBa.Db.Test.Console\Flake.MoBa.Db.Test.Console.csproj", "{DC4913F0-7769-48E8-86BE-5A72D3882140}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -150,8 +158,49 @@ Global
 		{FBFAF887-6878-40CE-BBE8-A727824905DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FBFAF887-6878-40CE-BBE8-A727824905DD}.Release|x86.ActiveCfg = Release|Any CPU
 		{FBFAF887-6878-40CE-BBE8-A727824905DD}.Release|x86.Build.0 = Release|Any CPU
+		{DE27B612-3215-45F1-BF09-84DE081D69F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE27B612-3215-45F1-BF09-84DE081D69F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE27B612-3215-45F1-BF09-84DE081D69F2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DE27B612-3215-45F1-BF09-84DE081D69F2}.Debug|x86.Build.0 = Debug|Any CPU
+		{DE27B612-3215-45F1-BF09-84DE081D69F2}.DebugComPortInterface|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE27B612-3215-45F1-BF09-84DE081D69F2}.DebugComPortInterface|Any CPU.Build.0 = Debug|Any CPU
+		{DE27B612-3215-45F1-BF09-84DE081D69F2}.DebugComPortInterface|x86.ActiveCfg = Debug|Any CPU
+		{DE27B612-3215-45F1-BF09-84DE081D69F2}.DebugComPortInterface|x86.Build.0 = Debug|Any CPU
+		{DE27B612-3215-45F1-BF09-84DE081D69F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE27B612-3215-45F1-BF09-84DE081D69F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE27B612-3215-45F1-BF09-84DE081D69F2}.Release|x86.ActiveCfg = Release|Any CPU
+		{DE27B612-3215-45F1-BF09-84DE081D69F2}.Release|x86.Build.0 = Release|Any CPU
+		{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81}.Debug|x86.Build.0 = Debug|Any CPU
+		{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81}.DebugComPortInterface|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81}.DebugComPortInterface|Any CPU.Build.0 = Debug|Any CPU
+		{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81}.DebugComPortInterface|x86.ActiveCfg = Debug|Any CPU
+		{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81}.DebugComPortInterface|x86.Build.0 = Debug|Any CPU
+		{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81}.Release|x86.ActiveCfg = Release|Any CPU
+		{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81}.Release|x86.Build.0 = Release|Any CPU
+		{DC4913F0-7769-48E8-86BE-5A72D3882140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC4913F0-7769-48E8-86BE-5A72D3882140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC4913F0-7769-48E8-86BE-5A72D3882140}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DC4913F0-7769-48E8-86BE-5A72D3882140}.Debug|x86.Build.0 = Debug|Any CPU
+		{DC4913F0-7769-48E8-86BE-5A72D3882140}.DebugComPortInterface|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC4913F0-7769-48E8-86BE-5A72D3882140}.DebugComPortInterface|Any CPU.Build.0 = Debug|Any CPU
+		{DC4913F0-7769-48E8-86BE-5A72D3882140}.DebugComPortInterface|x86.ActiveCfg = Debug|Any CPU
+		{DC4913F0-7769-48E8-86BE-5A72D3882140}.DebugComPortInterface|x86.Build.0 = Debug|Any CPU
+		{DC4913F0-7769-48E8-86BE-5A72D3882140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC4913F0-7769-48E8-86BE-5A72D3882140}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC4913F0-7769-48E8-86BE-5A72D3882140}.Release|x86.ActiveCfg = Release|Any CPU
+		{DC4913F0-7769-48E8-86BE-5A72D3882140}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DE27B612-3215-45F1-BF09-84DE081D69F2} = {B5231913-32CD-4D2C-B60C-F500CBCD3B74}
+		{FC335F0B-DF7B-4F39-BD74-F1335A7EAF81} = {B5231913-32CD-4D2C-B60C-F500CBCD3B74}
+		{DC4913F0-7769-48E8-86BE-5A72D3882140} = {B5231913-32CD-4D2C-B60C-F500CBCD3B74}
 	EndGlobalSection
 EndGlobal

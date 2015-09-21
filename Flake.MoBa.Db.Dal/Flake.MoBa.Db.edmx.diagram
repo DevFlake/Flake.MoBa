@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9dd121b532734a958b7298ff214cebdf" Name="Diagram1">
+        <EntityTypeShape EntityType="MoBaDbModel.Artikel" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBaDbModel.Dokumente" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBaDbModel.DokumenteZuArtikeln" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBaDbModel.DokumenteZuHerstellern" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBaDbModel.Dokumenttypen" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBaDbModel.Hersteller" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBaDbModel.Links" Width="1.5" PointX="6" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBaDbModel.LinksZuArtikeln" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBaDbModel.LinksZuHerstellern" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBaDbModel.Schlagworte" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBaDbModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="MoBaDbModel.FK_Artikel_Hersteller" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBaDbModel.FK_DokumenteZuArtikeln_Artikel" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBaDbModel.FK_LinksZuArtikeln_Artikel" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBaDbModel.FK_DokumenteZuArtikeln_Dokumente" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBaDbModel.FK_DokumenteZuHerstellern_Dokumente" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBaDbModel.FK_Links_Dokumente" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBaDbModel.FK_DokumenteZuArtikeln_Dokumenttypen" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBaDbModel.FK_DokumenteZuHerstellern_Dokumenttypen" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBaDbModel.FK_DokumenteZuHerstellern_Hersteller" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBaDbModel.FK_LinksZuHerstellern_Hersteller" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBaDbModel.FK_LinksZuArtikeln_Links" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBaDbModel.FK_LinksZuHerstellern_Links" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBaDbModel.SchlagworteZuArtikeln" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBaDbModel.SchlagworteZuHerstellern" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MoBaDbModelStoreContainer" CdmEntityContainer="MoBaDbEntities">
+    <EntitySetMapping Name="Artikel">
+      <EntityTypeMapping TypeName="MoBaDbModel.Artikel">
+        <MappingFragment StoreEntitySet="Artikel">
+          <ScalarProperty Name="ArtikelNid" ColumnName="ArtikelNid" />
+          <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+          <ScalarProperty Name="Artikelnummer" ColumnName="Artikelnummer" />
+          <ScalarProperty Name="HerstellerNid" ColumnName="HerstellerNid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dokumente">
+      <EntityTypeMapping TypeName="MoBaDbModel.Dokumente">
+        <MappingFragment StoreEntitySet="Dokumente">
+          <ScalarProperty Name="DokumentNid" ColumnName="DokumentNid" />
+          <ScalarProperty Name="Dokument" ColumnName="Dokument" />
+          <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+          <ScalarProperty Name="Mimetype" ColumnName="Mimetype" />
+          <ScalarProperty Name="Dateiendung" ColumnName="Dateiendung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DokumenteZuArtikeln">
+      <EntityTypeMapping TypeName="MoBaDbModel.DokumenteZuArtikeln">
+        <MappingFragment StoreEntitySet="DokumenteZuArtikeln">
+          <ScalarProperty Name="DokumentNid" ColumnName="DokumentNid" />
+          <ScalarProperty Name="ArtikelNid" ColumnName="ArtikelNid" />
+          <ScalarProperty Name="DokumenttypNid" ColumnName="DokumenttypNid" />
+          <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+          <ScalarProperty Name="Ordnungsmerkmal" ColumnName="Ordnungsmerkmal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DokumenteZuHerstellern">
+      <EntityTypeMapping TypeName="MoBaDbModel.DokumenteZuHerstellern">
+        <MappingFragment StoreEntitySet="DokumenteZuHerstellern">
+          <ScalarProperty Name="DokumentNid" ColumnName="DokumentNid" />
+          <ScalarProperty Name="HerstellerNid" ColumnName="HerstellerNid" />
+          <ScalarProperty Name="DokumenttypNid" ColumnName="DokumenttypNid" />
+          <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+          <ScalarProperty Name="Ordnungsmerkmal" ColumnName="Ordnungsmerkmal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dokumenttypen">
+      <EntityTypeMapping TypeName="MoBaDbModel.Dokumenttypen">
+        <MappingFragment StoreEntitySet="Dokumenttypen">
+          <ScalarProperty Name="DokumenttypNid" ColumnName="DokumenttypNid" />
+          <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hersteller">
+      <EntityTypeMapping TypeName="MoBaDbModel.Hersteller">
+        <MappingFragment StoreEntitySet="Hersteller">
+          <ScalarProperty Name="HerstellerNid" ColumnName="HerstellerNid" />
+          <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Links">
+      <EntityTypeMapping TypeName="MoBaDbModel.Links">
+        <MappingFragment StoreEntitySet="Links">
+          <ScalarProperty Name="LinkNid" ColumnName="LinkNid" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+          <ScalarProperty Name="DokumentNid" ColumnName="DokumentNid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LinksZuArtikeln">
+      <EntityTypeMapping TypeName="MoBaDbModel.LinksZuArtikeln">
+        <MappingFragment StoreEntitySet="LinksZuArtikeln">
+          <ScalarProperty Name="LinkNid" ColumnName="LinkNid" />
+          <ScalarProperty Name="ArtikelNid" ColumnName="ArtikelNid" />
+          <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+          <ScalarProperty Name="Ordnungsmerkmal" ColumnName="Ordnungsmerkmal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LinksZuHerstellern">
+      <EntityTypeMapping TypeName="MoBaDbModel.LinksZuHerstellern">
+        <MappingFragment StoreEntitySet="LinksZuHerstellern">
+          <ScalarProperty Name="LinkNid" ColumnName="LinkNid" />
+          <ScalarProperty Name="HerstellerNid" ColumnName="HerstellerNid" />
+          <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+          <ScalarProperty Name="Ordnungsmerkmal" ColumnName="Ordnungsmerkmal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schlagworte">
+      <EntityTypeMapping TypeName="MoBaDbModel.Schlagworte">
+        <MappingFragment StoreEntitySet="Schlagworte">
+          <ScalarProperty Name="Schlagwort" ColumnName="Schlagwort" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MoBaDbModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SchlagworteZuArtikeln" TypeName="MoBaDbModel.SchlagworteZuArtikeln" StoreEntitySet="SchlagworteZuArtikeln">
+      <EndProperty Name="Artikel">
+        <ScalarProperty Name="ArtikelNid" ColumnName="ArtikelNid" />
+      </EndProperty>
+      <EndProperty Name="Schlagworte">
+        <ScalarProperty Name="Schlagwort" ColumnName="Schlagwort" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SchlagworteZuHerstellern" TypeName="MoBaDbModel.SchlagworteZuHerstellern" StoreEntitySet="SchlagworteZuHerstellern">
+      <EndProperty Name="Hersteller">
+        <ScalarProperty Name="HerstellerNid" ColumnName="HerstellerNid" />
+      </EndProperty>
+      <EndProperty Name="Schlagworte">
+        <ScalarProperty Name="Schlagwort" ColumnName="Schlagwort" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="InsertLinkZuArtikel" FunctionName="MoBaDbModel.Store.InsertLinkZuArtikel" />
+    <FunctionImportMapping FunctionImportName="InsertLinkZuHersteller" FunctionName="MoBaDbModel.Store.InsertLinkZuHersteller" />
+    <FunctionImportMapping FunctionImportName="InsertSchlagwortZuArtikel" FunctionName="MoBaDbModel.Store.InsertSchlagwortZuArtikel" />
+    <FunctionImportMapping FunctionImportName="InsertSchlagwortZuHersteller" FunctionName="MoBaDbModel.Store.InsertSchlagwortZuHersteller" />
+  </EntityContainerMapping>
+</Mapping>
