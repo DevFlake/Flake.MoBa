@@ -6,3 +6,13 @@ E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.ComPort\bin\Debug\EntityFramework.xml
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.ComPort\obj\Debug\Flake.MoBa.ComPort.csprojResolveAssemblyReference.cache
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.ComPort\obj\Debug\Flake.MoBa.ComPort.dll
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.ComPort\obj\Debug\Flake.MoBa.ComPort.pdb
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\bin\Debug\Flake.MoBa.ComPort.dll.config
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\bin\Debug\Flake.MoBa.ComPort.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\bin\Debug\Flake.MoBa.ComPort.pdb
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\bin\Debug\EntityFramework.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\bin\Debug\EntityFramework.SqlServer.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\bin\Debug\EntityFramework.xml
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\bin\Debug\EntityFramework.SqlServer.xml
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\obj\Debug\Flake.MoBa.ComPort.csprojResolveAssemblyReference.cache
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\obj\Debug\Flake.MoBa.ComPort.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\obj\Debug\Flake.MoBa.ComPort.pdb

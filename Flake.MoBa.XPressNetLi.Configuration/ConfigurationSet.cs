@@ -24,8 +24,8 @@ namespace Flake.MoBa.XPressNetLi.Configuration
         public ConfigurationSet()
         {
             _Path = @"Flake.MoBa.XpressNetLi.conf";
-            Data = new ConfigData();
-            Read();
+            Data = new ConfigData() { AllowedCentralErrorsInARow=3, CentralFetchInfoTries= 3, TimeoutForLIResponse_s= 3, TimeToWaitForLIAnswer_ms= 100, };
+            //Read(); TODO!!!
 
 #if DEBUG
             Write(@"Flake.MoBa.XpressNetLi.conf.debug");
@@ -42,6 +42,7 @@ namespace Flake.MoBa.XPressNetLi.Configuration
             {
                 XmlSerializer ser = new XmlSerializer(typeof(ConfigData));
                 StreamReader sr = new StreamReader(_Path);
+                var x = sr.ReadToEnd();
                 Data = (ConfigData)ser.Deserialize(sr);
                 sr.Close();
             }

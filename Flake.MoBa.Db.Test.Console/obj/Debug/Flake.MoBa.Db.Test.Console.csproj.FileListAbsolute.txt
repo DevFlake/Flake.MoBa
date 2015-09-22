@@ -12,3 +12,6 @@ E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Db.Test.Console\obj\Debug\Flake.MoBa.Db
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Db.Test.Console\obj\Debug\Flake.MoBa.Db.Test.Console.pdb
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\Flake.MoBa.Base.dll
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\Flake.MoBa.Base.pdb
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\Flake.MoBa.Db.Test.Console.exe.config
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\obj\Debug\Flake.MoBa.Db.Test.Console.exe
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\obj\Debug\Flake.MoBa.Db.Test.Console.pdb

@@ -6,3 +6,13 @@ E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Log\bin\Debug\Flake.MoBa.Log.pdb
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Log\obj\Debug\Flake.MoBa.Log.dll
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Log\obj\Debug\Flake.MoBa.Log.pdb
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Log\obj\Debug\Flake.MoBa.Log.csprojResolveAssemblyReference.cache
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Log\bin\Debug\Flake.MoBa.Log.dll.config
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Log\bin\Debug\Flake.MoBa.Log.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Log\bin\Debug\Flake.MoBa.Log.pdb
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Log\bin\Debug\EntityFramework.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Log\bin\Debug\EntityFramework.SqlServer.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Log\bin\Debug\EntityFramework.xml
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Log\bin\Debug\EntityFramework.SqlServer.xml
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Log\obj\Debug\Flake.MoBa.Log.csprojResolveAssemblyReference.cache
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Log\obj\Debug\Flake.MoBa.Log.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Log\obj\Debug\Flake.MoBa.Log.pdb

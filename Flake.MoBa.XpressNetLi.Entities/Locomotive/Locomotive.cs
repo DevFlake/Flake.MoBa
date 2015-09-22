@@ -165,7 +165,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
             }
             else
             {
-                logme.Log(i18n.ErrorMessages.AnswerEmpty, logme.LogLevel.error, answer.ByteArray);
+                logme.Log(i18n.ErrorMessages.AnswerEmpty, logme.LogLevel.error, answer==null? null:answer.ByteArray);
             }
         }
 

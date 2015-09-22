@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Flake.MoBa.XpressNetLi</name>
+    </assembly>
+    <members>
+        <member name="T:Flake.MoBa.XpressNetLi.Central">
+            <summary>
+            Central Class representing a digital central and an interface
+            </summary>
+        </member>
+        <member name="F:Flake.MoBa.XpressNetLi.Central._RigisteredEntities">
+            <summary>
+            All registered entities like locomotives or others with addresses
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.RegisterEntity(Flake.MoBa.XpressNetLi.Entities.Interfaces.ILiEntity)">
+            <summary>
+            Registers an entity to the central
+            </summary>
+            <param name="item">entity item</param>
+            <example>locomotive</example>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.Config">
+            <summary>
+            Configuration for central
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.SerialPortConnection">
+            <summary>
+            The connection to the interface via serial port
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.InitConnection(System.String,System.Int32,Flake.MoBa.ComPort.ComPortParity,System.Int32,Flake.MoBa.ComPort.ComPortStopBits)">
+            <summary>
+            Initializes a new connection to the interface
+            </summary>
+            <remarks>Uses the credentials Port, StopBites, aso.</remarks>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.CloseConnection">
+            <summary>
+            Close serial connection
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.Port">
+            <summary>
+            Serial port for connetion to interface
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.BaudRate">
+            <summary>
+            Baudrate of serial port to interface
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.ParityBits">
+            <summary>
+            ParityBits of serial port to interface
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.DataBits">
+            <summary>
+            DataBits of serial port to interface
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.StopBits">
+            <summary>
+            StopBits of serial port to interface
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.DataReceivedHandler">
+            <summary>
+            Handler for reading bytes from connection
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.LastAnswer">
+            <summary>
+            Last answer of the central
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.LastCommand">
+            <summary>
+            Last command to the central
+            </summary>
+        </member>
+        <member name="F:Flake.MoBa.XpressNetLi.Central._ErrorInARow">
+            <summary>
+            Indicates the errors received in a row
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.QueueNewCommand(Flake.MoBa.XpressNetLi.Entities.Interfaces.ILiCommandAndAnswer)">
+            <summary>
+            Enqueue a new command to the central command queue
+            </summary>
+            <param name="command">bytearray-format command</param>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.SendCommandAndReceiveAnswer(Flake.MoBa.XpressNetLi.Entities.Interfaces.ILiCommandAndAnswer)">
+            <summary>
+            Send command to central and receive answer
+            </summary>
+            <param name="command"></param>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.ProcessBroadCast">
+            <summary>
+            gets triggered by LIListener when broadcast appears
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.GetInterfaceAndCentralInfo">
+            <summary>
+            Fetch infos from central an dinterface
+            </summary>summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.GetCentralState">
+            <summary>
+            Fetch central state
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.EmergencyStop">
+            <summary>
+            Indicator for emergency stop
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.EmergencyOff">
+            <summary>
+            Indicator for emergency off
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.StartMode">
+            <summary>
+            Start type of the central as Text
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.ProgramMode">
+            <summary>
+            Indicator of programmode
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.ColdReset">
+            <summary>
+            Indicator of a cold start or reset
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.RamCheckError">
+            <summary>
+            Indicator of a ram error in central
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.System#IDisposable#Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.#ctor(System.String,System.Int32,Flake.MoBa.ComPort.ComPortParity,System.Int32,Flake.MoBa.ComPort.ComPortStopBits)">
+            <summary>
+            Creates a new insance of a central class
+            </summary>
+            <param name="port">Serial port for connetion to interface (eg. 'COM2')</param>
+            <param name="baudRate">Baudrate of serial port to interface</param>
+            <param name="parityBits">ParityBits of serial port to interface</param>
+            <param name="dataBits">DataBits of serial port to interface</param>
+            <param name="stopBits">StopBits of serial port to interface</param>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.#ctor(Flake.MoBa.ComPort.IComPort)">
+            <summary>
+            Creates a new XpressNet LI central
+            </summary>
+            <param name="serialPortConnection">an existing serialport connection</param>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.Resources.ErrorMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.ErrorMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.ErrorMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.ErrorMessages.ComPortNotAvailable">
+            <summary>
+              Looks up a localized string similar to The serial port was not available..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.ErrorMessages.ErrorSendingCommad">
+            <summary>
+              Looks up a localized string similar to Several errors ({0}) occured while seinding a command. The process has been terminated..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.ErrorMessages.LITimeout">
+            <summary>
+              Looks up a localized string similar to A timeout occured while waiting for a central answer..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.ErrorMessages.TooManyTriesFetchCentralInfo">
+            <summary>
+              Looks up a localized string similar to Too many tries fetching central informations..
+            </summary>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.Resources.GrammarBase">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.GrammarBase.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.GrammarBase.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.GrammarBase.no">
+            <summary>
+              Looks up a localized string similar to no.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.GrammarBase.yes">
+            <summary>
+              Looks up a localized string similar to yes.
+            </summary>
+        </member>
+        <member name="T:Flake.MoBa.XpressNetLi.Resources.XpressNetLiMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.XpressNetLiMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.XpressNetLiMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.XpressNetLiMessages.AllOnSet">
+            <summary>
+              Looks up a localized string similar to A general start signal was toggled..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.XpressNetLiMessages.CentralStateInfo">
+            <summary>
+              Looks up a localized string similar to Central state: emergency stop: &apos;{0}&apos; - emergency off: &apos;{1}&apos; - central start mode: &apos;{2}&apos; - program mode active: &apos;{3}&apos; - cold start: &apos;{4}&apos; - ram check error: &apos;{5}&apos;..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.XpressNetLiMessages.CentralVersionInfo">
+            <summary>
+              Looks up a localized string similar to Central software version: &apos;{0}&apos; - Central type: &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.XpressNetLiMessages.EmergencyOffToggle">
+            <summary>
+              Looks up a localized string similar to An emergency off was toggled..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.XpressNetLiMessages.EmergencyStopToggle">
+            <summary>
+              Looks up a localized string similar to Anemergency stop was toggled..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.XpressNetLiMessages.LIInfoandAddress">
+            <summary>
+              Looks up a localized string similar to LI-USB-interface version: &apos;{0}&apos; - LI-UBS-interface codenumber: &apos;{1}&apos; - LI-UBS-interface address: &apos;{2}&apos;.
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.XpressNetLiMessages.ProgrammodeToggle">
+            <summary>
+              Looks up a localized string similar to The Central was switched to programming mode..
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Resources.XpressNetLiMessages.StartLIListener">
+            <summary>
+              Looks up a localized string similar to Starting LI-USB-Listener on Port &apos;{0}&apos;..
+            </summary>
+        </member>
+    </members>
+</doc>

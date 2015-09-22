@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<FlakeLIConfigData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <TimeToWaitForLIAnswer_ms>0</TimeToWaitForLIAnswer_ms>
-  <TimeoutForLIResponse_s>0</TimeoutForLIResponse_s>
-  <AllowedCentralErrorsInARow>0</AllowedCentralErrorsInARow>
-  <CentralFetchInfoTries>0</CentralFetchInfoTries>
-</FlakeLIConfigData>
+<ConfigData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TimeToWaitForLIAnswer_ms>100</TimeToWaitForLIAnswer_ms>
+  <TimeoutForLIResponse_s>3</TimeoutForLIResponse_s>
+  <AllowedCentralErrorsInARow>3</AllowedCentralErrorsInARow>
+  <CentralFetchInfoTries>3</CentralFetchInfoTries>
+</ConfigData>

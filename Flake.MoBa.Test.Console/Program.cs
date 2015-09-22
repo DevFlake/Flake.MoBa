@@ -14,9 +14,14 @@ namespace Flake.MoBa.Test.Console
             {
                 var l = new Locomotive(32, LocomotiveSpeedSections.x128);
                 l.AddFunction(new LocomotiveFunction(0, "Light", "turn on the lights", LocomotiveFunctionType.switching));
+                l.RegisterCentral(c);
                 l.ToggleFunction(0);
+                l.SetSpeedAndDirection(30, LocomotiveDirection.backward);
+                System.Threading.Thread.Sleep(5000);
+
                 l.SetSpeedAndDirection(30, LocomotiveDirection.forward);
-                System.Threading.Thread.Sleep(2000);
+
+                System.Threading.Thread.Sleep(5000);
                 l.BreakToStop();
                 l.ToggleFunction(0);
             }
