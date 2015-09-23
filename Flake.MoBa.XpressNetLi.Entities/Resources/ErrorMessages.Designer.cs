@@ -79,6 +79,15 @@ namespace Flake.MoBa.XpressNetLi.Entities.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Whether the locomotive is not registered to a central or the central is offline..
+        /// </summary>
+        internal static string WarningNotOnline {
+            get {
+                return ResourceManager.GetString("WarningNotOnline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The function you want to switch is not registered to this locomotive..
         /// </summary>
         internal static string WarningNotRegisteredLocoFunction {

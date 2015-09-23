@@ -1,0 +1,9 @@
+E:\privat\gitRepos\Flake.MoBa\Test.Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Test.Flake.MoBa.XPressNetLi.Configuration.dll
+E:\privat\gitRepos\Flake.MoBa\Test.Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Test.Flake.MoBa.XPressNetLi.Configuration.pdb
+E:\privat\gitRepos\Flake.MoBa\Test.Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.dll
+E:\privat\gitRepos\Flake.MoBa\Test.Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\privat\gitRepos\Flake.MoBa\Test.Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.pdb
+E:\privat\gitRepos\Flake.MoBa\Test.Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+E:\privat\gitRepos\Flake.MoBa\Test.Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Test.Flake.MoBa.XPressNetLi.Configuration.csprojResolveAssemblyReference.cache
+E:\privat\gitRepos\Flake.MoBa\Test.Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Test.Flake.MoBa.XPressNetLi.Configuration.dll
+E:\privat\gitRepos\Flake.MoBa\Test.Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Test.Flake.MoBa.XPressNetLi.Configuration.pdb

@@ -123,6 +123,9 @@
   <data name="MaxSpeedNotSet" xml:space="preserve">
     <value>The real maximal speed was not set. To drive the locomotive, the max speed was set to {0}.</value>
   </data>
+  <data name="WarningNotOnline" xml:space="preserve">
+    <value>Whether the locomotive is not registered to a central or the central is offline.</value>
+  </data>
   <data name="WarningNotRegisteredLocoFunction" xml:space="preserve">
     <value>The function you want to switch is not registered to this locomotive.</value>
   </data>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Flake.MoBa.XpressNetLi.Entities.Resources {
+namespace Flake.MoBa.Db.DataClasses.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Flake.MoBa.XpressNetLi.Entities.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class FlakeControllerErrors {
+    internal class MoBaDbLocomotive {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal FlakeControllerErrors() {
+        internal MoBaDbLocomotive() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Flake.MoBa.XpressNetLi.Controller.Resources.FlakeControllerErrors", typeof(FlakeControllerErrors).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Flake.MoBa.Db.DataClasses.Resources.MoBaDbLocomotive", typeof(MoBaDbLocomotive).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,38 @@ namespace Flake.MoBa.XpressNetLi.Entities.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Given Address is out of Range (0-9999)..
+        ///   Looks up a localized string similar to New locomotive.
         /// </summary>
-        internal static string AddressNotInRange {
+        internal static string NewLoco {
             get {
-                return ResourceManager.GetString("AddressNotInRange", resourceCulture);
+                return ResourceManager.GetString("NewLoco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No description.
+        /// </summary>
+        internal static string NewLocoDesc {
+            get {
+                return ResourceManager.GetString("NewLocoDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No description.
+        /// </summary>
+        internal static string NewLocoFunctionDesc {
+            get {
+                return ResourceManager.GetString("NewLocoFunctionDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Function.
+        /// </summary>
+        internal static string NewLocoFunctionName {
+            get {
+                return ResourceManager.GetString("NewLocoFunctionName", resourceCulture);
             }
         }
     }

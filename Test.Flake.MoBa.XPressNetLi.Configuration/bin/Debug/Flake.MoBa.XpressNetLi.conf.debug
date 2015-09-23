@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ConfigData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TimeToWaitForLIAnswer_ms>100</TimeToWaitForLIAnswer_ms>
+  <TimeoutForLIResponse_s>10</TimeoutForLIResponse_s>
+  <AllowedCentralErrorsInARow>3</AllowedCentralErrorsInARow>
+  <CentralFetchInfoTries>3</CentralFetchInfoTries>
+</ConfigData>

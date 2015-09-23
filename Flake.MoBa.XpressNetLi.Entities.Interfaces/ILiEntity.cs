@@ -28,5 +28,10 @@ namespace Flake.MoBa.XpressNetLi.Entities.Interfaces
         /// Stop all movement
         /// </summary>
         void EmergencyStop();
+
+        /// <summary>
+        /// indicated whether the entity is registered to a central or not
+        /// </summary>
+        bool IsRegistered { get; }
     }
 }

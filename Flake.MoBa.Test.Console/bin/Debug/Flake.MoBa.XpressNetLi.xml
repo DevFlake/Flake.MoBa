@@ -37,6 +37,12 @@
             </summary>
             <remarks>Uses the credentials Port, StopBites, aso.</remarks>
         </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.InitConnection(Flake.MoBa.ComPort.IComPort)">
+            <summary>
+            Initializes a new connection to the interface
+            </summary>
+            <remarks>uses the given com port connection</remarks>
+        </member>
         <member name="M:Flake.MoBa.XpressNetLi.Central.CloseConnection">
             <summary>
             Close serial connection
@@ -70,6 +76,11 @@
         <member name="M:Flake.MoBa.XpressNetLi.Central.DataReceivedHandler">
             <summary>
             Handler for reading bytes from connection
+            </summary>
+        </member>
+        <member name="P:Flake.MoBa.XpressNetLi.Central.Connected">
+            <summary>
+            indicates whether the central is connected via comport or not
             </summary>
         </member>
         <member name="P:Flake.MoBa.XpressNetLi.Central.LastAnswer">
@@ -164,6 +175,11 @@
             Creates a new XpressNet LI central
             </summary>
             <param name="serialPortConnection">an existing serialport connection</param>
+        </member>
+        <member name="M:Flake.MoBa.XpressNetLi.Central.Initialize(Flake.MoBa.ComPort.IComPort)">
+            <summary>
+            Creates a new XpressNet LI central
+            </summary>
         </member>
         <member name="T:Flake.MoBa.XpressNetLi.Resources.ErrorMessages">
             <summary>

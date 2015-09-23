@@ -9,6 +9,7 @@ using Flake.MoBa.Base;
 using Flake.MoBa.XpressNetLi.Comunication.Answers;
 using Flake.MoBa.XpressNetLi.Comunication.Commands;
 using Flake.MoBa.XpressNetLi.Comunication;
+using Flake.MoBa.Db.DataClasses;
 
 namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
 {
@@ -64,14 +65,39 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         }
 
         /// <summary>
+        /// Create a new instance of a locomotive
+        /// </summary>
+        /// <param name="moBaDbLocomotive">all information of the locomoive object</param>
+        public Locomotive(MoBaDbLocomotive moBaDbLocomotive)
+            : this(moBaDbLocomotive.Address)
+        {
+            Description = new LocomotiveDesc() { Name = moBaDbLocomotive.Name, Description = moBaDbLocomotive.Description, };
+            MaxSpeedReal = moBaDbLocomotive.MaxSpeedReal;
+            foreach (var f in moBaDbLocomotive.GetAllFunctions())
+            {
+                // TODO add functions!
+            }
+        }
+
+        /// <summary>
         /// Store the central, to which the locomotive is registered
         /// </summary>
         /// <param name="central">A representation of a central</param>
         public void RegisterCentral(ICentral central)
         {
-            _Central = central;
-            InitializeLocomotiveFunctionTypes();
-            GetLocomotiveInfo();
+            try
+            {
+                _Central = central;
+                InitializeLocomotiveFunctionTypes();
+                GetLocomotiveInfo();
+                IsRegistered = true;
+            }
+            catch (Exception ex)
+            {
+                // TODO
+                ex.ToString(); //foo
+                IsRegistered = false;
+            }
         }
 
         /// <summary>
@@ -81,6 +107,16 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         {
             EmergencyBreak();
         }
+
+        /// <summary>
+        /// indicated whether the entity is registered to a central or not
+        /// </summary>
+        public bool IsRegistered { get; private set; }
+
+        /// <summary>
+        /// indicates whether the locomotive can react on commands or not
+        /// </summary>
+        private bool Online { get { return IsRegistered && _Central.Connected; } }
 
         #region stats and current values (private)
 
@@ -165,7 +201,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
             }
             else
             {
-                logme.Log(i18n.ErrorMessages.AnswerEmpty, logme.LogLevel.error, answer==null? null:answer.ByteArray);
+                logme.Log(i18n.ErrorMessages.AnswerEmpty, logme.LogLevel.error, answer == null ? null : answer.ByteArray);
             }
         }
 
@@ -447,8 +483,15 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// <remarks>uses the current speed and direction settings</remarks>
         private void Drive()
         {
-            LocomotiveDrive cmd = new LocomotiveDrive(_ExtendedAdress, _CurrentSpeed, (_CurrentDirection == Base.Enums.LocomotiveDirection.LocomotiveDirection.forward), _SpeedSections);
-            _Central.QueueNewCommand(new LiCommandAndAnswer(cmd));
+            if (Online)
+            {
+                LocomotiveDrive cmd = new LocomotiveDrive(_ExtendedAdress, _CurrentSpeed, (_CurrentDirection == Base.Enums.LocomotiveDirection.LocomotiveDirection.forward), _SpeedSections);
+                _Central.QueueNewCommand(new LiCommandAndAnswer(cmd));
+            }
+            else
+            {
+                logme.Log(i18n.ErrorMessages.WarningNotOnline, logme.LogLevel.warning);
+            }
         }
 
         /// <summary>
@@ -456,15 +499,23 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// </summary>
         private CommonLocomotiveInfo ReadLocomotiveInfoArray()
         {
-            GetLocomotiveInfo cmd = new GetLocomotiveInfo(_ExtendedAdress);
-            LiCommandAndAnswer commandAndAnswer = new LiCommandAndAnswer(cmd);
-            _Central.QueueNewCommand(commandAndAnswer);
-            DateTime requestDeadline = DateTime.Now.AddSeconds(_Central.Config.Data.TimeoutForLIResponse_s * 10000000);
-            while (commandAndAnswer.Answer == null && DateTime.Now < requestDeadline)
+            if (Online)
             {
-                // wait until data arrives or timeout
+                GetLocomotiveInfo cmd = new GetLocomotiveInfo(_ExtendedAdress);
+                LiCommandAndAnswer commandAndAnswer = new LiCommandAndAnswer(cmd);
+                _Central.QueueNewCommand(commandAndAnswer);
+                DateTime requestDeadline = DateTime.Now.AddSeconds(_Central.Config.Data.TimeoutForLIResponse_s * 10000000);
+                while (commandAndAnswer.Answer == null && DateTime.Now < requestDeadline)
+                {
+                    // wait until data arrives or timeout
+                }
+                return (CommonLocomotiveInfo)commandAndAnswer.Answer;
             }
-            return (CommonLocomotiveInfo)commandAndAnswer.Answer;
+            else
+            {
+                logme.Log(i18n.ErrorMessages.WarningNotOnline, logme.LogLevel.warning);
+                return null;
+            }
         }
 
         /// <summary>
@@ -472,15 +523,23 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// </summary>
         private LocomotiveFunctionStateExt ReadLocomotiveFunctionsExt()
         {
-            GetLocomotiveFunctionState cmd = new GetLocomotiveFunctionState(_ExtendedAdress);
-            LiCommandAndAnswer commandAndAnswer = new LiCommandAndAnswer(cmd);
-            _Central.QueueNewCommand(commandAndAnswer);
-            DateTime requestDeadline = DateTime.Now.AddSeconds(_Central.Config.Data.TimeoutForLIResponse_s * 10000000);
-            while (commandAndAnswer.Answer == null && DateTime.Now < requestDeadline)
+            if (Online)
             {
-                // wait until data arrives or timeout
+                GetLocomotiveFunctionState cmd = new GetLocomotiveFunctionState(_ExtendedAdress);
+                LiCommandAndAnswer commandAndAnswer = new LiCommandAndAnswer(cmd);
+                _Central.QueueNewCommand(commandAndAnswer);
+                DateTime requestDeadline = DateTime.Now.AddSeconds(_Central.Config.Data.TimeoutForLIResponse_s * 10000000);
+                while (commandAndAnswer.Answer == null && DateTime.Now < requestDeadline)
+                {
+                    // wait until data arrives or timeout
+                }
+                return (LocomotiveFunctionStateExt)commandAndAnswer.Answer;
             }
-            return (LocomotiveFunctionStateExt)commandAndAnswer.Answer;
+            else
+            {
+                logme.Log(i18n.ErrorMessages.WarningNotOnline, logme.LogLevel.warning);
+                return null;
+            }
         }
 
         /// <summary>
@@ -488,15 +547,23 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// </summary>
         private LocomotiveFunctionTypeLo ReadLocomotiveFunctionTypesLo()
         {
-            GetLocomotiveFunctionTypesLo cmd = new GetLocomotiveFunctionTypesLo(_ExtendedAdress);
-            LiCommandAndAnswer commandAndAnswer = new LiCommandAndAnswer(cmd);
-            _Central.QueueNewCommand(commandAndAnswer);
-            DateTime requestDeadline = DateTime.Now.AddSeconds(_Central.Config.Data.TimeoutForLIResponse_s * 10000000);
-            while (commandAndAnswer.Answer == null && DateTime.Now < requestDeadline)
+            if (Online)
             {
-                // wait until data arrives or timeout
+                GetLocomotiveFunctionTypesLo cmd = new GetLocomotiveFunctionTypesLo(_ExtendedAdress);
+                LiCommandAndAnswer commandAndAnswer = new LiCommandAndAnswer(cmd);
+                _Central.QueueNewCommand(commandAndAnswer);
+                DateTime requestDeadline = DateTime.Now.AddSeconds(_Central.Config.Data.TimeoutForLIResponse_s * 10000000);
+                while (commandAndAnswer.Answer == null && DateTime.Now < requestDeadline)
+                {
+                    // wait until data arrives or timeout
+                }
+                return (LocomotiveFunctionTypeLo)commandAndAnswer.Answer;
             }
-            return (LocomotiveFunctionTypeLo)commandAndAnswer.Answer;
+            else
+            {
+                logme.Log(i18n.ErrorMessages.WarningNotOnline, logme.LogLevel.warning);
+                return null;
+            }
         }
 
         /// <summary>
@@ -504,15 +571,23 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// </summary>
         private LocomotiveFunctionTypeHi ReadLocomotiveFunctionTypesHi()
         {
-            GetLocomotiveFunctionTypesHi cmd = new GetLocomotiveFunctionTypesHi(_ExtendedAdress);
-            LiCommandAndAnswer commandAndAnswer = new LiCommandAndAnswer(cmd);
-            _Central.QueueNewCommand(commandAndAnswer);
-            DateTime requestDeadline = DateTime.Now.AddSeconds(_Central.Config.Data.TimeoutForLIResponse_s * 10000000);
-            while (commandAndAnswer.Answer == null && DateTime.Now < requestDeadline)
+            if (Online)
             {
-                // wait until data arrives or timeout
+                GetLocomotiveFunctionTypesHi cmd = new GetLocomotiveFunctionTypesHi(_ExtendedAdress);
+                LiCommandAndAnswer commandAndAnswer = new LiCommandAndAnswer(cmd);
+                _Central.QueueNewCommand(commandAndAnswer);
+                DateTime requestDeadline = DateTime.Now.AddSeconds(_Central.Config.Data.TimeoutForLIResponse_s * 10000000);
+                while (commandAndAnswer.Answer == null && DateTime.Now < requestDeadline)
+                {
+                    // wait until data arrives or timeout
+                }
+                return (LocomotiveFunctionTypeHi)commandAndAnswer.Answer;
             }
-            return (LocomotiveFunctionTypeHi)commandAndAnswer.Answer;
+            else
+            {
+                logme.Log(i18n.ErrorMessages.WarningNotOnline, logme.LogLevel.warning);
+                return null;
+            }
         }
 
         /// <summary>
@@ -520,15 +595,23 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// </summary>
         private LocomotiveFunctionTypeHi ReadLocomotiveFunctionTypeshi()
         {
-            GetLocomotiveFunctionTypesHi cmd = new GetLocomotiveFunctionTypesHi(_ExtendedAdress);
-            LiCommandAndAnswer commandAndAnswer = new LiCommandAndAnswer(cmd);
-            _Central.QueueNewCommand(commandAndAnswer);
-            DateTime requestDeadline = DateTime.Now.AddSeconds(_Central.Config.Data.TimeoutForLIResponse_s * 10000000);
-            while (commandAndAnswer.Answer == null && DateTime.Now < requestDeadline)
+            if (Online)
             {
-                // wait until data arrives or timeout
+                GetLocomotiveFunctionTypesHi cmd = new GetLocomotiveFunctionTypesHi(_ExtendedAdress);
+                LiCommandAndAnswer commandAndAnswer = new LiCommandAndAnswer(cmd);
+                _Central.QueueNewCommand(commandAndAnswer);
+                DateTime requestDeadline = DateTime.Now.AddSeconds(_Central.Config.Data.TimeoutForLIResponse_s * 10000000);
+                while (commandAndAnswer.Answer == null && DateTime.Now < requestDeadline)
+                {
+                    // wait until data arrives or timeout
+                }
+                return (LocomotiveFunctionTypeHi)commandAndAnswer.Answer;
             }
-            return (LocomotiveFunctionTypeHi)commandAndAnswer.Answer;
+            else
+            {
+                logme.Log(i18n.ErrorMessages.WarningNotOnline, logme.LogLevel.warning);
+                return null;
+            }
         }
 
         /// <summary>
@@ -538,10 +621,17 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// <param name="setFunction">set (1) or unset (0) the function</param>
         private void SetLocomotiveFunction(int functionNumber, bool setFunction)
         {
-            var tmp = new Dictionary<int, bool>();
-             _functions.Foreach(a => tmp.Add(a.Key, a.Value.Active));
-            SetLocomotiveFunction cmd = new SetLocomotiveFunction(_ExtendedAdress, functionNumber, setFunction, tmp);
-            _Central.QueueNewCommand(new LiCommandAndAnswer(cmd));
+            if (Online)
+            {
+                var tmp = new Dictionary<int, bool>();
+                _functions.Foreach(a => tmp.Add(a.Key, a.Value.Active));
+                SetLocomotiveFunction cmd = new SetLocomotiveFunction(_ExtendedAdress, functionNumber, setFunction, tmp);
+                _Central.QueueNewCommand(new LiCommandAndAnswer(cmd));
+            }
+            else
+            {
+                logme.Log(i18n.ErrorMessages.WarningNotOnline, logme.LogLevel.warning);
+            }
         }
 
         /// <summary>
@@ -549,10 +639,17 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// </summary>
         private void InitializeLocomotiveFunctionTypes()
         {
-            var tmp = new Dictionary<int, bool>();
-            _functions.Foreach(a => tmp.Add(a.Key, a.Value.Type == LocomotiveFunctionType.tapping)); 
-            SetLocomotiveFunctionType cmd = new SetLocomotiveFunctionType(_ExtendedAdress, 0, _functions[0].Type == LocomotiveFunctionType.tapping, tmp);
-            _Central.QueueNewCommand(new LiCommandAndAnswer(cmd));
+            if (Online)
+            {
+                var tmp = new Dictionary<int, bool>();
+                _functions.Foreach(a => tmp.Add(a.Key, a.Value.Type == LocomotiveFunctionType.tapping));
+                SetLocomotiveFunctionType cmd = new SetLocomotiveFunctionType(_ExtendedAdress, 0, _functions[0].Type == LocomotiveFunctionType.tapping, tmp);
+                _Central.QueueNewCommand(new LiCommandAndAnswer(cmd));
+            }
+            else
+            {
+                logme.Log(i18n.ErrorMessages.WarningNotOnline, logme.LogLevel.warning);
+            }
         }
 
         #endregion LI commands
@@ -597,14 +694,21 @@ namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
         /// <param name="functionNumber">f-number</param>
         public void ToggleFunction(int functionNumber)
         {
-            if (_functions.Keys.Contains(functionNumber))
+            if (Online)
             {
-                SetLocomotiveFunction(functionNumber, !_functions[functionNumber].Active);
-                _functions[functionNumber].Toggle();
+                if (_functions.Keys.Contains(functionNumber))
+                {
+                    SetLocomotiveFunction(functionNumber, !_functions[functionNumber].Active);
+                    _functions[functionNumber].Toggle();
+                }
+                else
+                {
+                    logme.Log(i18n.ErrorMessages.WarningNotRegisteredLocoFunction, logme.LogLevel.warning);
+                }
             }
             else
             {
-                logme.Log(i18n.ErrorMessages.WarningNotRegisteredLocoFunction, logme.LogLevel.warning);
+                logme.Log(i18n.ErrorMessages.WarningNotOnline, logme.LogLevel.warning);
             }
         }
 

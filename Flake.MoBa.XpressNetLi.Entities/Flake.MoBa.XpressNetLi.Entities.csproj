@@ -70,6 +70,10 @@
       <Project>{eab05665-c769-4fa2-abe0-38510833af1c}</Project>
       <Name>Flake.MoBa.ComPort</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.Db.DataClasses\Flake.MoBa.Db.DataClasses.csproj">
+      <Project>{fc335f0b-df7b-4f39-bd74-f1335a7eaf81}</Project>
+      <Name>Flake.MoBa.Db.DataClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Flake.MoBa.Log\Flake.MoBa.Log.csproj">
       <Project>{9ede82c3-b314-48d9-b741-298c7d3bb98f}</Project>
       <Name>Flake.MoBa.Log</Name>

@@ -60,22 +60,60 @@ namespace Flake.MoBa.XpressNetLi
             try
             {
                 SerialPortConnection.Open();
+                Connected = true;
             }
             catch (System.UnauthorizedAccessException notavail)
             {
                 // COM Port in use
                 logme.Log(i18n.ErrorMessages.ComPortNotAvailable, logme.LogLevel.error);
                 notavail.ToString(); // foo
+                Connected = false;
                 return;
             }
             catch (IOException ioex)
             {
                 logme.Log(ioex);
+                Connected = false;
                 return;
             }
             catch (Exception ex)
             {
                 logme.Log(ex);
+                Connected = false;
+                return;
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new connection to the interface
+        /// </summary>
+        /// <remarks>uses the given com port connection</remarks>
+        private void InitConnection(IComPort serialPortConnection)
+        {
+            SerialPortConnection = serialPortConnection;
+            try
+            {
+                SerialPortConnection.Open();
+                Connected = true;
+            }
+            catch (System.UnauthorizedAccessException notavail)
+            {
+                // COM Port in use
+                logme.Log(i18n.ErrorMessages.ComPortNotAvailable, logme.LogLevel.error);
+                notavail.ToString(); // foo
+                Connected = false;
+                return;
+            }
+            catch (IOException ioex)
+            {
+                logme.Log(ioex);
+                Connected = false;
+                return;
+            }
+            catch (Exception ex)
+            {
+                logme.Log(ex);
+                Connected = false;
                 return;
             }
         }
@@ -86,6 +124,7 @@ namespace Flake.MoBa.XpressNetLi
         private void CloseConnection()
         {
             SerialPortConnection.Close();
+            Connected = false;
         }
 
         /// <summary>
@@ -167,6 +206,11 @@ namespace Flake.MoBa.XpressNetLi
                 if (LastAnswer != null && (LastAnswer as AnswerBase).IsBroadCast) ProcessBroadCast();
             }
         }
+
+        /// <summary>
+        /// indicates whether the central is connected via comport or not
+        /// </summary>
+        public bool Connected { get; private set; }
 
         #endregion Serial port connection
 
@@ -410,20 +454,8 @@ namespace Flake.MoBa.XpressNetLi
         /// <param name="stopBits">StopBits of serial port to interface</param>
         public Central(string port = "COM2", int baudRate = 57600, ComPortParity parityBits = ComPortParity.None, int dataBits = 8, ComPortStopBits stopBits = ComPortStopBits.One)
         {
-            Config = new ConfigurationSet();
-
-            _RigisteredEntities = new List<ILiEntity>();
-            _ErrorInARow = 0;
-
-            // Open connection to interface
-            InitConnection(port, baudRate, parityBits, dataBits, stopBits);
-
-            // start command queue worker process
-            //System.Threading.ThreadPool.QueueUserWorkItem(delegate { _AnswerListener = new LIListener(this); }, null);
-            logme.Log(string.Format(i18n.XpressNetLiMessages.StartLIListener, Port), logme.LogLevel.info);
-            SerialPortConnection.ComDataReceived += new ComPortEventHandler(DataReceivedHandler);
-
-            GetInterfaceAndCentralInfo();
+            var serialPortConnection = new ComPortConnection(port,baudRate,parityBits,dataBits,stopBits);
+            Initialize(serialPortConnection);
         }
 
 
@@ -433,20 +465,25 @@ namespace Flake.MoBa.XpressNetLi
         /// <param name="serialPortConnection">an existing serialport connection</param>
         public Central(IComPort serialPortConnection)
         {
+            Initialize(serialPortConnection);
+        }
+
+        /// <summary>
+        /// Creates a new XpressNet LI central
+        /// </summary>
+        private void Initialize(IComPort serialPortConnection)
+        {
             Config = new ConfigurationSet();
+            Connected = false;
 
             _RigisteredEntities = new List<ILiEntity>();
-            _ErrorInARow = 0;
+            _ErrorInARow = Config.Data.AllowedCentralErrorsInARow;
 
             // Open connection to interface
-            SerialPortConnection = serialPortConnection;
-            SerialPortConnection.Open();
+            InitConnection(serialPortConnection);
 
-            // start command queue worker process
-            //System.Threading.ThreadPool.QueueUserWorkItem(delegate { _AnswerListener = new LIListener(this); }, null);
             logme.Log(string.Format(i18n.XpressNetLiMessages.StartLIListener, Port), logme.LogLevel.info);
             SerialPortConnection.ComDataReceived += new ComPortEventHandler(DataReceivedHandler);
-
             GetInterfaceAndCentralInfo();
         }
     }

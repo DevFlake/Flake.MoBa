@@ -20,35 +20,33 @@ namespace Flake.MoBa.Driver
         {
             InitializeComponent();
         }
-        Central _central = new Central();
+        Central _central;
         Locomotive _loco;
 
-        bool _stopSignal = false;
+        bool _breakSignal = false;
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             _loco = new Locomotive(int.Parse(this.cboAddress.Text), LocomotiveSpeedSections.x128);
+        }
 
-            //var address = int.Parse(this.cboAddress.Text);
-
-            //    var l = new Locomotive(address, LocomotiveSpeedSections.x128);
+        private void InitializeDigitalComponents()
+        {
+            try
+            {
+                _central = new Central();
                 _loco.AddFunction(new LocomotiveFunction(0, "Light", "turn on the lights", LocomotiveFunctionType.switching));
                 _loco.RegisterCentral(_central);
-                //l.ToggleFunction(0);
-                //l.SetSpeedAndDirection(30, LocomotiveDirection.backward);
-                //System.Threading.Thread.Sleep(5000);
-
-                //l.SetSpeedAndDirection(30, LocomotiveDirection.forward);
-
-                //System.Threading.Thread.Sleep(5000);
-                //l.BreakToStop();
-                //l.ToggleFunction(0);
-            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString()); // TODO
+            }
         }
 
         private void trkSpeed_Scroll(object sender, EventArgs e)
         {
-            if (!_stopSignal)
+            if (!_breakSignal)
             {
                 lblSpeed.Text = trkSpeed.Value.ToString();
                 _loco.SetSpeedAndDirection(trkSpeed.Value, rbtForward.Checked ? LocomotiveDirection.forward : LocomotiveDirection.backward);
@@ -61,22 +59,28 @@ namespace Flake.MoBa.Driver
             _loco.ToggleFunction(0);
         }
 
-        private void rbtBackward_CheckedChanged(object sender, EventArgs e)
-        {
-            _loco.SetSpeedAndDirection(trkSpeed.Value, rbtForward.Checked ? LocomotiveDirection.forward : LocomotiveDirection.backward);
-        }
-
-        private void rbtForward_CheckedChanged(object sender, EventArgs e)
+        private void rbtForwardBackward_CheckedChanged(object sender, EventArgs e)
         {
             _loco.SetSpeedAndDirection(trkSpeed.Value, rbtForward.Checked ? LocomotiveDirection.forward : LocomotiveDirection.backward);
         }
 
         private void cmdBreak_Click(object sender, EventArgs e)
         {
-            _stopSignal = true;
+            _breakSignal = true;
             _loco.BreakToStop();
             trkSpeed.Value = 0;
-                _stopSignal = false;
+            _breakSignal = false;
+        }
+
+        private void initializeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitializeDigitalComponents();
+        }
+
+        private void loadLocomotiveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.cboAddress.Text = "32";
+            
         }
     }
 }

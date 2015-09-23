@@ -16,3 +16,5 @@ C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\bin\Debug\EntityFramework.SqlSe
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\obj\Debug\Flake.MoBa.ComPort.csprojResolveAssemblyReference.cache
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\obj\Debug\Flake.MoBa.ComPort.dll
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.ComPort\obj\Debug\Flake.MoBa.ComPort.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.ComPort\bin\Debug\EntityFramework.SqlServer.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.ComPort\bin\Debug\EntityFramework.SqlServer.xml

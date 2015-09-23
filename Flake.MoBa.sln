@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.Db.Test.Console"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.MoBa.Driver", "Flake.MoBa.Driver\Flake.MoBa.Driver.csproj", "{C8A20F54-C83F-48E4-A5D2-0935F84D9632}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Flake.MoBa.XPressNetLi.Configuration", "Test.Flake.MoBa.XPressNetLi.Configuration\Test.Flake.MoBa.XPressNetLi.Configuration.csproj", "{1163E1AC-6179-4211-8264-CCD392E8C086}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -208,6 +210,18 @@ Global
 		{C8A20F54-C83F-48E4-A5D2-0935F84D9632}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C8A20F54-C83F-48E4-A5D2-0935F84D9632}.Release|x86.ActiveCfg = Release|Any CPU
 		{C8A20F54-C83F-48E4-A5D2-0935F84D9632}.Release|x86.Build.0 = Release|Any CPU
+		{1163E1AC-6179-4211-8264-CCD392E8C086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1163E1AC-6179-4211-8264-CCD392E8C086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1163E1AC-6179-4211-8264-CCD392E8C086}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1163E1AC-6179-4211-8264-CCD392E8C086}.Debug|x86.Build.0 = Debug|Any CPU
+		{1163E1AC-6179-4211-8264-CCD392E8C086}.DebugComPortInterface|Any CPU.ActiveCfg = Debug|Any CPU
+		{1163E1AC-6179-4211-8264-CCD392E8C086}.DebugComPortInterface|Any CPU.Build.0 = Debug|Any CPU
+		{1163E1AC-6179-4211-8264-CCD392E8C086}.DebugComPortInterface|x86.ActiveCfg = Debug|Any CPU
+		{1163E1AC-6179-4211-8264-CCD392E8C086}.DebugComPortInterface|x86.Build.0 = Debug|Any CPU
+		{1163E1AC-6179-4211-8264-CCD392E8C086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1163E1AC-6179-4211-8264-CCD392E8C086}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1163E1AC-6179-4211-8264-CCD392E8C086}.Release|x86.ActiveCfg = Release|Any CPU
+		{1163E1AC-6179-4211-8264-CCD392E8C086}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

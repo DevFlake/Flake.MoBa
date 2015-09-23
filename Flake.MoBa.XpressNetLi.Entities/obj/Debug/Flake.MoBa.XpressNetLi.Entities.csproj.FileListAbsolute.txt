@@ -45,3 +45,6 @@ C:\git_repos_local\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities\obj\Debug\Flake.Mo
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities\obj\Debug\Flake.MoBa.XpressNetLi.Entities.csproj.GenerateResource.Cache
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities\obj\Debug\Flake.MoBa.XpressNetLi.Entities.dll
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities\obj\Debug\Flake.MoBa.XpressNetLi.Entities.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities\bin\Debug\Flake.MoBa.XpressNetLi.Entities.dll.config
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities\bin\Debug\Flake.MoBa.Db.DataClasses.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities\bin\Debug\Flake.MoBa.Db.DataClasses.pdb

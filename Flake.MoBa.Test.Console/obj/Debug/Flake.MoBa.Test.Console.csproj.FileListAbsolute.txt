@@ -52,3 +52,9 @@ C:\git_repos_local\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\Flake.MoBa.Log.p
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.pdb
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\Flake.MoBa.XpressNetLi.Comunication.pdb
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.Test.Console\obj\Debug\Flake.MoBa.Test.Console.csprojResolveAssemblyReference.cache
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\EntityFramework.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\EntityFramework.SqlServer.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\EntityFramework.xml
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\EntityFramework.SqlServer.xml
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\Flake.MoBa.Db.DataClasses.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Test.Console\bin\Debug\Flake.MoBa.Db.DataClasses.pdb

@@ -46,10 +46,17 @@
     <Compile Include="MoBaDbHersteller.cs" />
     <Compile Include="MobaDbLinkItem.cs" />
     <Compile Include="MobaDbLink.cs" />
+    <Compile Include="MoBaDbLocomotive.cs" />
+    <Compile Include="MoBaDbLocomotiveFunction.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\MoBaDbLocomotive.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MoBaDbLocomotive.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +70,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MoBaDbLocomotive.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MoBaDbLocomotive.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

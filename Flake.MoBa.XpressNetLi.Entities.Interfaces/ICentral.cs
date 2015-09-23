@@ -21,5 +21,7 @@ namespace Flake.MoBa.XpressNetLi.Entities.Interfaces
 
         void QueueNewCommand(ILiCommandAndAnswer command);
         void RegisterEntity(ILiEntity item);
+
+        bool Connected { get; }
     }
 }

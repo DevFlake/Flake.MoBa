@@ -25,8 +25,22 @@ namespace Flake.MoBa.XPressNetLi.Configuration
         {
             _Path = @"Flake.MoBa.XpressNetLi.conf";
             Data = new ConfigData() { AllowedCentralErrorsInARow=3, CentralFetchInfoTries= 3, TimeoutForLIResponse_s= 3, TimeToWaitForLIAnswer_ms= 100, };
-            //Read(); TODO!!!
+            Read();
 
+#if DEBUG
+            Write(@"Flake.MoBa.XpressNetLi.conf.debug");
+#endif
+        }
+
+        /// <summary>
+        /// creates a new config
+        /// </summary>
+        /// <param name="data">complete set of configuration</param>
+        public ConfigurationSet(ConfigData data)
+            : base()
+        {
+            _Path = @"Flake.MoBa.XpressNetLi.conf";
+            Data = data;
 #if DEBUG
             Write(@"Flake.MoBa.XpressNetLi.conf.debug");
 #endif

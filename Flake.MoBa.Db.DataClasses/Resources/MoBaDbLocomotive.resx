@@ -117,52 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AllOnSet" xml:space="preserve">
-    <value>A general start signal was toggled.</value>
+  <data name="NewLoco" xml:space="preserve">
+    <value>New locomotive</value>
   </data>
-  <data name="CentralStateInfo" xml:space="preserve">
-    <value>Central state: emergency stop: '{0}' - emergency off: '{1}' - central start mode: '{2}' - program mode active: '{3}' - cold start: '{4}' - ram check error: '{5}'.</value>
+  <data name="NewLocoDesc" xml:space="preserve">
+    <value>No description</value>
   </data>
-  <data name="CentralVersionInfo" xml:space="preserve">
-    <value>Central software version: '{0}' - Central type: '{1}'.</value>
+  <data name="NewLocoFunctionDesc" xml:space="preserve">
+    <value>No description</value>
   </data>
-  <data name="EmergencyOffToggle" xml:space="preserve">
-    <value>An emergency off was toggled.</value>
-  </data>
-  <data name="EmergencyStopToggle" xml:space="preserve">
-    <value>Anemergency stop was toggled.</value>
-  </data>
-  <data name="ErrorReceivingFunctionNumber" xml:space="preserve">
-    <value>The given function number was either too large, or too small.</value>
-  </data>
-  <data name="LIInfoandAddress" xml:space="preserve">
-    <value>LI-USB-interface version: '{0}' - LI-UBS-interface codenumber: '{1}' - LI-UBS-interface address: '{2}'</value>
-  </data>
-  <data name="LocomotiveSpeedTooHighForCalc" xml:space="preserve">
-    <value>The given locomotive speed was out of range (too high).</value>
-  </data>
-  <data name="LocomotiveSpeedTooLowForCalc" xml:space="preserve">
-    <value>The given locomotive speed was out of range (too low).</value>
-  </data>
-  <data name="NotRecognizedCentralType" xml:space="preserve">
-    <value>The central type was not recognized.</value>
-  </data>
-  <data name="NotSupportetSpeedSections" xml:space="preserve">
-    <value>The given speed section value is not supported.</value>
-  </data>
-  <data name="NutSupportetDirection" xml:space="preserve">
-    <value>The given direction is not supported.</value>
-  </data>
-  <data name="ProgrammodeToggle" xml:space="preserve">
-    <value>The Central was switched to programming mode.</value>
-  </data>
-  <data name="StartLIListener" xml:space="preserve">
-    <value>Starting LI-USB-Listener on Port '{0}'.</value>
-  </data>
-  <data name="WarningNotRegisteredLocoFunction" xml:space="preserve">
-    <value>The function you want to switch is not registered to this locomotive.</value>
-  </data>
-  <data name="WrongLIAddressReceived" xml:space="preserve">
-    <value>A wrong address ({0}) was received from the LI interface.</value>
+  <data name="NewLocoFunctionName" xml:space="preserve">
+    <value>New Function</value>
   </data>
 </root>

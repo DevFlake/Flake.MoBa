@@ -25,3 +25,4 @@ C:\git_repos_local\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\bin\Deb
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\obj\Debug\Flake.MoBa.XpressNetLi.Entities.Interfaces.csprojResolveAssemblyReference.cache
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\obj\Debug\Flake.MoBa.XpressNetLi.Entities.Interfaces.dll
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\obj\Debug\Flake.MoBa.XpressNetLi.Entities.Interfaces.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XpressNetLi.Entities.Interfaces\bin\Debug\Flake.MoBa.XpressNetLi.Entities.Interfaces.dll.config
