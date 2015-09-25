@@ -41,3 +41,13 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.force
+Flake.MoBa.Db.Dal/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.cache
+Flake.MoBa.Db.Dal/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.dll
+Flake.MoBa.Test.Console/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.pdb
+*.Cache
+*.dll
+Flake.MoBa.Db.Test.Console/obj/Debug/Flake.MoBa.Db.Test.Console.csproj.FileListAbsolute.txt
