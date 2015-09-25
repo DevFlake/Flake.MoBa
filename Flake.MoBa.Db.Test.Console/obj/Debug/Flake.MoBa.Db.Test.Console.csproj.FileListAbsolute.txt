@@ -15,3 +15,14 @@ E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\Flake.MoBa.Ba
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\Flake.MoBa.Db.Test.Console.exe.config
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\obj\Debug\Flake.MoBa.Db.Test.Console.exe
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\obj\Debug\Flake.MoBa.Db.Test.Console.pdb
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\Flake.MoBa.Db.Test.Console.exe
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\Flake.MoBa.Db.Test.Console.pdb
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\Flake.MoBa.Db.Dal.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\Flake.MoBa.Db.DataClasses.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\EntityFramework.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\Flake.MoBa.Base.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\Flake.MoBa.Db.Dal.pdb
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\Flake.MoBa.Db.DataClasses.pdb
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\EntityFramework.xml
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\bin\Debug\Flake.MoBa.Base.pdb
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.Test.Console\obj\Debug\Flake.MoBa.Db.Test.Console.csprojResolveAssemblyReference.cache

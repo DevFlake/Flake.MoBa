@@ -56,3 +56,5 @@ E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Driver\obj\Debug\Flake.MoBa.Driver.Prop
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Driver\obj\Debug\Flake.MoBa.Driver.csproj.GenerateResource.Cache
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Driver\bin\Debug\Flake.MoBa.Db.DataClasses.dll
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Driver\bin\Debug\Flake.MoBa.Db.DataClasses.pdb
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Driver\bin\Debug\Flake.MoBa.Db.DataClasses.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Driver\bin\Debug\Flake.MoBa.Db.DataClasses.pdb

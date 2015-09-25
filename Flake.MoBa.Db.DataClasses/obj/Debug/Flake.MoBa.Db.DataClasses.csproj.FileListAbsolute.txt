@@ -7,3 +7,12 @@ E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Db.DataClasses\obj\Debug\Flake.MoBa.Db.
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Db.DataClasses\obj\Debug\Flake.MoBa.Db.DataClasses.pdb
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Db.DataClasses\obj\Debug\Flake.MoBa.Db.DataClasses.Resources.MoBaDbLocomotive.resources
 E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.Db.DataClasses\obj\Debug\Flake.MoBa.Db.DataClasses.csproj.GenerateResource.Cache
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.DataClasses\bin\Debug\Flake.MoBa.Db.DataClasses.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.DataClasses\bin\Debug\Flake.MoBa.Db.DataClasses.pdb
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.DataClasses\bin\Debug\Flake.MoBa.Base.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.DataClasses\bin\Debug\Flake.MoBa.Base.pdb
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.DataClasses\obj\Debug\Flake.MoBa.Db.DataClasses.csprojResolveAssemblyReference.cache
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.DataClasses\obj\Debug\Flake.MoBa.Db.DataClasses.Resources.MoBaDbLocomotive.resources
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.DataClasses\obj\Debug\Flake.MoBa.Db.DataClasses.csproj.GenerateResource.Cache
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.DataClasses\obj\Debug\Flake.MoBa.Db.DataClasses.dll
+C:\git_repos_local\Flake.MoBa\Flake.MoBa.Db.DataClasses\obj\Debug\Flake.MoBa.Db.DataClasses.pdb
