@@ -51,3 +51,4 @@ Flake.MoBa.Test.Console/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 *.Cache
 *.dll
 Flake.MoBa.Db.Test.Console/obj/Debug/Flake.MoBa.Db.Test.Console.csproj.FileListAbsolute.txt
+*.suo
