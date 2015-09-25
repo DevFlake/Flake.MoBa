@@ -9,7 +9,7 @@ using Flake.MoBa.Base;
 using Flake.MoBa.XpressNetLi.Comunication.Answers;
 using Flake.MoBa.XpressNetLi.Comunication.Commands;
 using Flake.MoBa.XpressNetLi.Comunication;
-using Flake.MoBa.Db.DataClasses;
+using Flake.MoBa.Db.DataClasses.Ctl;
 
 namespace Flake.MoBa.XpressNetLi.Entities.Locomotive
 {

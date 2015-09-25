@@ -30,6 +30,11 @@
         <AssociationConnector Association="MoBaDbModel.FK_LinksZuHerstellern_Links" ManuallyRouted="false" />
         <AssociationConnector Association="MoBaDbModel.SchlagworteZuArtikeln" ManuallyRouted="false" />
         <AssociationConnector Association="MoBaDbModel.SchlagworteZuHerstellern" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MoBaDbModel.LocomotiveDataSheets" Width="1.5" PointX="5.375" PointY="1" />
+        <EntityTypeShape EntityType="MoBaDbModel.LocomotiveFunctions" Width="1.5" PointX="9.875" PointY="1" />
+        <EntityTypeShape EntityType="MoBaDbModel.Locomotives" Width="1.5" PointX="7.625" PointY="1" />
+        <AssociationConnector Association="MoBaDbModel.FK_Locomotives_LocomotiveDataSheets" />
+        <AssociationConnector Association="MoBaDbModel.FK_LocomotiveFunctions_Locomotives" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -4,7 +4,39 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MoBaDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MoBaDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LocomotiveDataSheets">
+          <Key>
+            <PropertyRef Name="LocomotiveDataSheetNid" />
+          </Key>
+          <Property Name="LocomotiveDataSheetNid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="MaxSpeed" Type="int" Nullable="false" />
+          <Property Name="ConstructionYear" Type="int" />
+          <Property Name="Manuafturer" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="LocomotiveFunctions">
+          <Key>
+            <PropertyRef Name="LocomotiveFunctionNid" />
+          </Key>
+          <Property Name="LocomotiveFunctionNid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocomotiveNid" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="FNumber" Type="int" Nullable="false" />
+          <Property Name="Tappable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Locomotives">
+          <Key>
+            <PropertyRef Name="LocomotiveNid" />
+          </Key>
+          <Property Name="LocomotiveNid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="DigitalAddress" Type="int" Nullable="false" />
+          <Property Name="LocomotiveDataSheetNid" Type="int" />
+        </EntityType>
         <EntityType Name="Artikel">
           <Key>
             <PropertyRef Name="ArtikelNid" />
@@ -274,6 +306,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LocomotiveFunctions_Locomotives">
+          <End Role="Locomotives" Type="Self.Locomotives" Multiplicity="1" />
+          <End Role="LocomotiveFunctions" Type="Self.LocomotiveFunctions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locomotives">
+              <PropertyRef Name="LocomotiveNid" />
+            </Principal>
+            <Dependent Role="LocomotiveFunctions">
+              <PropertyRef Name="LocomotiveNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Locomotives_LocomotiveDataSheets">
+          <End Role="LocomotiveDataSheets" Type="Self.LocomotiveDataSheets" Multiplicity="0..1" />
+          <End Role="Locomotives" Type="Self.Locomotives" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocomotiveDataSheets">
+              <PropertyRef Name="LocomotiveDataSheetNid" />
+            </Principal>
+            <Dependent Role="Locomotives">
+              <PropertyRef Name="LocomotiveDataSheetNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SchlagworteZuArtikeln_Artikel">
           <End Role="Artikel" Type="Self.Artikel" Multiplicity="1" />
           <End Role="SchlagworteZuArtikeln" Type="Self.SchlagworteZuArtikeln" Multiplicity="*" />
@@ -341,6 +397,9 @@
           <Parameter Name="Schlagwort" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="MoBaDbModelStoreContainer">
+          <EntitySet Name="LocomotiveDataSheets" EntityType="Self.LocomotiveDataSheets" Schema="ctl" store:Type="Tables" />
+          <EntitySet Name="LocomotiveFunctions" EntityType="Self.LocomotiveFunctions" Schema="ctl" store:Type="Tables" />
+          <EntitySet Name="Locomotives" EntityType="Self.Locomotives" Schema="ctl" store:Type="Tables" />
           <EntitySet Name="Artikel" EntityType="Self.Artikel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dokumente" EntityType="Self.Dokumente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DokumenteZuArtikeln" EntityType="Self.DokumenteZuArtikeln" Schema="dbo" store:Type="Tables" />
@@ -402,6 +461,14 @@
             <End Role="Links" EntitySet="Links" />
             <End Role="LinksZuHerstellern" EntitySet="LinksZuHerstellern" />
           </AssociationSet>
+          <AssociationSet Name="FK_LocomotiveFunctions_Locomotives" Association="Self.FK_LocomotiveFunctions_Locomotives">
+            <End Role="Locomotives" EntitySet="Locomotives" />
+            <End Role="LocomotiveFunctions" EntitySet="LocomotiveFunctions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Locomotives_LocomotiveDataSheets" Association="Self.FK_Locomotives_LocomotiveDataSheets">
+            <End Role="LocomotiveDataSheets" EntitySet="LocomotiveDataSheets" />
+            <End Role="Locomotives" EntitySet="Locomotives" />
+          </AssociationSet>
           <AssociationSet Name="FK_SchlagworteZuArtikeln_Artikel" Association="Self.FK_SchlagworteZuArtikeln_Artikel">
             <End Role="Artikel" EntitySet="Artikel" />
             <End Role="SchlagworteZuArtikeln" EntitySet="SchlagworteZuArtikeln" />
@@ -419,8 +486,7 @@
             <End Role="SchlagworteZuHerstellern" EntitySet="SchlagworteZuHerstellern" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MoBaDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -799,7 +865,78 @@
             <Parameter Name="HerstellerNid" Mode="In" Type="Int32" />
             <Parameter Name="Schlagwort" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="LocomotiveDataSheets" EntityType="MoBaDbModel.LocomotiveDataSheets" />
+          <EntitySet Name="LocomotiveFunctions" EntityType="MoBaDbModel.LocomotiveFunctions" />
+          <EntitySet Name="Locomotives" EntityType="MoBaDbModel.Locomotives" />
+          <AssociationSet Name="FK_Locomotives_LocomotiveDataSheets" Association="MoBaDbModel.FK_Locomotives_LocomotiveDataSheets">
+            <End Role="LocomotiveDataSheets" EntitySet="LocomotiveDataSheets" />
+            <End Role="Locomotives" EntitySet="Locomotives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocomotiveFunctions_Locomotives" Association="MoBaDbModel.FK_LocomotiveFunctions_Locomotives">
+            <End Role="Locomotives" EntitySet="Locomotives" />
+            <End Role="LocomotiveFunctions" EntitySet="LocomotiveFunctions" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="LocomotiveDataSheets">
+          <Key>
+            <PropertyRef Name="LocomotiveDataSheetNid" />
+          </Key>
+          <Property Name="LocomotiveDataSheetNid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MaxSpeed" Type="Int32" Nullable="false" />
+          <Property Name="ConstructionYear" Type="Int32" />
+          <Property Name="Manuafturer" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Locomotives" Relationship="MoBaDbModel.FK_Locomotives_LocomotiveDataSheets" FromRole="LocomotiveDataSheets" ToRole="Locomotives" />
+        </EntityType>
+        <EntityType Name="LocomotiveFunctions">
+          <Key>
+            <PropertyRef Name="LocomotiveFunctionNid" />
+          </Key>
+          <Property Name="LocomotiveFunctionNid" Type="Int32" Nullable="false" />
+          <Property Name="LocomotiveNid" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FNumber" Type="Int32" Nullable="false" />
+          <Property Name="Tappable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Locomotives" Relationship="MoBaDbModel.FK_LocomotiveFunctions_Locomotives" FromRole="LocomotiveFunctions" ToRole="Locomotives" />
+        </EntityType>
+        <EntityType Name="Locomotives">
+          <Key>
+            <PropertyRef Name="LocomotiveNid" />
+          </Key>
+          <Property Name="LocomotiveNid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DigitalAddress" Type="Int32" Nullable="false" />
+          <Property Name="LocomotiveDataSheetNid" Type="Int32" />
+          <NavigationProperty Name="LocomotiveDataSheets" Relationship="MoBaDbModel.FK_Locomotives_LocomotiveDataSheets" FromRole="Locomotives" ToRole="LocomotiveDataSheets" />
+          <NavigationProperty Name="LocomotiveFunctions" Relationship="MoBaDbModel.FK_LocomotiveFunctions_Locomotives" FromRole="Locomotives" ToRole="LocomotiveFunctions" />
+        </EntityType>
+        <Association Name="FK_Locomotives_LocomotiveDataSheets">
+          <End Type="MoBaDbModel.LocomotiveDataSheets" Role="LocomotiveDataSheets" Multiplicity="0..1" />
+          <End Type="MoBaDbModel.Locomotives" Role="Locomotives" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocomotiveDataSheets">
+              <PropertyRef Name="LocomotiveDataSheetNid" />
+            </Principal>
+            <Dependent Role="Locomotives">
+              <PropertyRef Name="LocomotiveDataSheetNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocomotiveFunctions_Locomotives">
+          <End Type="MoBaDbModel.Locomotives" Role="Locomotives" Multiplicity="1" />
+          <End Type="MoBaDbModel.LocomotiveFunctions" Role="LocomotiveFunctions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locomotives">
+              <PropertyRef Name="LocomotiveNid" />
+            </Principal>
+            <Dependent Role="LocomotiveFunctions">
+              <PropertyRef Name="LocomotiveNid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -942,6 +1079,41 @@
           <FunctionImportMapping FunctionImportName="InsertLinkZuHersteller" FunctionName="MoBaDbModel.Store.InsertLinkZuHersteller" />
           <FunctionImportMapping FunctionImportName="InsertSchlagwortZuArtikel" FunctionName="MoBaDbModel.Store.InsertSchlagwortZuArtikel" />
           <FunctionImportMapping FunctionImportName="InsertSchlagwortZuHersteller" FunctionName="MoBaDbModel.Store.InsertSchlagwortZuHersteller" />
+          <EntitySetMapping Name="LocomotiveDataSheets">
+            <EntityTypeMapping TypeName="MoBaDbModel.LocomotiveDataSheets">
+              <MappingFragment StoreEntitySet="LocomotiveDataSheets">
+                <ScalarProperty Name="Manuafturer" ColumnName="Manuafturer" />
+                <ScalarProperty Name="ConstructionYear" ColumnName="ConstructionYear" />
+                <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LocomotiveDataSheetNid" ColumnName="LocomotiveDataSheetNid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocomotiveFunctions">
+            <EntityTypeMapping TypeName="MoBaDbModel.LocomotiveFunctions">
+              <MappingFragment StoreEntitySet="LocomotiveFunctions">
+                <ScalarProperty Name="Tappable" ColumnName="Tappable" />
+                <ScalarProperty Name="FNumber" ColumnName="FNumber" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LocomotiveNid" ColumnName="LocomotiveNid" />
+                <ScalarProperty Name="LocomotiveFunctionNid" ColumnName="LocomotiveFunctionNid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locomotives">
+            <EntityTypeMapping TypeName="MoBaDbModel.Locomotives">
+              <MappingFragment StoreEntitySet="Locomotives">
+                <ScalarProperty Name="LocomotiveDataSheetNid" ColumnName="LocomotiveDataSheetNid" />
+                <ScalarProperty Name="DigitalAddress" ColumnName="DigitalAddress" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LocomotiveNid" ColumnName="LocomotiveNid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -375,5 +375,76 @@
       <Parameter Name="HerstellerNid" Mode="In" Type="Int32" />
       <Parameter Name="Schlagwort" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="LocomotiveDataSheets" EntityType="MoBaDbModel.LocomotiveDataSheets" />
+    <EntitySet Name="LocomotiveFunctions" EntityType="MoBaDbModel.LocomotiveFunctions" />
+    <EntitySet Name="Locomotives" EntityType="MoBaDbModel.Locomotives" />
+    <AssociationSet Name="FK_Locomotives_LocomotiveDataSheets" Association="MoBaDbModel.FK_Locomotives_LocomotiveDataSheets">
+      <End Role="LocomotiveDataSheets" EntitySet="LocomotiveDataSheets" />
+      <End Role="Locomotives" EntitySet="Locomotives" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocomotiveFunctions_Locomotives" Association="MoBaDbModel.FK_LocomotiveFunctions_Locomotives">
+      <End Role="Locomotives" EntitySet="Locomotives" />
+      <End Role="LocomotiveFunctions" EntitySet="LocomotiveFunctions" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="LocomotiveDataSheets">
+    <Key>
+      <PropertyRef Name="LocomotiveDataSheetNid" />
+    </Key>
+    <Property Name="LocomotiveDataSheetNid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MaxSpeed" Type="Int32" Nullable="false" />
+    <Property Name="ConstructionYear" Type="Int32" />
+    <Property Name="Manuafturer" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Locomotives" Relationship="MoBaDbModel.FK_Locomotives_LocomotiveDataSheets" FromRole="LocomotiveDataSheets" ToRole="Locomotives" />
+  </EntityType>
+  <EntityType Name="LocomotiveFunctions">
+    <Key>
+      <PropertyRef Name="LocomotiveFunctionNid" />
+    </Key>
+    <Property Name="LocomotiveFunctionNid" Type="Int32" Nullable="false" />
+    <Property Name="LocomotiveNid" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FNumber" Type="Int32" Nullable="false" />
+    <Property Name="Tappable" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Locomotives" Relationship="MoBaDbModel.FK_LocomotiveFunctions_Locomotives" FromRole="LocomotiveFunctions" ToRole="Locomotives" />
+  </EntityType>
+  <EntityType Name="Locomotives">
+    <Key>
+      <PropertyRef Name="LocomotiveNid" />
+    </Key>
+    <Property Name="LocomotiveNid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DigitalAddress" Type="Int32" Nullable="false" />
+    <Property Name="LocomotiveDataSheetNid" Type="Int32" />
+    <NavigationProperty Name="LocomotiveDataSheets" Relationship="MoBaDbModel.FK_Locomotives_LocomotiveDataSheets" FromRole="Locomotives" ToRole="LocomotiveDataSheets" />
+    <NavigationProperty Name="LocomotiveFunctions" Relationship="MoBaDbModel.FK_LocomotiveFunctions_Locomotives" FromRole="Locomotives" ToRole="LocomotiveFunctions" />
+  </EntityType>
+  <Association Name="FK_Locomotives_LocomotiveDataSheets">
+    <End Type="MoBaDbModel.LocomotiveDataSheets" Role="LocomotiveDataSheets" Multiplicity="0..1" />
+    <End Type="MoBaDbModel.Locomotives" Role="Locomotives" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LocomotiveDataSheets">
+        <PropertyRef Name="LocomotiveDataSheetNid" />
+      </Principal>
+      <Dependent Role="Locomotives">
+        <PropertyRef Name="LocomotiveDataSheetNid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocomotiveFunctions_Locomotives">
+    <End Type="MoBaDbModel.Locomotives" Role="Locomotives" Multiplicity="1" />
+    <End Type="MoBaDbModel.LocomotiveFunctions" Role="LocomotiveFunctions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locomotives">
+        <PropertyRef Name="LocomotiveNid" />
+      </Principal>
+      <Dependent Role="LocomotiveFunctions">
+        <PropertyRef Name="LocomotiveNid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

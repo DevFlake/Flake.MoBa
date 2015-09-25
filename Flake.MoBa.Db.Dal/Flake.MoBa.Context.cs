@@ -38,6 +38,9 @@ namespace Flake.MoBa.Db.Dal
         public virtual DbSet<LinksZuHerstellern> LinksZuHerstellern { get; set; }
         public virtual DbSet<Schlagworte> Schlagworte { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<LocomotiveDataSheets> LocomotiveDataSheets { get; set; }
+        public virtual DbSet<LocomotiveFunctions> LocomotiveFunctions { get; set; }
+        public virtual DbSet<Locomotives> Locomotives { get; set; }
     
         public virtual int InsertLinkZuArtikel(Nullable<int> artikelNid, string link, string bezeichnung)
         {

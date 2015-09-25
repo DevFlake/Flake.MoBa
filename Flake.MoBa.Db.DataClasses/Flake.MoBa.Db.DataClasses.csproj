@@ -46,8 +46,8 @@
     <Compile Include="MoBaDbHersteller.cs" />
     <Compile Include="MobaDbLinkItem.cs" />
     <Compile Include="MobaDbLink.cs" />
-    <Compile Include="MoBaDbLocomotive.cs" />
-    <Compile Include="MoBaDbLocomotiveFunction.cs" />
+    <Compile Include="Ctl\MoBaDbLocomotive.cs" />
+    <Compile Include="Ctl\MoBaDbLocomotiveFunction.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

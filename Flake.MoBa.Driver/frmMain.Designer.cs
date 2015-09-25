@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.cboAddress = new System.Windows.Forms.ComboBox();
             this.gbxDirection = new System.Windows.Forms.GroupBox();
             this.rbtBackward = new System.Windows.Forms.RadioButton();
@@ -49,140 +50,104 @@
             // 
             // cboAddress
             // 
+            resources.ApplyResources(this.cboAddress, "cboAddress");
             this.cboAddress.FormattingEnabled = true;
-            this.cboAddress.Location = new System.Drawing.Point(12, 39);
             this.cboAddress.Name = "cboAddress";
-            this.cboAddress.Size = new System.Drawing.Size(121, 21);
-            this.cboAddress.TabIndex = 0;
-            this.cboAddress.Text = "32";
             // 
             // gbxDirection
             // 
+            resources.ApplyResources(this.gbxDirection, "gbxDirection");
             this.gbxDirection.Controls.Add(this.rbtBackward);
             this.gbxDirection.Controls.Add(this.rbtForward);
-            this.gbxDirection.Location = new System.Drawing.Point(12, 78);
             this.gbxDirection.Name = "gbxDirection";
-            this.gbxDirection.Size = new System.Drawing.Size(200, 100);
-            this.gbxDirection.TabIndex = 1;
             this.gbxDirection.TabStop = false;
-            this.gbxDirection.Text = "direction";
             // 
             // rbtBackward
             // 
-            this.rbtBackward.AutoSize = true;
-            this.rbtBackward.Location = new System.Drawing.Point(7, 44);
+            resources.ApplyResources(this.rbtBackward, "rbtBackward");
             this.rbtBackward.Name = "rbtBackward";
-            this.rbtBackward.Size = new System.Drawing.Size(72, 17);
-            this.rbtBackward.TabIndex = 1;
-            this.rbtBackward.Text = "backward";
             this.rbtBackward.UseVisualStyleBackColor = true;
             this.rbtBackward.CheckedChanged += new System.EventHandler(this.rbtForwardBackward_CheckedChanged);
             // 
             // rbtForward
             // 
-            this.rbtForward.AutoSize = true;
+            resources.ApplyResources(this.rbtForward, "rbtForward");
             this.rbtForward.Checked = true;
-            this.rbtForward.Location = new System.Drawing.Point(7, 20);
             this.rbtForward.Name = "rbtForward";
-            this.rbtForward.Size = new System.Drawing.Size(60, 17);
-            this.rbtForward.TabIndex = 0;
             this.rbtForward.TabStop = true;
-            this.rbtForward.Text = "forward";
             this.rbtForward.UseVisualStyleBackColor = true;
             this.rbtForward.CheckedChanged += new System.EventHandler(this.rbtForwardBackward_CheckedChanged);
             // 
             // trkSpeed
             // 
-            this.trkSpeed.Location = new System.Drawing.Point(280, 39);
+            resources.ApplyResources(this.trkSpeed, "trkSpeed");
             this.trkSpeed.Maximum = 128;
             this.trkSpeed.Name = "trkSpeed";
-            this.trkSpeed.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trkSpeed.Size = new System.Drawing.Size(45, 465);
-            this.trkSpeed.TabIndex = 2;
             this.trkSpeed.Scroll += new System.EventHandler(this.trkSpeed_Scroll);
             // 
             // cmdLight
             // 
-            this.cmdLight.Location = new System.Drawing.Point(12, 184);
+            resources.ApplyResources(this.cmdLight, "cmdLight");
             this.cmdLight.Name = "cmdLight";
-            this.cmdLight.Size = new System.Drawing.Size(75, 23);
-            this.cmdLight.TabIndex = 3;
-            this.cmdLight.Text = "Light";
             this.cmdLight.UseVisualStyleBackColor = true;
             this.cmdLight.Click += new System.EventHandler(this.cmdLight_Click);
             // 
             // lblSpeed
             // 
-            this.lblSpeed.AutoSize = true;
-            this.lblSpeed.Location = new System.Drawing.Point(185, 459);
+            resources.ApplyResources(this.lblSpeed, "lblSpeed");
             this.lblSpeed.Name = "lblSpeed";
-            this.lblSpeed.Size = new System.Drawing.Size(13, 13);
-            this.lblSpeed.TabIndex = 4;
-            this.lblSpeed.Text = "0";
             // 
             // cmdBreak
             // 
-            this.cmdBreak.Location = new System.Drawing.Point(12, 230);
+            resources.ApplyResources(this.cmdBreak, "cmdBreak");
             this.cmdBreak.Name = "cmdBreak";
-            this.cmdBreak.Size = new System.Drawing.Size(75, 23);
-            this.cmdBreak.TabIndex = 6;
-            this.cmdBreak.Text = "Break";
             this.cmdBreak.UseVisualStyleBackColor = true;
             this.cmdBreak.Click += new System.EventHandler(this.cmdBreak_Click);
             // 
             // menuStrip1
             // 
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.digitalComponentsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(320, 24);
-            this.menuStrip1.TabIndex = 7;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
+            resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "&File";
             // 
             // exitToolStripMenuItem
             // 
+            resources.ApplyResources(this.exitToolStripMenuItem, "exitToolStripMenuItem");
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
             // 
             // digitalComponentsToolStripMenuItem
             // 
+            resources.ApplyResources(this.digitalComponentsToolStripMenuItem, "digitalComponentsToolStripMenuItem");
             this.digitalComponentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.initializeToolStripMenuItem,
             this.loadLocomotiveToolStripMenuItem});
             this.digitalComponentsToolStripMenuItem.Name = "digitalComponentsToolStripMenuItem";
-            this.digitalComponentsToolStripMenuItem.Size = new System.Drawing.Size(125, 20);
-            this.digitalComponentsToolStripMenuItem.Text = "Digital &Components";
             // 
             // initializeToolStripMenuItem
             // 
+            resources.ApplyResources(this.initializeToolStripMenuItem, "initializeToolStripMenuItem");
             this.initializeToolStripMenuItem.Name = "initializeToolStripMenuItem";
-            this.initializeToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.initializeToolStripMenuItem.Text = "&Initialize";
             this.initializeToolStripMenuItem.Click += new System.EventHandler(this.initializeToolStripMenuItem_Click);
             // 
             // loadLocomotiveToolStripMenuItem
             // 
+            resources.ApplyResources(this.loadLocomotiveToolStripMenuItem, "loadLocomotiveToolStripMenuItem");
             this.loadLocomotiveToolStripMenuItem.Name = "loadLocomotiveToolStripMenuItem";
-            this.loadLocomotiveToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.loadLocomotiveToolStripMenuItem.Text = "&Load locomotive";
             this.loadLocomotiveToolStripMenuItem.Click += new System.EventHandler(this.loadLocomotiveToolStripMenuItem_Click);
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(320, 516);
             this.Controls.Add(this.cmdBreak);
             this.Controls.Add(this.lblSpeed);
             this.Controls.Add(this.cmdLight);
@@ -192,7 +157,6 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
-            this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.gbxDirection.ResumeLayout(false);
             this.gbxDirection.PerformLayout();

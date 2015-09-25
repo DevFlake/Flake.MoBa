@@ -1,5 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MoBaDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LocomotiveDataSheets">
+    <Key>
+      <PropertyRef Name="LocomotiveDataSheetNid" />
+    </Key>
+    <Property Name="LocomotiveDataSheetNid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="MaxSpeed" Type="int" Nullable="false" />
+    <Property Name="ConstructionYear" Type="int" />
+    <Property Name="Manuafturer" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="LocomotiveFunctions">
+    <Key>
+      <PropertyRef Name="LocomotiveFunctionNid" />
+    </Key>
+    <Property Name="LocomotiveFunctionNid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocomotiveNid" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="FNumber" Type="int" Nullable="false" />
+    <Property Name="Tappable" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Locomotives">
+    <Key>
+      <PropertyRef Name="LocomotiveNid" />
+    </Key>
+    <Property Name="LocomotiveNid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="DigitalAddress" Type="int" Nullable="false" />
+    <Property Name="LocomotiveDataSheetNid" Type="int" />
+  </EntityType>
   <EntityType Name="Artikel">
     <Key>
       <PropertyRef Name="ArtikelNid" />
@@ -269,6 +301,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LocomotiveFunctions_Locomotives">
+    <End Role="Locomotives" Type="Self.Locomotives" Multiplicity="1" />
+    <End Role="LocomotiveFunctions" Type="Self.LocomotiveFunctions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locomotives">
+        <PropertyRef Name="LocomotiveNid" />
+      </Principal>
+      <Dependent Role="LocomotiveFunctions">
+        <PropertyRef Name="LocomotiveNid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Locomotives_LocomotiveDataSheets">
+    <End Role="LocomotiveDataSheets" Type="Self.LocomotiveDataSheets" Multiplicity="0..1" />
+    <End Role="Locomotives" Type="Self.Locomotives" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LocomotiveDataSheets">
+        <PropertyRef Name="LocomotiveDataSheetNid" />
+      </Principal>
+      <Dependent Role="Locomotives">
+        <PropertyRef Name="LocomotiveDataSheetNid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SchlagworteZuArtikeln_Artikel">
     <End Role="Artikel" Type="Self.Artikel" Multiplicity="1" />
     <End Role="SchlagworteZuArtikeln" Type="Self.SchlagworteZuArtikeln" Multiplicity="*" />
@@ -336,6 +392,9 @@
     <Parameter Name="Schlagwort" Type="varchar" Mode="In" />
   </Function>
   <EntityContainer Name="MoBaDbModelStoreContainer">
+    <EntitySet Name="LocomotiveDataSheets" EntityType="Self.LocomotiveDataSheets" Schema="ctl" store:Type="Tables" />
+    <EntitySet Name="LocomotiveFunctions" EntityType="Self.LocomotiveFunctions" Schema="ctl" store:Type="Tables" />
+    <EntitySet Name="Locomotives" EntityType="Self.Locomotives" Schema="ctl" store:Type="Tables" />
     <EntitySet Name="Artikel" EntityType="Self.Artikel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Dokumente" EntityType="Self.Dokumente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DokumenteZuArtikeln" EntityType="Self.DokumenteZuArtikeln" Schema="dbo" store:Type="Tables" />
@@ -396,6 +455,14 @@
     <AssociationSet Name="FK_LinksZuHerstellern_Links" Association="Self.FK_LinksZuHerstellern_Links">
       <End Role="Links" EntitySet="Links" />
       <End Role="LinksZuHerstellern" EntitySet="LinksZuHerstellern" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocomotiveFunctions_Locomotives" Association="Self.FK_LocomotiveFunctions_Locomotives">
+      <End Role="Locomotives" EntitySet="Locomotives" />
+      <End Role="LocomotiveFunctions" EntitySet="LocomotiveFunctions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locomotives_LocomotiveDataSheets" Association="Self.FK_Locomotives_LocomotiveDataSheets">
+      <End Role="LocomotiveDataSheets" EntitySet="LocomotiveDataSheets" />
+      <End Role="Locomotives" EntitySet="Locomotives" />
     </AssociationSet>
     <AssociationSet Name="FK_SchlagworteZuArtikeln_Artikel" Association="Self.FK_SchlagworteZuArtikeln_Artikel">
       <End Role="Artikel" EntitySet="Artikel" />

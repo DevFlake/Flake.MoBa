@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using i18n = Flake.MoBa.Db.DataClasses.Resources.MoBaDbLocomotive;
 
-namespace Flake.MoBa.Db.DataClasses
+namespace Flake.MoBa.Db.DataClasses.Ctl
 {
     public class MoBaDbLocomotiveFunction : IComparable
     {
@@ -20,9 +20,13 @@ namespace Flake.MoBa.Db.DataClasses
         public string Description { get; set; } = i18n.NewLocoFunctionDesc;
 
         /// <summary>
+        /// unique identifier of locomotivefunction
+        /// </summary>
+        public int LocomotiveFunctionNid { get; set; }
+        /// <summary>
         /// Funcion number f0 to fx
         /// </summary>
-        public int FNumber { get; private set; } = -1;
+        public int FNumber { get; set; } = -1;
 
         /// <summary>
         /// tapp function of switch function

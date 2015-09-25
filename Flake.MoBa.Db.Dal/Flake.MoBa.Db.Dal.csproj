@@ -54,6 +54,7 @@
     <Compile Include="Artikel.cs">
       <DependentUpon>Flake.MoBa.tt</DependentUpon>
     </Compile>
+    <Compile Include="Ctl\HandleLocomotives.cs" />
     <Compile Include="DbBase.cs" />
     <Compile Include="Dokumente.cs">
       <DependentUpon>Flake.MoBa.tt</DependentUpon>
@@ -96,6 +97,15 @@
       <DependentUpon>Flake.MoBa.tt</DependentUpon>
     </Compile>
     <Compile Include="LinksZuHerstellern.cs">
+      <DependentUpon>Flake.MoBa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LocomotiveDataSheets.cs">
+      <DependentUpon>Flake.MoBa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LocomotiveFunctions.cs">
+      <DependentUpon>Flake.MoBa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Locomotives.cs">
       <DependentUpon>Flake.MoBa.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

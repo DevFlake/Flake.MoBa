@@ -90,6 +90,14 @@
       <Project>{eab05665-c769-4fa2-abe0-38510833af1c}</Project>
       <Name>Flake.MoBa.ComPort</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.Db.Dal\Flake.MoBa.Db.Dal.csproj">
+      <Project>{de27b612-3215-45f1-bf09-84de081d69f2}</Project>
+      <Name>Flake.MoBa.Db.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Flake.MoBa.Db.DataClasses\Flake.MoBa.Db.DataClasses.csproj">
+      <Project>{fc335f0b-df7b-4f39-bd74-f1335a7eaf81}</Project>
+      <Name>Flake.MoBa.Db.DataClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Flake.MoBa.XpressNetLi.Base\Flake.MoBa.XpressNetLi.Base.csproj">
       <Project>{5514a9e4-d748-48c7-8e7f-dd1588440e15}</Project>
       <Name>Flake.MoBa.XpressNetLi.Base</Name>

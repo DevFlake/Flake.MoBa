@@ -11,6 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Flake.MoBa.Db.Dal;
+using Flake.MoBa.Db.DataClasses.Ctl;
+using Flake.MoBa.Db.Dal.Ctl;
 
 namespace Flake.MoBa.Driver
 {
@@ -24,10 +27,16 @@ namespace Flake.MoBa.Driver
         Locomotive _loco;
 
         bool _breakSignal = false;
+        MoBaDbLocomotive _locoFromDb = new MoBaDbLocomotive();
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            _loco = new Locomotive(int.Parse(this.cboAddress.Text), LocomotiveSpeedSections.x128);
+            LoadLocomotiveFromDb(1);
+            _loco = new Locomotive(_locoFromDb.Address, LocomotiveSpeedSections.x128);
+            foreach(var tmpFunc in _locoFromDb.GetAllFunctions())
+            {
+                _loco.AddFunction(new LocomotiveFunction(tmpFunc.FNumber, tmpFunc.Name, tmpFunc.Description, tmpFunc.FunctionIsTappable? LocomotiveFunctionType.tapping: LocomotiveFunctionType.switching));
+            }
         }
 
         private void InitializeDigitalComponents()
@@ -35,7 +44,7 @@ namespace Flake.MoBa.Driver
             try
             {
                 _central = new Central();
-                _loco.AddFunction(new LocomotiveFunction(0, "Light", "turn on the lights", LocomotiveFunctionType.switching));
+                
                 _loco.RegisterCentral(_central);
             }
             catch (Exception ex)
@@ -80,7 +89,19 @@ namespace Flake.MoBa.Driver
         private void loadLocomotiveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.cboAddress.Text = "32";
-            
+            LoadLocomotiveFromDb(1);
+
+            cboAddress.Text = _locoFromDb.Address.ToString();
+
+        }
+
+        private void LoadLocomotiveFromDb(int locomotiveNid)
+        {
+            var handler = new HandleLocomotives();
+
+            _locoFromDb = handler.GetLocomotive(locomotiveNid);
+
+
         }
     }
 }

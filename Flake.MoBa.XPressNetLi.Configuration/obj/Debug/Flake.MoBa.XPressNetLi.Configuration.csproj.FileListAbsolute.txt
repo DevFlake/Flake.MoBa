@@ -1,10 +1,9 @@
-E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.dll
-E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.pdb
-E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Flake.MoBa.XPressNetLi.Configuration.dll
-E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Flake.MoBa.XPressNetLi.Configuration.pdb
-E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Flake.MoBa.XPressNetLi.Configuration.csprojResolveAssemblyReference.cache
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.dll
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.pdb
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Flake.MoBa.XPressNetLi.Configuration.csprojResolveAssemblyReference.cache
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Flake.MoBa.XPressNetLi.Configuration.dll
 C:\git_repos_local\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Flake.MoBa.XPressNetLi.Configuration.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\bin\Debug\Flake.MoBa.XPressNetLi.Configuration.pdb
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Flake.MoBa.XPressNetLi.Configuration.dll
+E:\privat\gitRepos\Flake.MoBa\Flake.MoBa.XPressNetLi.Configuration\obj\Debug\Flake.MoBa.XPressNetLi.Configuration.pdb

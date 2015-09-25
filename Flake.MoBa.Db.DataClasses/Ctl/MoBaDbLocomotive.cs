@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using i18n = Flake.MoBa.Db.DataClasses.Resources.MoBaDbLocomotive;
 
-namespace Flake.MoBa.Db.DataClasses
+namespace Flake.MoBa.Db.DataClasses.Ctl
 {
     public class MoBaDbLocomotive
     {
@@ -26,6 +26,11 @@ namespace Flake.MoBa.Db.DataClasses
         public string Description { get; set; } = i18n.NewLocoDesc;
 
         /// <summary>
+        /// unique identifier of locomotive
+        /// </summary>
+        public int LocomotiveNid { get; set; }
+
+        /// <summary>
         /// Real maximal speed in km/h or mph
         /// </summary>
         public int MaxSpeedReal { get; set; } = -1;
@@ -34,7 +39,7 @@ namespace Flake.MoBa.Db.DataClasses
         /// the functions of the locomotive
         /// </summary>
         /// <remarks>Identifier as string from function class</remarks>
-        private SortedList<string, MoBaDbLocomotiveFunction> _functions;  
+        private SortedList<string, MoBaDbLocomotiveFunction> _functions = new SortedList<string, MoBaDbLocomotiveFunction>();  
 
         /// <summary>
         /// returns all functions of the locomotive

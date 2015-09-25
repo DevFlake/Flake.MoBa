@@ -137,5 +137,40 @@
     <FunctionImportMapping FunctionImportName="InsertLinkZuHersteller" FunctionName="MoBaDbModel.Store.InsertLinkZuHersteller" />
     <FunctionImportMapping FunctionImportName="InsertSchlagwortZuArtikel" FunctionName="MoBaDbModel.Store.InsertSchlagwortZuArtikel" />
     <FunctionImportMapping FunctionImportName="InsertSchlagwortZuHersteller" FunctionName="MoBaDbModel.Store.InsertSchlagwortZuHersteller" />
+    <EntitySetMapping Name="LocomotiveDataSheets">
+      <EntityTypeMapping TypeName="MoBaDbModel.LocomotiveDataSheets">
+        <MappingFragment StoreEntitySet="LocomotiveDataSheets">
+          <ScalarProperty Name="Manuafturer" ColumnName="Manuafturer" />
+          <ScalarProperty Name="ConstructionYear" ColumnName="ConstructionYear" />
+          <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LocomotiveDataSheetNid" ColumnName="LocomotiveDataSheetNid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocomotiveFunctions">
+      <EntityTypeMapping TypeName="MoBaDbModel.LocomotiveFunctions">
+        <MappingFragment StoreEntitySet="LocomotiveFunctions">
+          <ScalarProperty Name="Tappable" ColumnName="Tappable" />
+          <ScalarProperty Name="FNumber" ColumnName="FNumber" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LocomotiveNid" ColumnName="LocomotiveNid" />
+          <ScalarProperty Name="LocomotiveFunctionNid" ColumnName="LocomotiveFunctionNid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locomotives">
+      <EntityTypeMapping TypeName="MoBaDbModel.Locomotives">
+        <MappingFragment StoreEntitySet="Locomotives">
+          <ScalarProperty Name="LocomotiveDataSheetNid" ColumnName="LocomotiveDataSheetNid" />
+          <ScalarProperty Name="DigitalAddress" ColumnName="DigitalAddress" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LocomotiveNid" ColumnName="LocomotiveNid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
